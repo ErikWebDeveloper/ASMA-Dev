@@ -1,0 +1,81 @@
+:root{
+    --soft-grey: rgb(73, 73, 73);
+    --disabled-text : rgb(146, 146, 146);
+}
+.accordion-body{
+    color: var(--soft-grey);
+}
+.accordion-button:disabled{
+    color: var(--disabled-text) ;
+}
+.page-box{
+    width: 92%;
+    max-width: 800px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);   
+    margin: 2rem auto;
+    background-color: white;
+    overflow: hidden;
+}
+textarea{
+    resize: none;
+}
+.form-group{
+   border: 1px solid black;
+   margin-bottom: 2rem;
+   padding: 1rem;
+   border: 1px solid rgb(222, 222, 222);
+   border-radius: 5px;
+   color: var(--soft-grey);
+}
+.info-card{
+    background-color: rgb(198, 215, 245);
+    color: rgb(48, 97, 124);
+    border-left: 2px solid rgb(48, 97, 124);
+    font-size: 0.8rem;
+    padding: 1rem;
+}
+.page-spacer{
+    height: 50vh;
+}
+.contenedorPreview {
+    background-color: white;
+    width: 120px;
+    height: 120px;
+    margin: 1rem 0;
+    overflow: hidden;
+    border: 1px solid grey;
+    border-radius: 5px;
+}
+
+.preview {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center center;
+}
+
+.validForm{
+    background-color: rgb(228, 255, 228);
+    color: rgb(88, 168, 88);
+}
+#walletContainer{
+    height: 300px;
+    overflow: scroll;
+}
+.walletItem{
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content: center;
+    align-items: center;
+    background-color: rgb(198, 215, 245);
+    color: rgb(48, 97, 124);
+    padding: 1rem;
+    border: 1px solid rgb(48, 97, 124);
+    border-radius: 5px;
+    margin-bottom: 1rem;
+    cursor: default;
+}
+
+input[type="radio"] + label{
+    cursor: pointer;
+}
