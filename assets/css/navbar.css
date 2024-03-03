@@ -1,0 +1,29 @@
+:root {
+    --dark-main: #292929;
+}
+
+nav {
+    background-color: #000000;
+    opacity: 0.9;
+    transition: opacity 0.5s;
+}
+
+nav:hover {
+    opacity: 1;
+    transition: opacity 0.5s;
+}
+.menu-item,
+.footer-menu a {
+    text-decoration: none !important;
+    color: #888888;
+    transition: letter-spacing .2s, color .2s;
+}
+.menu-item:hover {
+    letter-spacing: .1rem;
+    color: black;
+    transition: letter-spacing .5s, color .5s;
+}
+
+.footer-menu {
+    font-size: .8rem;
+}

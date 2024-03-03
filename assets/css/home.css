@@ -1,0 +1,230 @@
+:root {
+    --dark-main: #292929;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+@import url('https://fonts.googleapis.com/css2?family=Caveat:wght@400..700&family=Kalam:wght@300;400;700&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+
+header {
+    width: 100%;
+    height: 100vh;
+    background: center/cover no-repeat;
+    background-color: rgb(43, 43, 43);
+}
+
+
+.filter {
+    width: 100%;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.7);
+}
+
+#hero {
+    background-size: cover;
+    background-position: center;
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    /* Inicialmente establece la opacidad en 0 */
+    transition: opacity 1s ease-in-out;
+    /* Agrega una transición para suavizar el cambio de opacidad */
+}
+
+blockquote {
+    margin: 0;
+    padding: 1rem;
+}
+
+.citas {
+    font-style: italic;
+    text-align: center;
+    font-family: "Roboto", sans-serif;
+    font-weight: 900;
+    font-size: clamp(0.8rem, 2vh, 20rem);
+}
+
+.citas p {
+    color: #b8b8b8;
+}
+
+.arrow {
+    position: absolute;
+    bottom: 20px;
+    /* Ajusta la distancia desde la parte inferior según tus preferencias */
+    left: 50%;
+    transform: translateX(-50%);
+    width: 0;
+    height: 0;
+    border-left: 15px solid transparent;
+    border-right: 15px solid transparent;
+    border-top: 30px solid #b8b8b8;
+    /* Ajusta el color de la flecha según tus preferencias */
+    animation: floatArrow 1.5s infinite alternate;
+    /* Ajusta la duración de la animación según tus preferencias */
+}
+
+@keyframes floatArrow {
+    to {
+        transform: translateX(-50%) translateY(5px);
+    }
+}
+
+
+#welcome {
+    background-color: #dfdfdf;
+    background: url(/assets/img/texture3.svg) center/cover no-repeat;
+}
+
+.contenedor-about {
+    width: 100%;
+    min-height: 50vh;
+    padding: 1rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#whatsapp {
+    background-color: #292929;
+}
+
+.contenedor-whatsapp {
+    width: 100%;
+    min-height: 50vh;
+    padding: 1rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#socis {
+    background-color: #dfdfdf;
+    background: url(/assets/img/texture7.svg);
+}
+
+.contenedor-socis {
+    width: 100%;
+    min-height: 50vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#patrocinadors {
+    background-color: var(--dark-main);
+    background: url(/assets/img/texture8.svg) center/cover no-repeat;
+}
+
+.contenedor-patrocinadors {
+    min-height: 50vh;
+    color: #ffffff;
+    text-align: center;
+    width: 100%;
+    max-width: 800px;
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-content: center;
+    gap: 1rem;
+}
+
+#social-media {
+    background: rgb(255, 255, 255);
+    background: radial-gradient(circle, rgba(255, 255, 255, 1) 0%, rgb(224, 224, 224) 100%);
+
+}
+
+.contenedor-social-media {
+    padding: 2rem 0;
+    min-height: 50vh;
+    text-align: center;
+    width: 100%;
+    margin: auto;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-content: center;
+
+}
+
+.contenedor-social-media p {
+    color: #838383;
+}
+
+.center-container {
+    width: 95%;
+    max-width: 800px;
+    padding: 1rem;
+    margin: auto;
+}
+
+
+
+
+
+
+
+.half-container {
+    width: 95%;
+    max-width: 800px;
+    min-height: 50vh;
+    margin: auto;
+}
+
+
+
+
+
+.fade-in-section {
+    opacity: 0;
+    transition: opacity 0.5s ease-in-out;
+}
+
+.visible {
+    opacity: 1;
+}
+
+@keyframes slideIn {
+    0% {
+        transform: translateY(50%);
+        opacity: 0;
+    }
+
+    100% {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+.animate-slide1 {
+    opacity: 0;
+    animation: slideIn 1.5s ease-out forwards 0.5s;
+}
+
+.animate-slide2 {
+    opacity: 0;
+    animation: slideIn 1.5s ease-out forwards 1.5s;
+}
+
+.animate-slide3 {
+    opacity: 0;
+    animation: slideIn 1.5s ease-out forwards 3s;
+}
+
+.animate-slide4 {
+    opacity: 0;
+    animation: slideIn 1.5s ease-out forwards 4s;
+}
+
+.animate-slide5 {
+    opacity: 0;
+    animation: slideIn 1.5s ease-out forwards 4.5s;
+}

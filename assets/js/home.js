@@ -1,3 +1,9 @@
+/** 
+ * 
+ * PONER CITAS ALEATORIAS EN EL HEADER
+ * 
+ * 
+*/
 let citasMusicos = [
     {
         cita: "La música pot canviar el món perquè pot canviar les persones.",
@@ -101,6 +107,13 @@ function mostrarCitaAleatoria() {
 mostrarCitaAleatoria()
 
 
+
+/** 
+ * 
+ * PONER IMAGE ALEATORIA EN EL HEADER
+ * 
+ * 
+*/
 let imagenes = [
     '/assets/img/home/hero1.min.jpeg',
     '/assets/img/home/hero2.min.jpeg',
@@ -136,6 +149,13 @@ imagen.onload = function () {
 };
 
 
+/** 
+ * 
+ * HABILITAR FADEIN A LOS COMPONENTES DE SECCION
+ * 
+ * 
+*/
+
 document.addEventListener('DOMContentLoaded', function () {
     var sections = document.querySelectorAll('.fade-in-section');
 
@@ -166,8 +186,30 @@ document.addEventListener('DOMContentLoaded', function () {
 
     // Llama a la función para inicializar el estado al cargar la página
     handleScroll();
+
+    abrirOffcanvasDesdeURL();
 });
 
 
+/** 
+ * 
+ * HABILITAR PARAMETROS POR URL PARA MANEJAR LOS OFFCANVAS
+ * 
+ * 
+*/
+function abrirOffcanvasDesdeURL() {
+    // Obtener el valor del parámetro 'offcanvas' de la URL
+    const offcanvasParametro = window.location.hash.substring(1); // Eliminar el símbolo '#'
+
+    // Verificar si hay un valor después del símbolo '#'
+    if (offcanvasParametro) {
+        // Si hay un valor, abrir el offcanvas correspondiente
+        const offcanvasElemento = document.getElementById(offcanvasParametro);
+        if (offcanvasElemento) {
+            const offcanvasInstancia = new bootstrap.Offcanvas(offcanvasElemento);
+            offcanvasInstancia.show();
+        }
+    }
+}
 
 
