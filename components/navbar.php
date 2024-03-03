@@ -1,4 +1,4 @@
-<nav class="navbar navbar-expand-lg bg-body-dark">
+<nav class="navbar navbar-expand-lg bg-body-dark animate-slide4">
     <div class="container-fluid px-5" style="z-index: 10;">
         <a class="navbar-brand" href="/" style="opacity: 1;">
             <img src="/assets/img/asma-logo-s.min.png" alt="Logo" width="100"
@@ -75,4 +75,4 @@
     </div>
 </div>
 
-<?php require_once "./components/menu.php"; ?>
+<?php require_once "./components/menu.php";?>
