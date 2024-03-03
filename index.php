@@ -453,7 +453,7 @@
                         <h3 style=" text-align: center;"><strong style="color: #25d366">WhatsApp<br></strong></h3>
                         <p>Demana una invitació per afegir-te al nostre xat de l'ASMA</p>
                         <div class="text-center">
-                            <a href="mailto:comunica@musicsandorra.com" role="button" class="btn btn-outline-success w-50"><strong>Xat de WhatsApp</strong></a>
+                            <a href="https://wa.me/376355526?text=Hola%2C%20estoy%20interesado%20en%20entrar%20a%20la%20comunidad%20de%20la%20asociaci%C3%B3n" role="button" class="btn btn-outline-success w-50" target="_blank"><strong>Xat de WhatsApp</strong></a>
                         </div>
                     </div>
                 </div>

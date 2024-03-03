@@ -43,7 +43,7 @@
                 <a class="menu-item"  href="/subscripcions.php">Formulari d'inscripció</a>
             </div>
             <div class="w-100 text-center p-2">
-                <a class="menu-item" href="https://chat.whatsapp.com/Dj4KIqZugQS3x3oMqmcGI8" target="_blank">Xat de WhatsApp</a>
+                <a class="menu-item" href="https://wa.me/376355526?text=Hola%2C%20estoy%20interesado%20en%20entrar%20a%20la%20comunidad%20de%20la%20asociaci%C3%B3n" target="_blank">Xat de WhatsApp</a>
             </div>
         </div>
         <br>
