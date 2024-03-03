@@ -99,31 +99,8 @@ function mostrarCitaAleatoria() {
     document.getElementById('citas-blockquote').innerHTML = contenidoHTML;
 }
 mostrarCitaAleatoria()
-/*
-let imagenes = [
-    '/assets/img/home/hero1.min.jpeg',
-    '/assets/img/home/hero2.min.jpeg',
-    '/assets/img/home/hero3.min.jpeg',
-    '/assets/img/home/hero4.min.jpeg',
-    '/assets/img/home/hero5.min.jpeg',
-    '/assets/img/home/hero6.min.jpeg',
-    '/assets/img/home/hero7.min.jpeg',
-];
 
-// Función para obtener un índice aleatorio
-function obtenerIndiceAleatorio2(min, max) {
-    return Math.floor(Math.random() * (max - min + 1)) + min;
-}
 
-// Obtener un índice aleatorio
-let indiceAleatorio2 = obtenerIndiceAleatorio2(0, imagenes.length - 1);
-
-// Seleccionar una imagen aleatoria
-let imagenAleatoria = imagenes[indiceAleatorio2];
-
-// Mostrar la imagen en el elemento 'hero'
-document.getElementById('hero').style.backgroundImage = `url('${imagenAleatoria}')`;
-*/
 let imagenes = [
     '/assets/img/home/hero1.min.jpeg',
     '/assets/img/home/hero2.min.jpeg',
@@ -159,7 +136,6 @@ imagen.onload = function () {
 };
 
 
-
 document.addEventListener('DOMContentLoaded', function () {
     var sections = document.querySelectorAll('.fade-in-section');
 
@@ -191,3 +167,7 @@ document.addEventListener('DOMContentLoaded', function () {
     // Llama a la función para inicializar el estado al cargar la página
     handleScroll();
 });
+
+
+
+

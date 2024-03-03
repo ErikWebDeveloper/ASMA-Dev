@@ -1,10 +1,12 @@
 <!DOCTYPE html>
 <html lang="ca">
+
 <head>
     <meta property="og:title" content="Associació de Músics d'Andorra">
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://www.musicsandorra.com">
-    <meta property="og:description" content="L'ASMA és una entitat pública creada amb la finalitat de representar al col·lectiu musical andorrà i millorar els seus drets i qualitat de vida.">
+    <meta property="og:description"
+        content="L'ASMA és una entitat pública creada amb la finalitat de representar al col·lectiu musical andorrà i millorar els seus drets i qualitat de vida.">
     <meta property="og:site_name" content="Associació de Músics d'Andorra">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -27,77 +29,99 @@
 
 
     <style>
+        :root {
+            --dark-main: #292929;
+        }
+
         html {
             scroll-behavior: smooth;
         }
+
         @import url('https://fonts.googleapis.com/css2?family=Caveat:wght@400..700&family=Kalam:wght@300;400;700&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
 
-        header{
+        header {
             width: 100%;
             height: 100vh;
             background: center/cover no-repeat;
             background-color: rgb(43, 43, 43);
         }
-        nav{
+
+        nav {
             background-color: #000000;
             opacity: 0.7;
             transition: opacity 0.5s;
         }
-        nav:hover{
+
+        nav:hover {
             opacity: 1;
             transition: opacity 0.5s;
         }
-        .filter{
+
+        .filter {
             width: 100%;
             height: 100vh;
             background-color: rgba(0, 0, 0, 0.7);
         }
-        #hero{
-             background-size: cover;
+
+        #hero {
+            background-size: cover;
             background-position: center;
             width: 100vw;
             height: 100vh;
             display: flex;
             align-items: center;
             justify-content: center;
-            opacity: 0; /* Inicialmente establece la opacidad en 0 */
-            transition: opacity 1s ease-in-out; /* Agrega una transición para suavizar el cambio de opacidad */
+            opacity: 0;
+            /* Inicialmente establece la opacidad en 0 */
+            transition: opacity 1s ease-in-out;
+            /* Agrega una transición para suavizar el cambio de opacidad */
         }
-        blockquote{
+
+        blockquote {
             margin: 0;
             padding: 1rem;
         }
-        .citas{
+
+        .citas {
             font-style: italic;
             text-align: center;
             font-family: "Roboto", sans-serif;
             font-weight: 900;
             font-size: clamp(0.8rem, 2vh, 20rem);
         }
-        .citas p{
+
+        .citas p {
             color: #b8b8b8;
         }
+
         .arrow {
             position: absolute;
-            bottom: 20px; /* Ajusta la distancia desde la parte inferior según tus preferencias */
+            bottom: 20px;
+            /* Ajusta la distancia desde la parte inferior según tus preferencias */
             left: 50%;
             transform: translateX(-50%);
             width: 0;
             height: 0;
             border-left: 15px solid transparent;
             border-right: 15px solid transparent;
-            border-top: 30px solid #b8b8b8; /* Ajusta el color de la flecha según tus preferencias */
-            animation: floatArrow 1.5s infinite alternate; /* Ajusta la duración de la animación según tus preferencias */
+            border-top: 30px solid #b8b8b8;
+            /* Ajusta el color de la flecha según tus preferencias */
+            animation: floatArrow 1.5s infinite alternate;
+            /* Ajusta la duración de la animación según tus preferencias */
         }
+
         @keyframes floatArrow {
             to {
                 transform: translateX(-50%) translateY(5px);
             }
         }
-        #welcome{
+
+
+        #welcome {
             background-color: #dfdfdf;
             background: url(/assets/img/texture3.svg) center/cover no-repeat;
         }
+
         .contenedor-about {
             width: 100%;
             min-height: 50vh;
@@ -106,9 +130,11 @@
             justify-content: center;
             align-items: center;
         }
-        #whatsapp{
+
+        #whatsapp {
             background-color: #292929;
         }
+
         .contenedor-whatsapp {
             width: 100%;
             min-height: 50vh;
@@ -117,10 +143,12 @@
             justify-content: center;
             align-items: center;
         }
-        #socis{
+
+        #socis {
             background-color: #dfdfdf;
-            background: url(/assets/img/texture7.svg) ;
+            background: url(/assets/img/texture7.svg);
         }
+
         .contenedor-socis {
             width: 100%;
             min-height: 50vh;
@@ -128,49 +156,116 @@
             justify-content: center;
             align-items: center;
         }
-        .center-container{
+
+        #patrocinadors {
+            background-color: var(--dark-main);
+            background: url(/assets/img/texture8.svg) center/cover no-repeat;
+        }
+
+        #social-media{
+            background: rgb(255,255,255);
+            background: radial-gradient(circle, rgba(255,255,255,1) 0%, rgb(224, 224, 224) 100%); 
+            
+        }
+        .contenedor-social-media{
+            padding: 2rem 0;
+            min-height: 50vh;
+            text-align: center;
+            width: 100%;
+            margin: auto;
+            display: flex;
+            flex-direction: row;
+            flex-wrap: wrap;
+            justify-content: center;
+            align-content: center;
+
+        }
+        .contenedor-social-media p{
+            color: #838383;
+        }
+
+        .center-container {
             width: 95%;
             max-width: 800px;
             padding: 1rem;
             margin: auto;
         }
-        .half-container{
+        .welcome {
+            background: url(/assets/img/texture3.svg);
+        }
+        .patrocinadorsCanva{
+            background: url(/assets/img/texture10.svg);
+        }
+        .socis {
+            background: url(/assets/img/texture7.svg);
+        }
+        .contenedor-patrocinadors{
+            min-height: 50vh;
+            color: #ffffff;
+            text-align: center;
+            width: 100%;
+            max-width: 800px;
+            margin: auto;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-content: center;
+            gap: 1rem;
+        }
+
+
+
+        .half-container {
             width: 95%;
             max-width: 800px;
             min-height: 50vh;
             margin: auto;
         }
+
         .imagen-usuario {
             width: 100px;
             height: 100px;
-            border: 2px solid #a8a8a8;
+            border: 2px solid #ffffff70;
             background-color: #ffffff;
-            border-radius: 50%; 
+            border-radius: 50%;
             overflow: hidden;
         }
+
         .imagen-usuario img {
             width: 100%;
             height: 100%;
-            object-fit: cover; /* Ajusta la imagen para cubrir completamente el contenedor redondo */
+            object-fit: cover;
+            /* Ajusta la imagen para cubrir completamente el contenedor redondo */
         }
-        .welcome{
-            background: url(/assets/img/texture3.svg) ;
+
+        .menu-item, .footer-menu a{
+            text-decoration: none !important;
+            color: #888888;
+            transition: letter-spacing .2s, color .2s;
         }
-        .socis{
-            background: url(/assets/img/texture7.svg) ;
+        .menu-item:hover{
+            letter-spacing: .1rem;
+            color: black;
+            transition: letter-spacing .5s, color .5s;
+        }
+        .footer-menu{
+            font-size: .8rem;
         }
         .fade-in-section {
             opacity: 0;
             transition: opacity 0.5s ease-in-out;
         }
+
         .visible {
             opacity: 1;
         }
+
         @keyframes slideIn {
             0% {
                 transform: translateY(50%);
                 opacity: 0;
             }
+
             100% {
                 transform: translateY(0);
                 opacity: 1;
@@ -181,36 +276,43 @@
             opacity: 0;
             animation: slideIn 1.5s ease-out forwards 0.5s;
         }
+
         .animate-slide2 {
             opacity: 0;
             animation: slideIn 1.5s ease-out forwards 1.5s;
         }
+
         .animate-slide3 {
             opacity: 0;
             animation: slideIn 1.5s ease-out forwards 3s;
         }
+
         .animate-slide4 {
             opacity: 0;
             animation: slideIn 1.5s ease-out forwards 4s;
         }
+
         .animate-slide5 {
             opacity: 0;
             animation: slideIn 1.5s ease-out forwards 4.5s;
         }
 
 
+        
+
     </style>
 </head>
+
 <body style="background-color: #000000;">
     <header id="hero">
         <div class="filter position-relative">
-            
+
             <nav class="navbar navbar-expand-lg bg-body-dark animate-slide4">
                 <div class="container-fluid px-5" style="z-index: 10;">
 
                     <a class="navbar-brand" href="" style="opacity: 1;">
-                            <img src="/assets/img/asma-logo-s.min.png" alt="Logo" width="100" 
-                                class="d-inline-block align-text-top">
+                        <img src="/assets/img/asma-logo-s.min.png" alt="Logo" width="100"
+                            class="d-inline-block align-text-top">
                     </a>
 
                     <div class="nav-item" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasMenu"
@@ -221,36 +323,74 @@
                                 d="M2.5 12a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5m0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5m0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5" />
                         </svg>
                     </div>
-                
+
                 </div>
             </nav>
 
-            <div class="offcanvas offcanvas-start" tabindex="-1" id="offcanvasMenu" aria-labelledby="offcanvasExampleLabel">
-                <div class="offcanvas-header">
+            <div class="offcanvas offcanvas-start" tabindex="-1" id="offcanvasMenu"
+                aria-labelledby="offcanvasExampleLabel">
+                <div class="offcanvas-header" style="background-color: #1b1b1b; color: white;" data-bs-theme="dark">
                     <h5 class="offcanvas-title" id="offcanvasExampleLabel">Menu</h5>
                     <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
                 </div>
-                <div class="offcanvas-body">
-                    <!--
-                    <div>
-                        Some text as placeholder. In real life you can have the elements you have chosen. Like, text, images, lists,
-                        etc.
+                <div class="offcanvas-body p-0 ">
+                    <div class="p-3">
+                        <h5 class="mb-2 border-bottom" style="color: grey;">Informació</h5>
+                        <div class="w-100 text-center p-2">
+                            <a class="menu-item" data-bs-toggle="offcanvas" href="#objectius" role="button" aria-controls="offcanvasExample">Que és l'ASMA?</a>
+                        </div>
+                        <div class="w-100 text-center p-2">
+                            <a class="menu-item" data-bs-toggle="offcanvas" href="#equip" role="button" aria-controls="offcanvasExample">Qui som?</a>
+                        </div>
+                        <div class="w-100 text-center p-2">
+                            <a class="menu-item" data-bs-toggle="offcanvas" href="#saberneMes" role="button" aria-controls="offcanvasExample">Vols ser soci?</a>
+                        </div>
+                        <div class="w-100 text-center p-2">
+                            <a class="menu-item" data-bs-toggle="offcanvas" href="#tarifes" role="button"
+                                aria-controls="offcanvasExample">Tarifes de l'ASMA</a>
+                        </div>
+                        <br>
+                        <h5 class="mb-2 border-bottom" style="color: grey;">Recursos</h5>
+                        <div class="w-100 text-center p-2">
+                            <a class="menu-item"  href="/subscripcions.php">Formulari d'inscripció</a>
+                        </div>
+                        <div class="w-100 text-center p-2">
+                            <a class="menu-item" href="https://chat.whatsapp.com/Dj4KIqZugQS3x3oMqmcGI8" target="_blank">Xat de WhatsApp</a>
+                        </div>
                     </div>
-                    <div class="dropdown mt-3">
-                        <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown">
-                            Dropdown button
-                        </button>
-                        <ul class="dropdown-menu">
-                            <li><a class="dropdown-item" href="#">Action</a></li>
-                            <li><a class="dropdown-item" href="#">Another action</a></li>
-                            <li><a class="dropdown-item" href="#">Something else here</a></li>
-                        </ul>
+                    <br>
+
+                    <div class="p-3 footer-menu" style="color: rgb(199, 199, 199); background-color: var(--dark-main); position: absolute; bottom: 0; width: 100%;">
+                        <div>
+                            <a class="py-3" href="mailto:comunica@musicsandorra.com">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-envelope"
+                                    viewBox="0 0 16 16">
+                                    <path
+                                        d="M0 4a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2zm2-1a1 1 0 0 0-1 1v.217l7 4.2 7-4.2V4a1 1 0 0 0-1-1zm13 2.383-4.708 2.825L15 11.105zm-.034 6.876-5.64-3.471L8 9.583l-1.326-.795-5.64 3.47A1 1 0 0 0 2 13h12a1 1 0 0 0 .966-.741M1 11.105l4.708-2.897L1 5.383z" />
+                                </svg>&nbsp;&nbsp;comunica@musicsandorra.com
+                            </a>
+                            <br>
+                            <br>
+                            <a class="pb-3" href="https://www.instagram.com/asma_andorra/" target="_blank">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-instagram"
+                                    viewBox="0 0 16 16">
+                                    <path
+                                        d="M8 0C5.829 0 5.556.01 4.703.048 3.85.088 3.269.222 2.76.42a3.9 3.9 0 0 0-1.417.923A3.9 3.9 0 0 0 .42 2.76C.222 3.268.087 3.85.048 4.7.01 5.555 0 5.827 0 8.001c0 2.172.01 2.444.048 3.297.04.852.174 1.433.372 1.942.205.526.478.972.923 1.417.444.445.89.719 1.416.923.51.198 1.09.333 1.942.372C5.555 15.99 5.827 16 8 16s2.444-.01 3.298-.048c.851-.04 1.434-.174 1.943-.372a3.9 3.9 0 0 0 1.416-.923c.445-.445.718-.891.923-1.417.197-.509.332-1.09.372-1.942C15.99 10.445 16 10.173 16 8s-.01-2.445-.048-3.299c-.04-.851-.175-1.433-.372-1.941a3.9 3.9 0 0 0-.923-1.417A3.9 3.9 0 0 0 13.24.42c-.51-.198-1.092-.333-1.943-.372C10.443.01 10.172 0 7.998 0zm-.717 1.442h.718c2.136 0 2.389.007 3.232.046.78.035 1.204.166 1.486.275.373.145.64.319.92.599s.453.546.598.92c.11.281.24.705.275 1.485.039.843.047 1.096.047 3.231s-.008 2.389-.047 3.232c-.035.78-.166 1.203-.275 1.485a2.5 2.5 0 0 1-.599.919c-.28.28-.546.453-.92.598-.28.11-.704.24-1.485.276-.843.038-1.096.047-3.232.047s-2.39-.009-3.233-.047c-.78-.036-1.203-.166-1.485-.276a2.5 2.5 0 0 1-.92-.598 2.5 2.5 0 0 1-.6-.92c-.109-.281-.24-.705-.275-1.485-.038-.843-.046-1.096-.046-3.233s.008-2.388.046-3.231c.036-.78.166-1.204.276-1.486.145-.373.319-.64.599-.92s.546-.453.92-.598c.282-.11.705-.24 1.485-.276.738-.034 1.024-.044 2.515-.045zm4.988 1.328a.96.96 0 1 0 0 1.92.96.96 0 0 0 0-1.92m-4.27 1.122a4.109 4.109 0 1 0 0 8.217 4.109 4.109 0 0 0 0-8.217m0 1.441a2.667 2.667 0 1 1 0 5.334 2.667 2.667 0 0 1 0-5.334" />
+                                </svg>&nbsp;&nbsp;@asma_andorra
+                            </a>
+                            <br><br>
+                        </div>
+
+                        <div class="border-top pt-3">
+                            <p class="p-0 m-0">⚡ Web desenvolupada i dissenyada per: <a style="color: rgb(185, 55, 94);" href="mailto:erikcodedeveloper@gmail.com">ErikWebDeveloper</a></p>
+                            
+                        </div>
                     </div>
-                -->
                 </div>
             </div>
 
-            <div data-bs-theme="dark" class="position-absolute top-50 start-50 translate-middle animate-slide1" style="width: 95%; max-width: 800px; background-color: rgba(0, 0, 0, 0.85);">
+            <div data-bs-theme="dark" class="position-absolute top-50 start-50 translate-middle animate-slide1"
+                style="width: 95%; max-width: 800px; background-color: rgba(0, 0, 0, 0.85);">
                 <img class="img-fluid px-5 pt-2 animate-slide2" src="/assets/img/asma-logo.min.png" alt="Logo">
                 <div class="container w-75 citas">
                     <blockquote id="citas-blockquote" class="animate-slide3">
@@ -263,17 +403,19 @@
 
     <section id="welcome">
         <div class="contenedor-about fade-in-section">
-            <div class="center-container text-center" >
+            <div class="center-container text-center">
                 <img class="img-fluid" src="/favicon.ico" alt="ASMA-logo" style="width: 100px;">
                 <h2>ASMA</h2>
-                <p>Treballem per una comunicació efectiva entre músics locals, el públic i la comunitat andorrana, abordant la desigualtat
-                d'oportunitats i enriquint l'educació i els espais culturals per als joves.</p>
+                <p>Treballem per una comunicació efectiva entre músics locals, el públic i la comunitat andorrana,
+                    abordant la desigualtat
+                    d'oportunitats i enriquint l'educació i els espais culturals per als joves.</p>
                 <div>
                     <a class="btn btn-primary" data-bs-toggle="offcanvas" href="#equip" role="button"
                         aria-controls="offcanvasExample">
                         El Nostre Equip
                     </a>
-                    <a class="btn btn-outline-primary" data-bs-toggle="offcanvas" href="#objectius" role="button" aria-controls="offcanvasExample">
+                    <a class="btn btn-outline-primary" data-bs-toggle="offcanvas" href="#objectius" role="button"
+                        aria-controls="offcanvasExample">
                         Objectius de l'ASMA
                     </a>
                 </div>
@@ -284,7 +426,8 @@
     <section id="whatsapp">
         <div class="contenedor-whatsapp fade-in-section">
             <div class="row center-container p-0">
-                <div class="col d-flex justify-content-center align-items-center pb-5" style="width: 95%; min-width: 300px; ">
+                <div class="col d-flex justify-content-center align-items-center pb-5"
+                    style="width: 95%; min-width: 300px; ">
                     <svg xmlns="http://www.w3.org/2000/svg" width="60" height="60" fill="#25d366" class="bi bi-whatsapp"
                         viewBox="0 0 16 16" style="filter:drop-shadow(1px 1px 50px #f8f8f8)">
                         <path
@@ -292,19 +435,23 @@
                     </svg>
                 </div>
                 <div class="col" style=" width: 95%; min-width: 300px;">
-                    <h3 style="color: #198754;"><strong style="color: #b8b8b8;">Ets músic?</strong> Vols integrar-te en el nostre grup de WhatsApp?</h3>
+                    <h3 style="color: #198754;"><strong style="color: #b8b8b8;">Ets músic?</strong> Vols integrar-te en
+                        el nostre grup de WhatsApp?</h3>
                     <p style="color: #f8f8f8;">
-                        Integrat en la nostra comunitat i assabentat de tot el que es parla a l'ASMA al xat de comunicació general de
+                        Integrat en la nostra comunitat i assabentat de tot el que es parla a l'ASMA al xat de
+                        comunicació general de
                         l'Associació de Músics d'Andorra.
                     </p>
                     <div class="text-center">
-                        <a role="button" class="btn btn-outline-success w-50" href="https://chat.whatsapp.com/Dj4KIqZugQS3x3oMqmcGI8" target="_blank"><strong>Invitació</strong></a>
+                        <a role="button" class="btn btn-outline-success w-50"
+                            href="https://chat.whatsapp.com/Dj4KIqZugQS3x3oMqmcGI8"
+                            target="_blank"><strong>Invitació</strong></a>
                     </div>
                 </div>
             </div>
         </div>
     </section>
-    
+
     <section id="socis">
         <div class="contenedor-socis fade-in-section">
             <div class="center-container text-center p-0" style="color: #303030;">
@@ -316,10 +463,12 @@
                     món de la música.
                 </p>
                 <div class="text-center">
-                    <a class="btn btn-primary" data-bs-toggle="offcanvas" href="#saberneMes" role="button" aria-controls="offcanvasExample">
+                    <a class="btn btn-primary" data-bs-toggle="offcanvas" href="#saberneMes" role="button"
+                        aria-controls="offcanvasExample">
                         Saber-ne més
                     </a>
-                    <a class="btn btn-outline-primary" data-bs-toggle="offcanvas" href="#tarifes" role="button" aria-controls="offcanvasExample">
+                    <a class="btn btn-outline-primary" data-bs-toggle="offcanvas" href="#tarifes" role="button"
+                        aria-controls="offcanvasExample">
                         Tarifes
                     </a>
                 </div>
@@ -327,66 +476,199 @@
         </div>
     </section>
 
+    <section id="patrocinadors">
+        <div class="contenedor-patrocinadors fade-in-section">
+            <div>
+            </div>
+                <h1 style="text-shadow: 1px 1px 50px rgba(255, 255, 255, 0.685); color: #ffc107;">Patrocinadors</h1>
+                <p style="background-color: #30303057; padding: 1rem; color: #cacaca;">
+                Estar subscrit a la nostra plataforma et permetrà accedir a ofertes exclusives i promocions especials proporcionades
+                pels nostres col·laboradors.
+            </p>
+            <div class="text-center">
+                <a class="btn btn-outline-warning" data-bs-toggle="offcanvas" href="#patrocinadorsCanva" role="button" aria-controls="offcanvasExample">Més detalls</a>
+            </div>
+        </div>
+    </section>
+
+    <section id="social-media">
+        <div class="contenedor-social-media fade-in-section">
+
+            <div class="d-flex justify-content-center align-items-center flex-column fade-in-section" style="width: 100%; max-width: 450px; max-height: 50vh; min-height: 31vh;">
+                <div class="row center-container p-0" style="color: #f8f8f8;">
+                    <div class="col d-flex justify-content-center align-items-center p-2 flex-column gap-3"
+                        style="width: 95%; min-width: 300px; ">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="50" height="50" fill="#0d6efd" class="bi bi-envelope-at-fill"
+                            viewBox="0 0 16 16" style="filter:drop-shadow(1px 1px 50px #f8f8f8)">
+                            <path
+                                d="M2 2A2 2 0 0 0 .05 3.555L8 8.414l7.95-4.859A2 2 0 0 0 14 2zm-2 9.8V4.698l5.803 3.546zm6.761-2.97-6.57 4.026A2 2 0 0 0 2 14h6.256A4.5 4.5 0 0 1 8 12.5a4.49 4.49 0 0 1 1.606-3.446l-.367-.225L8 9.586zM16 9.671V4.697l-5.803 3.546.338.208A4.5 4.5 0 0 1 12.5 8c1.414 0 2.675.652 3.5 1.671" />
+                            <path
+                                d="M15.834 12.244c0 1.168-.577 2.025-1.587 2.025-.503 0-1.002-.228-1.12-.648h-.043c-.118.416-.543.643-1.015.643-.77 0-1.259-.542-1.259-1.434v-.529c0-.844.481-1.4 1.26-1.4.585 0 .87.333.953.63h.03v-.568h.905v2.19c0 .272.18.42.411.42.315 0 .639-.415.639-1.39v-.118c0-1.277-.95-2.326-2.484-2.326h-.04c-1.582 0-2.64 1.067-2.64 2.724v.157c0 1.867 1.237 2.654 2.57 2.654h.045c.507 0 .935-.07 1.18-.18v.731c-.219.1-.643.175-1.237.175h-.044C10.438 16 9 14.82 9 12.646v-.214C9 10.36 10.421 9 12.485 9h.035c2.12 0 3.314 1.43 3.314 3.034zm-4.04.21v.227c0 .586.227.8.581.8.31 0 .564-.17.564-.743v-.367c0-.516-.275-.708-.572-.708-.346 0-.573.245-.573.791" />
+                            </svg>
+                    </div>
+                    <div class="col" style=" width: 95%; min-width: 300px;">
+                        <h3 style="text-align: center;"><strong style="color: #0d6efd">Correu electrònic<br></strong></h3>
+                        <p>No dubtis a escriure'ns si vols posar-te en contacte amb nosaltres</p>
+                        <div class="text-center">
+                            <a href="mailto:comunica@musicsandorra.com" role="button"
+                                class="btn btn-outline-primary w-50"><strong>Enviar un correu</strong></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="d-flex justify-content-center align-items-center flex-column fade-in-section"
+                style="width: 100%; max-width: 450px; max-height: 50vh; min-height: 31vh;">
+                <div class="row center-container p-0" style="color: #f8f8f8;">
+                    <div class="col d-flex justify-content-center align-items-center p-2 flex-column gap-3"
+                        style="width: 95%; min-width: 300px; ">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="60" height="60" fill="#25d366" class="bi bi-whatsapp" viewBox="0 0 16 16"
+                            style="filter:drop-shadow(1px 1px 50px #f8f8f8)">
+                            <path
+                                d="M13.601 2.326A7.85 7.85 0 0 0 7.994 0C3.627 0 .068 3.558.064 7.926c0 1.399.366 2.76 1.057 3.965L0 16l4.204-1.102a7.9 7.9 0 0 0 3.79.965h.004c4.368 0 7.926-3.558 7.93-7.93A7.9 7.9 0 0 0 13.6 2.326zM7.994 14.521a6.6 6.6 0 0 1-3.356-.92l-.24-.144-2.494.654.666-2.433-.156-.251a6.56 6.56 0 0 1-1.007-3.505c0-3.626 2.957-6.584 6.591-6.584a6.56 6.56 0 0 1 4.66 1.931 6.56 6.56 0 0 1 1.928 4.66c-.004 3.639-2.961 6.592-6.592 6.592m3.615-4.934c-.197-.099-1.17-.578-1.353-.646-.182-.065-.315-.099-.445.099-.133.197-.513.646-.627.775-.114.133-.232.148-.43.05-.197-.1-.836-.308-1.592-.985-.59-.525-.985-1.175-1.103-1.372-.114-.198-.011-.304.088-.403.087-.088.197-.232.296-.346.1-.114.133-.198.198-.33.065-.134.034-.248-.015-.347-.05-.099-.445-1.076-.612-1.47-.16-.389-.323-.335-.445-.34-.114-.007-.247-.007-.38-.007a.73.73 0 0 0-.529.247c-.182.198-.691.677-.691 1.654s.71 1.916.81 2.049c.098.133 1.394 2.132 3.383 2.992.47.205.84.326 1.129.418.475.152.904.129 1.246.08.38-.058 1.171-.48 1.338-.943.164-.464.164-.86.114-.943-.049-.084-.182-.133-.38-.232" />
+                        </svg>
+                    </div>
+                    <div class="col" style=" width: 95%; min-width: 300px;">
+                        <h3 style=" text-align: center;"><strong style="color: #25d366">WhatsApp<br></strong></h3>
+                        <p>Demana una invitació per afegir-te al nostre xat de l'ASMA</p>
+                        <div class="text-center">
+                            <a href="mailto:comunica@musicsandorra.com" role="button" class="btn btn-outline-success w-50"><strong>Xat de WhatsApp</strong></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="d-flex justify-content-center align-items-center flex-column fade-in-section"
+                style="width: 100%; max-width: 450px; max-height: 50vh; min-height: 31vh;">
+                <div class="row center-container p-0" style="color: #f8f8f8;">
+                    <div class="col d-flex justify-content-center align-items-center p-2 flex-column gap-3"
+                        style="width: 95%; min-width: 300px; ">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="60" height="60" fill="#e1306c" class="bi bi-instagram"
+                            viewBox="0 0 16 16">
+                            <path
+                                d="M8 0C5.829 0 5.556.01 4.703.048 3.85.088 3.269.222 2.76.42a3.9 3.9 0 0 0-1.417.923A3.9 3.9 0 0 0 .42 2.76C.222 3.268.087 3.85.048 4.7.01 5.555 0 5.827 0 8.001c0 2.172.01 2.444.048 3.297.04.852.174 1.433.372 1.942.205.526.478.972.923 1.417.444.445.89.719 1.416.923.51.198 1.09.333 1.942.372C5.555 15.99 5.827 16 8 16s2.444-.01 3.298-.048c.851-.04 1.434-.174 1.943-.372a3.9 3.9 0 0 0 1.416-.923c.445-.445.718-.891.923-1.417.197-.509.332-1.09.372-1.942C15.99 10.445 16 10.173 16 8s-.01-2.445-.048-3.299c-.04-.851-.175-1.433-.372-1.941a3.9 3.9 0 0 0-.923-1.417A3.9 3.9 0 0 0 13.24.42c-.51-.198-1.092-.333-1.943-.372C10.443.01 10.172 0 7.998 0zm-.717 1.442h.718c2.136 0 2.389.007 3.232.046.78.035 1.204.166 1.486.275.373.145.64.319.92.599s.453.546.598.92c.11.281.24.705.275 1.485.039.843.047 1.096.047 3.231s-.008 2.389-.047 3.232c-.035.78-.166 1.203-.275 1.485a2.5 2.5 0 0 1-.599.919c-.28.28-.546.453-.92.598-.28.11-.704.24-1.485.276-.843.038-1.096.047-3.232.047s-2.39-.009-3.233-.047c-.78-.036-1.203-.166-1.485-.276a2.5 2.5 0 0 1-.92-.598 2.5 2.5 0 0 1-.6-.92c-.109-.281-.24-.705-.275-1.485-.038-.843-.046-1.096-.046-3.233s.008-2.388.046-3.231c.036-.78.166-1.204.276-1.486.145-.373.319-.64.599-.92s.546-.453.92-.598c.282-.11.705-.24 1.485-.276.738-.034 1.024-.044 2.515-.045zm4.988 1.328a.96.96 0 1 0 0 1.92.96.96 0 0 0 0-1.92m-4.27 1.122a4.109 4.109 0 1 0 0 8.217 4.109 4.109 0 0 0 0-8.217m0 1.441a2.667 2.667 0 1 1 0 5.334 2.667 2.667 0 0 1 0-5.334" />
+                        </svg>
+                    </div>
+                    <div class="col" style=" width: 95%; min-width: 300px;">
+                        <h3 style="text-align: center;"><strong style="color: #e1306c">Instagram<br></strong></h3>
+                        <p>Segueix-nos per fer la nostra comunitat més gran a les xarxes</p>
+                        <div class="text-center">
+                            <a href="https://www.instagram.com/asma_andorra/" target="_blank" role="button"
+                                class="btn btn-outline-danger w-50"><strong>Seguir</strong></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="footer">
+        <div class="p-3 footer-menu m-0 text-center"
+            style="color: rgb(199, 199, 199); background-color: var(--dark-main);">
+            <p class="p-0 m-0">⚡ Web desenvolupada i dissenyada per:  <a style="color: rgb(185, 55, 94);" href="mailto:erikcodedeveloper@gmail.com">ErikWebDeveloper</a></p>
+        </div>
+    </section>
     <!-- El nostre equip-->
     <div class="offcanvas offcanvas-end" tabindex="-1" id="equip" aria-labelledby="elNostreEquip" style="width: 100%;">
         <div class="offcanvas-header" style="background-color: #1b1b1b; color: white;">
             <h1 class="offcanvas-title" id="elNostreEquip">El nostre equip</h1>
             <button type="button" class="btn" data-bs-dismiss="offcanvas" aria-label="Close">
-                <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="white" class="bi bi-arrow-bar-right"
-                    viewBox="0 0 16 16">
+                <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="white"
+                    class="bi bi-arrow-bar-right" viewBox="0 0 16 16">
                     <path fill-rule="evenodd"
                         d="M6 8a.5.5 0 0 0 .5.5h5.793l-2.147 2.146a.5.5 0 0 0 .708.708l3-3a.5.5 0 0 0 0-.708l-3-3a.5.5 0 0 0-.708.708L12.293 7.5H6.5A.5.5 0 0 0 6 8m-2.5 7a.5.5 0 0 1-.5-.5v-13a.5.5 0 0 1 1 0v13a.5.5 0 0 1-.5.5" />
                 </svg>
             </button>
         </div>
-        <div class="offcanvas-body welcome" >
+        <div class="offcanvas-body welcome">
             <div class="m-auto" style="width: 100%; max-width: 800px;">
                 <div class="m-auto ">
-                    <p class="fs-6">
-                        L'associació està formada per <strong>una junta de vuit membres</strong> dedicats i apassionats per la música. El nostre equip inclou
-                        músics professionals <i>(així com altres medis i entitats personals i professionals)</i> que <strong>treballen per millorar la qualitat
-                        de vida del sector</strong> i promoure la música al país.
-                    </p>
+                    <h2>El nostre equip</h2>
                     <hr>
+                    <p>
+                        L'associació està formada per <strong>una junta de vuit membres</strong> dedicats i apassionats per la música.
+                    </p>
+                    <p>
+                        El nostre equip inclou músics professionals <i>(així com altres medis i entitats personals i professionals)</i> que <strong>treballen millorar la qualitat de vida del sector</strong> i promoure la música al país.
+                    </p>
                 </div>
+                <br>
+                <h2>Membres</h2>
+                <hr>
                 <div class="usuaris">
-                    <div class="row m-auto mb-3 p-3 rounded" style="background-color: white; box-shadow: 1px 1px 10px #6363632f;">
-                        <div class="col-12 col-md-6 d-flex justify-content-center align-items-center">
+                    <!-- Joan Gomez-->
+                    <div class="row m-auto mb-3 p-3 rounded"
+                        style="background-color: white; box-shadow: 1px 1px 10px #6363632f;">
+                        <div class="col-12 col-md-6 d-flex justify-content-center align-items-center p-3">
                             <div class="imagen-usuario">
-                                <img class="img-fluid" src="/assets/img/default-foto.png" alt="Imagen de Usuario">
+                                <img class="img-fluid" src="/assets/img/home/Joan _Gomez_president.jpeg"
+                                    alt="Imatge de Joan Gomez">
                             </div>
                         </div>
                         <div class="col-12 col-md-6">
-                            <h1>Lorem ipsum </h1>
-                            <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Iste provident culpa voluptates consequatur, consequuntur pariatur neque necessitatibus molestiae harum delectus voluptas libero quod numquam nobis fuga possimus laborum. A, reiciendis.</p>
+                            <h3>Joan Gómez</h3>
+                            <h5 style="color: grey;">President</h5>
+                            <p style="font-size: .8rem;">Joan Gómez, amb una formació avançada en música moderna,
+                                destaca per la seva trajectòria com a professor de música amb
+                                més de 5 anys d'experiència. La seva carrera es caracteritza per la versatilitat, havent
+                                participat en una àmplia
+                                varietat de grups i estils, demostrant la seva capacitat d'adaptació i la seva
+                                profunditat artística. Aquesta combinació
+                                de formació acadèmica sòlida, experiència docent i participació activa en l'escena
+                                musical el converteixen en un
+                                professional complet i polifacètic en el camp de la música moderna.</p>
                         </div>
                     </div>
-
-                    <div class="row m-auto mb-3 p-3 rounded" style="background-color: white; box-shadow: 1px 1px 10px #6363632f;">
-                        <div class="col-12 col-md-6 d-flex justify-content-center align-items-center">
+                    <!-- Diego Galdon -->
+                    <div class="row m-auto mb-3 p-3 rounded"
+                        style="background-color: white; box-shadow: 1px 1px 10px #6363632f;">
+                        <div class="col-12 col-md-6 d-flex justify-content-center align-items-center p-3">
                             <div class="imagen-usuario">
-                                <img class="img-fluid" src="/assets/img/default-foto.png" alt="Imagen de Usuario">
+                                <img class="img-fluid" src="/assets/img/home/Diego_Galdon_ secretari.jpeg"
+                                    alt="Imatge de Diego Galdón">
                             </div>
                         </div>
                         <div class="col-12 col-md-6">
-                            <h1>Lorem ipsum </h1>
-                            <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Iste provident culpa voluptates consequatur,
-                                consequuntur pariatur neque necessitatibus molestiae harum delectus voluptas libero quod numquam nobis fuga
-                                possimus laborum. A, reiciendis.</p>
+                            <h3>Diego Galdón</h3>
+                            <h5 style="color: grey;">Secretari</h5>
+                            <p style="font-size: .8rem;">Format a Andorra i Barcelona, aquest destacat musicòleg,
+                                educador i guitarrista combina una sòlida formació acadèmica i
+                                amb una profunda passió per la música. La seva experiència com a docent abasta
+                                prestigioses escoles privades de
+                                Catalunya i institucions a Andorra. Especialitzat en educació i etnomusicologia, ha
+                                contribuït en projectes amb l'IFMuC,
+                                la Biblioteca de Catalunya i la Societat del Gran Teatre del Liceu en tasques
+                                d'arxivística i investigació. Amb aquest
+                                bagatge, actualment es dedica a enriquir el sector musical des de l'associació, aportant
+                                visió i innovació.</p>
                         </div>
                     </div>
-
-                    <div class="row m-auto mb-3 p-3 rounded" style="background-color: white; box-shadow: 1px 1px 10px #6363632f;">
+                    <!-- Roland Moles -->
+                    <div class="row m-auto mb-3 p-3 rounded"
+                        style="background-color: white; box-shadow: 1px 1px 10px #6363632f;">
                         <div class="col-12 col-md-6 d-flex justify-content-center align-items-center">
                             <div class="imagen-usuario">
-                                <img class="img-fluid" src="/assets/img/default-foto.png" alt="Imagen de Usuario">
+                                <img class="img-fluid" src="/assets/img/home/Roland_Moles_ vocal.jpeg"
+                                    alt="Imatge de Roland Moles">
                             </div>
                         </div>
                         <div class="col-12 col-md-6">
-                            <h1>Lorem ipsum </h1>
-                            <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Iste provident culpa voluptates consequatur,
-                                consequuntur pariatur neque necessitatibus molestiae harum delectus voluptas libero quod numquam nobis fuga
-                                possimus laborum. A, reiciendis.</p>
+                            <h3>Roland Moles</h3>
+                            <h5 style="color: grey;">Vocal</h5>
+                            <p style="font-size: .8rem;">Guitarrista clàssic andorrà, la seva vida gira entorn de la
+                                guitarra, amb la música com a llenguatge primordial i
+                                l'escenari com a veritable llar. La seva carrera es caracteritza per una fusió de
+                                talent, tècnica exquisida i una
+                                profunda sensibilitat, fruit de l'aprenentatge amb els més destacats mestres de la
+                                guitarra. La seva participació com a
+                                membre de la prestigiosa Orquestra de Guitarres de Barcelona, i les seves actuacions en
+                                llocs de renom com el Palau de
+                                la Música Catalana, reflecteixen la seva excel·lència musical. Aquesta trajectòria
+                                distingida, marcada per la passió i
+                                el compromís amb l'art de la guitarra, el qualifica de manera sobresortint per ocupar un
+                                lloc com a vocal a la junta
+                                directiva de l'associació de músics d'Andorra, on la seva experiència i visió aporten un
+                                valor inestimable..</p>
                         </div>
                     </div>
                 </div>
@@ -394,12 +676,13 @@
         </div>
     </div>
     <!-- Objectius de l'ASMA -->
-    <div class="offcanvas offcanvas-end" tabindex="-1" id="objectius" aria-labelledby="objectiusDeASMA" style="width: 100%;">
+    <div class="offcanvas offcanvas-end" tabindex="-1" id="objectius" aria-labelledby="objectiusDeASMA"
+        style="width: 100%;">
         <div class="offcanvas-header" style="background-color: #1b1b1b; color: white;">
-            <h1 class="offcanvas-title" id="objectiusDeASMA">Objectius de l'ASMA</h1>
+            <h1 class="offcanvas-title" id="objectiusDeASMA">ASMA</h1>
             <button type="button" class="btn" data-bs-dismiss="offcanvas" aria-label="Close">
-                <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="white" class="bi bi-arrow-bar-right"
-                    viewBox="0 0 16 16">
+                <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="white"
+                    class="bi bi-arrow-bar-right" viewBox="0 0 16 16">
                     <path fill-rule="evenodd"
                         d="M6 8a.5.5 0 0 0 .5.5h5.793l-2.147 2.146a.5.5 0 0 0 .708.708l3-3a.5.5 0 0 0 0-.708l-3-3a.5.5 0 0 0-.708.708L12.293 7.5H6.5A.5.5 0 0 0 6 8m-2.5 7a.5.5 0 0 1-.5-.5v-13a.5.5 0 0 1 1 0v13a.5.5 0 0 1-.5.5" />
                 </svg>
@@ -408,17 +691,22 @@
         <div class="offcanvas-body welcome">
             <div class="m-auto" style="max-width: 900px;">
                 <div class="m-auto">
-                    <p class="fs-6">
-                        L'Associació de Músics d'Andorra està al front d'una era de creixement i professionalització. Amb <strong>l'objectiu de superar
-                        la falta de recursos i visibilitat</strong>, la clau està en la col·laboració amb entitats culturals i governamentals, a més
-                        d'invertir en <strong>educació musical.</strong> Aquestes accions no només enriquiran el teixit cultural andorrà sinó que també oferiran
-                        <strong>noves oportunitats</strong> i inspiració als músics locals, marcant l'inici d'una nova etapa per a la música a Andorra.
+                    <h2 class="pb-2 border-bottom">Els nostres objectius</h2>
+                    <p>
+                        La nostra missió és <strong>impulsar la cultura musical local</strong>, millorant la visibilitat
+                        i el creixement sostenible. Treballem
+                        per una comunicació efectiva entre músics locals, el públic i la comunitat andorrana, abordant
+                        la desigualtat
+                        d'oportunitats i enriquint l'educació i els espais culturals per als joves. També treballem per
+                        a implicar i
+                        responsabilitzar a les entitats públiques per la millora del sector.
                     </p>
+                    
                 </div>
-    
+
                 <div class="m-auto">
                     <h2 class="pb-2 border-bottom">Objectius</h2>
-                
+
                     <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-4 g-4 py-2">
                         <div class="col d-flex align-items-start">
                             <div>
@@ -429,7 +717,8 @@
                         <div class="col d-flex align-items-start">
                             <div>
                                 <h3 class="fw-bold mb-0 fs-4 text-body-emphasis">Millorar la comunicació</h3>
-                                <p>Millorar la comunicació entre la comunitat, la població, les entitats privades i els mitjans de difusió i comunicació.</p>
+                                <p>Millorar la comunicació entre la comunitat, la població, les entitats privades i els
+                                    mitjans de difusió i comunicació.</p>
                             </div>
                         </div>
                         <div class="col d-flex align-items-start">
@@ -441,7 +730,8 @@
                         <div class="col d-flex align-items-start">
                             <div>
                                 <h3 class="fw-bold mb-0 fs-4 text-body-emphasis">Base de dades activa</h3>
-                                <p>Disposar d'una base de dades activa dels músics per a millorar l'accés i la comunicació de la comunitat.</p>
+                                <p>Disposar d'una base de dades activa dels músics per a millorar l'accés i la
+                                    comunicació de la comunitat.</p>
                             </div>
                         </div>
                         <div class="col d-flex align-items-start">
@@ -483,7 +773,8 @@
                         <div class="col d-flex align-items-start">
                             <div>
                                 <h3 class="fw-bold mb-0 fs-4 text-body-emphasis">Millora del sector</h3>
-                                <p>Implicar fermament a les entitats polítiques i culturals responsables de la millora del sector.</p>
+                                <p>Implicar fermament a les entitats polítiques i culturals responsables de la millora
+                                    del sector.</p>
                             </div>
                         </div>
                         <div class="col d-flex align-items-start">
@@ -494,26 +785,34 @@
                         </div>
                     </div>
                 </div>
-    
+
                 <div class="m-auto">
                     <hr>
-                    <p>
-                        La nostra missió és <strong>impulsar la cultura musical local</strong>, millorant la visibilitat i el creixement sostenible. Treballem
-                        per una comunicació efectiva entre músics locals, el públic i la comunitat andorrana, abordant la desigualtat
-                        d'oportunitats i enriquint l'educació i els espais culturals per als joves. També treballem per a implicar i
-                        responsabilitzar a les entitats públiques per la millora del sector.
+                    <p class="fs-6">
+                        L'associació de Músics d'Andorra està al front d'una era de creixement i professionalització.
+                        Amb <strong>l'objectiu de superar
+                            la falta de recursos i visibilitat</strong>, la clau està en la col·laboració amb entitats
+                        culturals i governamentals, a més
+                        d'invertir en <strong>educació musical.</strong> Aquestes accions no només enriquiran el teixit
+                        cultural andorrà sinó que també oferiran
+                        <strong>noves oportunitats</strong> i inspiració als músics locals, marcant l'inici d'una nova
+                        etapa per a la música a Andorra.
                     </p>
-                    <hr>
                 </div>
-    
-                <div class="m-auto p-3" style="background-color: #ddeffd; color: #3a6baf;">    
+
+                <div class="m-auto p-3" style="background-color: #ddeffd; color: #3a6baf; font-size: .8rem;">
+                    
                     <div>
-                        <h3>Futurs Objectius</h3>
+                        <h5>Futurs Objectius</h5>
                         <p>
-                            Ens proposem col·laborar amb la SDADV per enfortir la cultura musical a Andorra, incloent la possibilitat de tocar en
-                            espais públics, professionalització del sector i promoció d'esdeveniments. També estem treballant per al desenvolupament
-                            d'un portal d'usuaris per a la millora de la identificació del soci. A més, busquem millorar l'educació musico social
-                            mitjançant noves iniciatives. Seguim en recerca de nous col·laboradors, així com amb un exhaustiu estudi del sector.
+                            Ens proposem col·laborar amb la SDADV per enfortir la cultura musical a Andorra, incloent la
+                            possibilitat de tocar en
+                            espais públics, professionalització del sector i promoció d'esdeveniments. També estem
+                            treballant per al desenvolupament
+                            d'un portal d'usuaris per a la millora de la identificació del soci. A més, busquem millorar
+                            l'educació musico social
+                            mitjançant noves iniciatives. Seguim en recerca de nous col·laboradors, així com amb un
+                            exhaustiu estudi del sector.
                         </p>
                     </div>
                 </div>
@@ -521,12 +820,13 @@
         </div>
     </div>
     <!-- Saber-ne més (SOCIS)-->
-    <div class="offcanvas offcanvas-end" tabindex="-1" id="saberneMes" aria-labelledby="saberneMes" style="width: 100%;">
+    <div class="offcanvas offcanvas-end" tabindex="-1" id="saberneMes" aria-labelledby="saberneMes"
+        style="width: 100%;">
         <div class="offcanvas-header" style="background-color: #1b1b1b; color: white;">
             <h1 class="offcanvas-title" id="saberneMes">Socis de l'ASMA</h1>
             <button type="button" class="btn" data-bs-dismiss="offcanvas" aria-label="Close">
-                <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="white" class="bi bi-arrow-bar-right"
-                    viewBox="0 0 16 16">
+                <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="white"
+                    class="bi bi-arrow-bar-right" viewBox="0 0 16 16">
                     <path fill-rule="evenodd"
                         d="M6 8a.5.5 0 0 0 .5.5h5.793l-2.147 2.146a.5.5 0 0 0 .708.708l3-3a.5.5 0 0 0 0-.708l-3-3a.5.5 0 0 0-.708.708L12.293 7.5H6.5A.5.5 0 0 0 6 8m-2.5 7a.5.5 0 0 1-.5-.5v-13a.5.5 0 0 1 1 0v13a.5.5 0 0 1-.5.5" />
                 </svg>
@@ -535,37 +835,49 @@
         <div class="offcanvas-body socis">
             <div class="m-auto" style="width: 100%; max-width: 800px;">
                 <div class="m-auto ">
+                    <h2 class="pb-2 border-bottom">Per què ser soci de l'ASMA?</h2>
                     <p>
-                        Ser soci de la nostra associació significa ingressar a un món de <strong>possibilitats i suport</strong> que potencialitzarà la teva
-                        carrera artística. Amb quotes dissenyades per adaptar-se a les teves necessitats, oferim una <strong>varietat d'avantatges
-                        exclusius.</strong>
+                        Ser soci de la nostra associació significa ingressar a un món de <strong>possibilitats i
+                            suport</strong> que potencialitzarà la teva
+                        carrera artística. Amb quotes dissenyades per adaptar-se a les teves necessitats, oferim una
+                        <strong>varietat d'avantatges
+                            exclusius.</strong>
                     </p>
                     <div class="text-center p-3">
                         <img src="favicon.ico" alt="ASMA-logo" class="img-fluid" width="50">
                     </div>
+                    <h2 class="pb-2 border-bottom">Quins avantatges tinc?</h2>
                     <p>
-                        Des de <strong>descomptes</strong> en botigues de música fins a <strong>assessorament jurídic</strong>, <strong>tallers</strong>, <strong>masterclasses i participació en
-                        projectes</strong>, les nostres ofertes estan pensades per enfortir la teva presència en el món musical. La teva subscripció et
-                        proporcionarà <strong>accés a la nostra comunitat</strong>, una base de dades rica en oportunitats, i la possibilitat de votar i
-                        <strong>expressar la teva opinió</strong> en els canals de comunicació i reunions de l'associació.
+                        Des de <strong>descomptes</strong> en botigues de música fins a <strong>assessorament
+                            jurídic</strong>, <strong>tallers</strong>, <strong>masterclasses i participació en
+                            projectes</strong>, les nostres ofertes estan pensades per enfortir la teva presència en el
+                        món musical. La teva subscripció et
+                        proporcionarà <strong>accés a la nostra comunitat</strong>, una base de dades rica en
+                        oportunitats, i la possibilitat de votar i
+                        <strong>expressar la teva opinió</strong> en els canals de comunicació i reunions de
+                        l'associació.
                     </p>
                     <div class="text-center p-3">
                         <img src="favicon.ico" alt="ASMA-logo" class="img-fluid" width="50">
                     </div>
-                    <p>
-                        <strong>Et convidem a subscriure't</strong> i ser part activa d'aquesta comunitat que creix i
-                        prospera amb cada nou membre. Unir-te a
-                        nosaltres significa ser part d'aquesta història musical compartida. 
-                    </p>
-                    <div class="text-center mt-5">
-                        <a class="btn btn-primary" href="/subscripcions.php" role="button">Formulari d'inscripció</a>
-                        <a class="btn btn-outline-primary" data-bs-toggle="offcanvas" href="#tarifes" role="button"
+                        
+                    <div class="mt-5 text-center p-3">
+                        <p>
+                            <strong>Et convidem a subscriure't</strong> i ser part activa d'aquesta comunitat que creix i
+                            prospera amb cada nou membre. Unir-te a
+                            nosaltres significa ser part d'aquesta història musical compartida.
+                        </p>
+                    </div>
+
+                    <div class="text-center mb-5 d-flex gap-2" style="width: 100%;">
+                        <a class="btn btn-primary flex-fill" href="/subscripcions.php" role="button">Formulari d'inscripció</a>
+                        <a class="btn btn-outline-primary flex-fill" data-bs-toggle="offcanvas" href="#tarifes" role="button"
                             aria-controls="offcanvasExample">
                             Tarifes
                         </a>
                     </div>
                 </div>
-                
+
             </div>
         </div>
     </div>
@@ -574,8 +886,8 @@
         <div class="offcanvas-header" style="background-color: #1b1b1b; color: white;">
             <h1 class="offcanvas-title" id="tarifes">Tarifes de socis</h1>
             <button type="button" class="btn" data-bs-dismiss="offcanvas" aria-label="Close">
-                <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="white" class="bi bi-arrow-bar-right"
-                    viewBox="0 0 16 16">
+                <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="white"
+                    class="bi bi-arrow-bar-right" viewBox="0 0 16 16">
                     <path fill-rule="evenodd"
                         d="M6 8a.5.5 0 0 0 .5.5h5.793l-2.147 2.146a.5.5 0 0 0 .708.708l3-3a.5.5 0 0 0 0-.708l-3-3a.5.5 0 0 0-.708.708L12.293 7.5H6.5A.5.5 0 0 0 6 8m-2.5 7a.5.5 0 0 1-.5-.5v-13a.5.5 0 0 1 1 0v13a.5.5 0 0 1-.5.5" />
                 </svg>
@@ -583,14 +895,14 @@
         </div>
         <div class="offcanvas-body socis">
             <div class="m-auto" style="width: 100%; max-width: 800px;">
-                <div class="m-auto text-center">
-                    <h2>Tarifes</h2>
-                    <p>Amb les nostres tarifes diversificades, volem enfortir la comunitat musical, oferint opcions que s'ajustin a cada etapa
-                    de la teva carrera artística.</p>
-                    <hr>
+                <div class="m-auto">
+                    <p>Amb les nostres tarifes diversificades, volem enfortir la comunitat musical, oferint opcions que
+                        s'ajustin a cada etapa
+                        de la teva carrera artística.</p>
                 </div>
-                
+
                 <div>
+                    <h2 class="mb-2 border-bottom">Tarifes</h2>
                     <div class="row row-cols-1 row-cols-md-3 mb-3 text-center">
 
                         <div class="col" style="min-width: 50%;">
@@ -599,16 +911,19 @@
                                     <h4 class="my-0 fw-normal">Standard</h4>
                                 </div>
                                 <div class="card-body">
-                                    <h1 class="card-title pricing-card-title">€ 25<small class="text-body-secondary fw-light">/any</small></h1>
+                                    <h1 class="card-title pricing-card-title">€ 25<small
+                                            class="text-body-secondary fw-light">/any</small></h1>
                                     <ul class="list-unstyled mt-3 mb-4">
                                         <li>· Descomptes a botigues de música</li>
                                         <li>· Butlletí informatiu anual</li>
                                         <li>· 1 taller anual gratuït</li>
                                         <li>· Accés a la comunitat i base de dades de l'associació</li>
-                                        <li>· Dret a vot i opinió als canals de comunicació i reunions de l'associació</li>
+                                        <li>· Dret a vot i opinió als canals de comunicació i reunions de l'associació
+                                        </li>
                                         <br><br><br><br><br><br>
                                     </ul>
-                                    <button type="button" class="w-100 btn btn-lg btn-outline-primary">Subscriure'm</button>
+                                    <button type="button"
+                                        class="w-100 btn btn-lg btn-outline-primary">Subscriure'm</button>
                                 </div>
                             </div>
                         </div>
@@ -619,20 +934,24 @@
                                     <h4 class="my-0 fw-normal">Estudiant</h4>
                                 </div>
                                 <div class="card-body">
-                                    <h1 class="card-title pricing-card-title">€ 65<small class="text-body-secondary fw-light">/any</small>
+                                    <h1 class="card-title pricing-card-title">€ 65<small
+                                            class="text-body-secondary fw-light">/any</small>
                                     </h1>
                                     <ul class="list-unstyled mt-3 mb-4">
                                         <li>· <strong>Només per a menors de 25 anys.</strong></li>
-                                        <li>· Descomptes a botigues de música i empreses de fotografia i merchandising.</li>
+                                        <li>· Descomptes a botigues de música i empreses de fotografia i merchandising.
+                                        </li>
                                         <li>· Assessorament jurídic</li>
                                         <li>· Butlletí informatiu anual.</li>
                                         <li>· 1 taller anual gratuït</li>
                                         <li>· 1 masterclass gratuïta</li>
                                         <li>· Accés i promoció a la comunitat i base de dades de l'associació</li>
-                                        <li>· Dret a vot i opinió als canals de comunicació i reunions de l'associació</li>
+                                        <li>· Dret a vot i opinió als canals de comunicació i reunions de l'associació
+                                        </li>
                                         <li>· Possibilitat de participar en projectes de l'associació</li>
                                     </ul>
-                                    <button type="button" class="w-100 btn btn-lg btn-outline-primary">Subscriure'm</button>
+                                    <button type="button"
+                                        class="w-100 btn btn-lg btn-outline-primary">Subscriure'm</button>
                                 </div>
                             </div>
                         </div>
@@ -646,7 +965,8 @@
                                     <h4 class="my-0 fw-normal">Professional</h4>
                                 </div>
                                 <div class="card-body">
-                                    <h1 class="card-title pricing-card-title">€ 90<small class="text-body-secondary fw-light">/any</small>
+                                    <h1 class="card-title pricing-card-title">€ 90<small
+                                            class="text-body-secondary fw-light">/any</small>
                                     </h1>
                                     <ul class="list-unstyled mt-3 mb-4">
                                         <li>· Descomptes a totes les empreses col·laboradores de l'associació</li>
@@ -655,7 +975,8 @@
                                         <li>· 1 taller anual gratuït</li>
                                         <li>· 1 masterclass gratuïta.</li>
                                         <li>· Accés i promoció a la comunitat i base de dades de l'associació</li>
-                                        <li>· Dret a vot i opinió als canals de comunicació i reunions de l'associació</li>
+                                        <li>· Dret a vot i opinió als canals de comunicació i reunions de l'associació
+                                        </li>
                                         <li>· Possibilitat de participar en projectes de l'associació</li>
                                     </ul>
                                     <br>
@@ -670,7 +991,8 @@
                                     <h4 class="my-0 fw-normal">Grups de Música</h4>
                                 </div>
                                 <div class="card-body">
-                                    <h1 class="card-title pricing-card-title">€ 420<small class="text-body-secondary fw-light">/any</small>
+                                    <h1 class="card-title pricing-card-title">€ 420<small
+                                            class="text-body-secondary fw-light">/any</small>
                                     </h1>
                                     <ul class="list-unstyled mt-3 mb-4">
                                         <li>· <strong>6 membres màxim</strong>.</li>
@@ -680,10 +1002,12 @@
                                         <li>· 1 taller anual gratuït.</li>
                                         <li>· 2 masterclass gratuïta</li>
                                         <li>· Accés i promoció a la comunitat i base de dades de l'associació.</li>
-                                        <li>· Dret a vot i opinió als canals de comunicació i reunions de l'associació</li>
+                                        <li>· Dret a vot i opinió als canals de comunicació i reunions de l'associació
+                                        </li>
                                         <li>· Possibilitat de participar en projectes de l'associació</li>
                                     </ul>
-                                    <button type="button" class="w-100 btn btn-lg btn-outline-primary">Subscriure'm</button>
+                                    <button type="button"
+                                        class="w-100 btn btn-lg btn-outline-primary">Subscriure'm</button>
                                 </div>
                             </div>
                         </div>
@@ -693,7 +1017,206 @@
             </div>
         </div>
     </div>
+    <!-- Patrocinadors -->
+    <div class="offcanvas offcanvas-end" tabindex="-1" id="patrocinadorsCanva" aria-labelledby="patrocinadors" style="width: 100%;">
+        <div class="offcanvas-header" style="background-color: #1b1b1b; color: white;">
+            <h1 class="offcanvas-title" id="patrocinadorsCanva">Patrocinadors</h1>
+            <button type="button" class="btn" data-bs-dismiss="offcanvas" aria-label="Close">
+                <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="white" class="bi bi-arrow-bar-right"
+                    viewBox="0 0 16 16">
+                    <path fill-rule="evenodd"
+                        d="M6 8a.5.5 0 0 0 .5.5h5.793l-2.147 2.146a.5.5 0 0 0 .708.708l3-3a.5.5 0 0 0 0-.708l-3-3a.5.5 0 0 0-.708.708L12.293 7.5H6.5A.5.5 0 0 0 6 8m-2.5 7a.5.5 0 0 1-.5-.5v-13a.5.5 0 0 1 1 0v13a.5.5 0 0 1-.5.5" />
+                </svg>
+            </button>
+        </div>
+        <div class="offcanvas-body patrocinadorsCanva">
+            <div class="m-auto" style="width: 100%; max-width: 800px;">
+                <div class="m-auto ">
+                    <h3>Promocions especials</h3>
+                    <hr>
+                    <p>
+                        <strong>Gràcies al suport dels nostres patrocinadors</strong>, podem oferir-vos una experiència única i plena de beneficis.
+                    </p>
+                    <p>
+                        <strong>Estar subscrit a la nostra plataforma et permetrà accedir a ofertes exclusives</strong> i promocions especials proporcionades pels nostres col·laboradors.
+                    </p>
+                    <br>
+                    <h3>Patrocinadors</h3>
+                    <hr>
+
+                    <div class="patrocinadoresCanva-cartas">
+                        <!-- Compra i lloguer de material -->
+                        <div class="d-flex justify-content-center align-items-center rounded p-3 mb-3" style="background-color: #ffffff; font-size: .8rem; box-shadow: 1px 1px 50px #0000000c; overflow: hidden;">
+                            <div class="m-auto d-flex justify-content-center align-items-center p-3" style="width: 25%;">
+                                <img class="img-fluid p-1 rounded" width="100" src="/assets/img/home/fanatic_guitars.svg" alt="Fanatic Guitars Logo" style="background-color: #000000;">
+                            </div>
+                            <div class="m-auto flex-fill">
+                                <h5>Fanatic Guitars</h5>
+                                <p>Botiga d'instruments</p>
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-link-45deg"
+                                    viewBox="0 0 16 16">
+                                    <path
+                                        d="M4.715 6.542 3.343 7.914a3 3 0 1 0 4.243 4.243l1.828-1.829A3 3 0 0 0 8.586 5.5L8 6.086a1 1 0 0 0-.154.199 2 2 0 0 1 .861 3.337L6.88 11.45a2 2 0 1 1-2.83-2.83l.793-.792a4 4 0 0 1-.128-1.287z" />
+                                    <path
+                                        d="M6.586 4.672A3 3 0 0 0 7.414 9.5l.775-.776a2 2 0 0 1-.896-3.346L9.12 3.55a2 2 0 1 1 2.83 2.83l-.793.792c.112.42.155.855.128 1.287l1.372-1.372a3 3 0 1 0-4.243-4.243z" />
+                                </svg>
+                                <a class="link-underline link-underline-opacity-0" href="https://www.fanaticguitars.com" target="_blank">www.fanaticguitars.com</a>
+                            </div>
+                        </div>
+
+                        <div class="d-flex justify-content-center align-items-center rounded p-3 mb-3"
+                            style="background-color: #ffffff; font-size: .8rem; box-shadow: 1px 1px 50px #0000000c; overflow: hidden;">
+                            <div class="m-auto d-flex justify-content-center align-items-center p-3" style="width: 25%;;">
+                                <img class="img-fluid rounded" width="100" src="/assets/img/home/promusica-andorra-logo.png"
+                                    alt="ProMúsica Andorra Logo" style="background-color: #ffffff;">
+                            </div>
+                            <div class="m-auto flex-fill" >
+                                <h5>ProMúsica Andorra</h5>
+                                <p>Botiga d'instruments</p>
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-link-45deg"
+                                    viewBox="0 0 16 16">
+                                    <path
+                                        d="M4.715 6.542 3.343 7.914a3 3 0 1 0 4.243 4.243l1.828-1.829A3 3 0 0 0 8.586 5.5L8 6.086a1 1 0 0 0-.154.199 2 2 0 0 1 .861 3.337L6.88 11.45a2 2 0 1 1-2.83-2.83l.793-.792a4 4 0 0 1-.128-1.287z" />
+                                    <path
+                                        d="M6.586 4.672A3 3 0 0 0 7.414 9.5l.775-.776a2 2 0 0 1-.896-3.346L9.12 3.55a2 2 0 1 1 2.83 2.83l-.793.792c.112.42.155.855.128 1.287l1.372-1.372a3 3 0 1 0-4.243-4.243z" />
+                                </svg>
+                                <a class="link-underline link-underline-opacity-0" href="http://www.promusicaandorra.com"
+                                    target="_blank">www.promusicaandorra.com</a>
+                            </div>
+                        </div>
+
+                        <div class="d-flex justify-content-center align-items-center rounded p-3 mb-3"
+                            style="background-color: #ffffff; font-size: .8rem; box-shadow: 1px 1px 50px #0000000c; overflow: hidden;">
+                            <div class="m-auto d-flex justify-content-center align-items-center p-3" style="width: 25%;;">
+                                <img class="img-fluid rounded" width="100" src="/assets/img/home/jolibut_pianos.webp"
+                                    alt="Jolibut Pianos Logo" style="background-color: #ffffff;">
+                            </div>
+                            <div class="m-auto flex-fill">
+                                <h5>Jolibut</h5>
+                                <p>Lloguer de backline</p>
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-link-45deg"
+                                    viewBox="0 0 16 16">
+                                    <path
+                                        d="M4.715 6.542 3.343 7.914a3 3 0 1 0 4.243 4.243l1.828-1.829A3 3 0 0 0 8.586 5.5L8 6.086a1 1 0 0 0-.154.199 2 2 0 0 1 .861 3.337L6.88 11.45a2 2 0 1 1-2.83-2.83l.793-.792a4 4 0 0 1-.128-1.287z" />
+                                    <path
+                                        d="M6.586 4.672A3 3 0 0 0 7.414 9.5l.775-.776a2 2 0 0 1-.896-3.346L9.12 3.55a2 2 0 1 1 2.83 2.83l-.793.792c.112.42.155.855.128 1.287l1.372-1.372a3 3 0 1 0-4.243-4.243z" />
+                                </svg>
+                                <a class="link-underline link-underline-opacity-0" href="https://www.jolibutpianos.com"
+                                    target="_blank">www.jolibutpianos.com</a>
+                            </div>
+                        </div>
+                        <!-- Disseny, imatge, fotografia i merchandising -->
+                        <div class="d-flex justify-content-center align-items-center rounded p-3 mb-3"
+                            style="background-color: #ffffff; font-size: .8rem; box-shadow: 1px 1px 50px #0000000c; overflow: hidden;">
+                            <div class="m-auto d-flex justify-content-center align-items-center p-3" style="width: 25%;;">
+                                <img class="img-fluid rounded" width="100" src="/assets/img/home/guardias_publicitat.jpeg" alt="Guardias Publicitat Logo"
+                                    style="background-color: #ffffff;">
+                            </div>
+                            <div class="m-auto flex-fill">
+                                <h5>Guardias Publicitat</h5>
+                                <p>Impremta i serigrafia</p>
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-link-45deg"
+                                    viewBox="0 0 16 16">
+                                    <path
+                                        d="M4.715 6.542 3.343 7.914a3 3 0 1 0 4.243 4.243l1.828-1.829A3 3 0 0 0 8.586 5.5L8 6.086a1 1 0 0 0-.154.199 2 2 0 0 1 .861 3.337L6.88 11.45a2 2 0 1 1-2.83-2.83l.793-.792a4 4 0 0 1-.128-1.287z" />
+                                    <path
+                                        d="M6.586 4.672A3 3 0 0 0 7.414 9.5l.775-.776a2 2 0 0 1-.896-3.346L9.12 3.55a2 2 0 1 1 2.83 2.83l-.793.792c.112.42.155.855.128 1.287l1.372-1.372a3 3 0 1 0-4.243-4.243z" />
+                                </svg>
+                                <a class="link-underline link-underline-opacity-0" href="https://www.instagram.com/g.p._andorra/"
+                                    target="_blank">@g.p._andorra</a>
+                            </div>
+                        </div>
+
+                        <div class="d-flex justify-content-center align-items-center rounded p-3 mb-3"
+                            style="background-color: #ffffff; font-size: .8rem; box-shadow: 1px 1px 50px #0000000c; overflow: hidden;">
+                            <div class="m-auto d-flex justify-content-center align-items-center p-3" style="width: 25%;;">
+                                <img class="img-fluid rounded" width="100" src="""
+                                    alt="Jordi Pujol Logo" style="background-color: #ffffff;">
+                            </div>
+                            <div class="m-auto flex-fill">
+                                <h5>Jordi Pujol Fotografia</h5>
+                                <p>Estudi fotogràfic</p>
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-link-45deg"
+                                    viewBox="0 0 16 16">
+                                    <path
+                                        d="M4.715 6.542 3.343 7.914a3 3 0 1 0 4.243 4.243l1.828-1.829A3 3 0 0 0 8.586 5.5L8 6.086a1 1 0 0 0-.154.199 2 2 0 0 1 .861 3.337L6.88 11.45a2 2 0 1 1-2.83-2.83l.793-.792a4 4 0 0 1-.128-1.287z" />
+                                    <path
+                                        d="M6.586 4.672A3 3 0 0 0 7.414 9.5l.775-.776a2 2 0 0 1-.896-3.346L9.12 3.55a2 2 0 1 1 2.83 2.83l-.793.792c.112.42.155.855.128 1.287l1.372-1.372a3 3 0 1 0-4.243-4.243z" />
+                                </svg>
+                                <a class="link-underline link-underline-opacity-0" href="https://www.facebook.com/jordipujolfotografia"
+                                    target="_blank">@jordipujolfotografia</a>
+                            </div>
+                        </div>
+
+                        <div class="d-flex justify-content-center align-items-center rounded p-3 mb-3"
+                            style="background-color: #ffffff; font-size: .8rem; box-shadow: 1px 1px 50px #0000000c; overflow: hidden;">
+                            <div class="m-auto d-flex justify-content-center align-items-center p-3" style="width: 25%;;">
+                                <img class="img-fluid rounded" width="100" src="/assets/img/home/grafica_de_ferro_logo.png" alt="Gràfica de ferro Logo" style="background-color: #ffffff;">
+                            </div>
+                            <div class="m-auto flex-fill">
+                                <h5>Gràfica de ferro</h5>
+                                <p>Estudi de disseny</p>
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-link-45deg"
+                                    viewBox="0 0 16 16">
+                                    <path
+                                        d="M4.715 6.542 3.343 7.914a3 3 0 1 0 4.243 4.243l1.828-1.829A3 3 0 0 0 8.586 5.5L8 6.086a1 1 0 0 0-.154.199 2 2 0 0 1 .861 3.337L6.88 11.45a2 2 0 1 1-2.83-2.83l.793-.792a4 4 0 0 1-.128-1.287z" />
+                                    <path
+                                        d="M6.586 4.672A3 3 0 0 0 7.414 9.5l.775-.776a2 2 0 0 1-.896-3.346L9.12 3.55a2 2 0 1 1 2.83 2.83l-.793.792c.112.42.155.855.128 1.287l1.372-1.372a3 3 0 1 0-4.243-4.243z" />
+                                </svg>
+                                <a class="link-underline link-underline-opacity-0" href="https://graficadeferro.com"
+                                    target="_blank">www.graficadeferro.com</a>
+                            </div>
+                        </div>
+                        <!-- Productors/estudis -->
+                        <div class="d-flex justify-content-center align-items-center rounded p-3 mb-3"
+                            style="background-color: #ffffff; font-size: .8rem; box-shadow: 1px 1px 50px #0000000c; overflow: hidden;">
+                            <div class="m-auto d-flex justify-content-center align-items-center p-3" style="width: 25%;;">
+                                <img class="img-fluid rounded p-1" width="100" src="/assets/img/home/jordi_barcelo_logo.png"
+                                    alt="Barceló Music Logo" style="background-color: #000000;">
+                            </div>
+                            <div class="m-auto flex-fill">
+                                <h5>Barceló Music</h5>
+                                <p>Estudi</p>
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-link-45deg"
+                                    viewBox="0 0 16 16">
+                                    <path
+                                        d="M4.715 6.542 3.343 7.914a3 3 0 1 0 4.243 4.243l1.828-1.829A3 3 0 0 0 8.586 5.5L8 6.086a1 1 0 0 0-.154.199 2 2 0 0 1 .861 3.337L6.88 11.45a2 2 0 1 1-2.83-2.83l.793-.792a4 4 0 0 1-.128-1.287z" />
+                                    <path
+                                        d="M6.586 4.672A3 3 0 0 0 7.414 9.5l.775-.776a2 2 0 0 1-.896-3.346L9.12 3.55a2 2 0 1 1 2.83 2.83l-.793.792c.112.42.155.855.128 1.287l1.372-1.372a3 3 0 1 0-4.243-4.243z" />
+                                </svg>
+                                <a class="link-underline link-underline-opacity-0" href="https://jordibarcelo.com"
+                                    target="_blank">www.jordibarcelo.com</a>
+                            </div>
+                        </div>
+
+                        <div class="d-flex justify-content-center align-items-center rounded p-3 mb-3"
+                            style="background-color: #ffffff; font-size: .8rem; box-shadow: 1px 1px 50px #0000000c; overflow: hidden;">
+                            <div class="m-auto d-flex justify-content-center align-items-center p-3" style="width: 25%;;">
+                                <img class="img-fluid rounded" width="100" src="/assets/img/home/sonnos_andorra_logo.jpeg"
+                                    alt="SONNOS Andorra Logo" style="background-color: #ffffff;">
+                            </div>
+                            <div class="m-auto flex-fill">
+                                <h5>SONNOS Andorra</h5>
+                                <p>Estudi</p>
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-link-45deg"
+                                    viewBox="0 0 16 16">
+                                    <path
+                                        d="M4.715 6.542 3.343 7.914a3 3 0 1 0 4.243 4.243l1.828-1.829A3 3 0 0 0 8.586 5.5L8 6.086a1 1 0 0 0-.154.199 2 2 0 0 1 .861 3.337L6.88 11.45a2 2 0 1 1-2.83-2.83l.793-.792a4 4 0 0 1-.128-1.287z" />
+                                    <path
+                                        d="M6.586 4.672A3 3 0 0 0 7.414 9.5l.775-.776a2 2 0 0 1-.896-3.346L9.12 3.55a2 2 0 1 1 2.83 2.83l-.793.792c.112.42.155.855.128 1.287l1.372-1.372a3 3 0 1 0-4.243-4.243z" />
+                                </svg>
+                                <a class="link-underline link-underline-opacity-0" href="https://www.instagram.com/sonnosandorra/"
+                                    target="_blank">@sonnosandorra</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+    
+            </div>
+        </div>
+    </div>
 
     <script src="/assets/js/home.js"></script>
 </body>
+
 </html>
