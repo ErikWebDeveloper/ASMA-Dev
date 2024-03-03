@@ -15,9 +15,9 @@
                 <div class="m-auto ">
                     <h2>El nostre equip</h2>
                     <hr>
-                    <p>
+                    <!--<p>
                         L'associació està formada per <strong>una junta de vuit membres</strong> dedicats i apassionats per la música.
-                    </p>
+                    </p>-->
                     <p>
                         El nostre equip inclou músics professionals <i>(així com altres medis i entitats personals i professionals)</i> que <strong>treballen millorar la qualitat de vida del sector</strong> i promoure la música al país.
                     </p>
