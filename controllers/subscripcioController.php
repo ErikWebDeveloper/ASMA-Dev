@@ -5,7 +5,7 @@ class Subscripcio{
     private $response;
 
     function __construct(){
-   	    $this->model = new SubscripcionModel();
+   	    $this->model = new SubscripcioModel();
      	$this->run();
     }
 
@@ -54,7 +54,7 @@ class Subscripcio{
     }
 
     private function saveToDb(){
-        
+
     }
 
     private function sendResponse(){
