@@ -357,8 +357,7 @@
                                         </li>
                                         <br><br><br><br><br><br>
                                     </ul>
-                                    <button type="button"
-                                        class="w-100 btn btn-lg btn-outline-primary">Subscriure'm</button>
+                                    <a role="button" href="/subscripcions.php" class="w-100 btn btn-lg btn-outline-primary">Subscriure'm</a>
                                 </div>
                             </div>
                         </div>
@@ -385,8 +384,7 @@
                                         </li>
                                         <li>· Possibilitat de participar en projectes de l'associació</li>
                                     </ul>
-                                    <button type="button"
-                                        class="w-100 btn btn-lg btn-outline-primary">Subscriure'm</button>
+                                    <a role="button" href="/subscripcions.php" class="w-100 btn btn-lg btn-outline-primary">Subscriure'm</a>
                                 </div>
                             </div>
                         </div>
@@ -415,7 +413,7 @@
                                         <li>· Possibilitat de participar en projectes de l'associació</li>
                                     </ul>
                                     <br>
-                                    <button type="button" class="w-100 btn btn-lg btn-primary">Subscriure'm</button>
+                                    <a role="button" href="/subscripcions.php" class="w-100 btn btn-lg btn-outline-primary">Subscriure'm</a>
                                 </div>
                             </div>
                         </div>
@@ -441,8 +439,7 @@
                                         </li>
                                         <li>· Possibilitat de participar en projectes de l'associació</li>
                                     </ul>
-                                    <button type="button"
-                                        class="w-100 btn btn-lg btn-outline-primary">Subscriure'm</button>
+                                    <a role="button" href="/subscripcions.php" class="w-100 btn btn-lg btn-outline-primary">Subscriure'm</a>
                                 </div>
                             </div>
                         </div>
