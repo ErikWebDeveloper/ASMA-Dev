@@ -16,7 +16,7 @@
             <img class="img-fluid m-auto" width="50" src="/favicon.ico" alt="ASMA logo">
         </div>
         <p>Us comuniquem que l'aplicació actualment està en una fase de desenvolupament beta.</p>
-        <p>Això significa que és possible que es produeixin incidències tècniques o fallos ocasionals. Estem compromesos a millorar continuament i agraïm profundament la vostra paciència  la vostra paciència i comprensió durant aquest procés.</p>
+        <p>Això significa que és possible que es produeixin incidències tècniques o errors ocasionals. Estem compromesos a millorar continuament i agraïm profundament la vostra paciència  la vostra paciència i comprensió durant aquest procés.</p>
         <p>Si experimenteu qualsevol problema, us animem a posar-vos en contacte directament a través del nostre correu electrònic a <a href="mailto:comunica@musicsandorra.com">comunica@musicsandorra.com</a></p>
         
       </div>
