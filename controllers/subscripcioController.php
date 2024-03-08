@@ -5,13 +5,14 @@ class Subscripcio{
     private $response;
 
     function __construct(){
-        $this->run();
+   	    $this->model = new SubscripcionModel();
+     	$this->run();
     }
 
     public function run(){
-        $this->isPost();
+	    $this->isPost();
         $this->isData();
-        $this->isSession();
+        //$this->isSession();
         $this->sendResponse();
     }
 
@@ -52,12 +53,16 @@ class Subscripcio{
         }
     }
 
+    private function saveToDb(){
+        
+    }
 
     private function sendResponse(){
-        http_response_code(200); 
-        $this->response = ['status' => 'success', 'message' => 'JSON recibido correctamente', 'data' => $this->request];
+	    http_response_code(200); 
+        $this->response = $this->model->insertarDocumento($this->request);
         echo json_encode($this->response);
     }
 
 }
+
 
