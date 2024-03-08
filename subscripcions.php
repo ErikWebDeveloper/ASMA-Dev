@@ -26,12 +26,16 @@ if (!isset($_SESSION['csrf_token'])) {
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.min.js"
         integrity="sha384-BBtl+eGJRgqQAUMxJ7pMwbEyER4l1g+O15P+16Ep7Q9Q+zqX6gSbd85u4mG4QzX+"
         crossorigin="anonymous"></script>
+        
 
     <link rel="stylesheet" href="/assets/css/main.css">
     <link rel="stylesheet" href="/assets/css/formulari.css">
 </head>
 
 <body>
+    <!-- Beta Version-->
+    <?php require_once './components/beta.php'; ?>
+    
     <!-- NavBar -->
     <?php require_once './components/navbar.php'; ?>
 
@@ -642,6 +646,7 @@ if (!isset($_SESSION['csrf_token'])) {
 
 
     <?php require_once './components/footer.php' ?>
+
 
     <script>
         // Pasar ID de elementos: input, containerPreview, imagePreview
