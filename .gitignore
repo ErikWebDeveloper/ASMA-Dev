@@ -1,2 +1,7 @@
 gitSetUp.sh
 README.md
+# Ignorar todos los archivos .js
+*.js
+
+# No ignorar archivos .min.js
+!*.min.js
