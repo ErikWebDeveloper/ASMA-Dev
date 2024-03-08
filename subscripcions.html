@@ -599,7 +599,45 @@ if (!isset($_SESSION['csrf_token'])) {
                 </div>
             </div>
         </form>
+        <!-- Success Message-->
+        <div id="responseSuccess" class="toast show" role="alert" aria-live="assertive" aria-atomic="true" style="color: rgb(54, 102, 54); width: 100%; max-width: 350px; display: none;">
+            <div class="toast-header" style="background-color:rgb(195, 255, 195)">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-check2-circle" viewBox="0 0 16 16">
+                    <path d="M2.5 8a5.5 5.5 0 0 1 8.25-4.764.5.5 0 0 0 .5-.866A6.5 6.5 0 1 0 14.5 8a.5.5 0 0 0-1 0 5.5 5.5 0 1 1-11 0"/>
+                    <path d="M15.354 3.354a.5.5 0 0 0-.708-.708L8 9.293 5.354 6.646a.5.5 0 1 0-.708.708l3 3a.5.5 0 0 0 .708 0z"/>
+                </svg>
+                <strong class="me-auto">&nbsp; Subscripció finalitzada</strong>
+            </div>
+            <div class="toast-body">
+                <p>La seva subscripció s'ha completat amb èxit, i en breu rebrà un correu electrònic de confirmació a la seva adreça <strong id="responseSuccesMessage"></strong>.</p>
+                <p>Si té cap pregunta o inquietud, no dubti a posar-se en <a href="mailto:comunica@musicsandorra.com">contacte amb el nostre servei d'assistència.</a> </p>
+                <p>Tingui en compte que l'aplicació es troba en versió beta, la qual podria experimentar fallos puntuals. Agraïm la seva paciència i comprensió mentre treballem per millorar l'experiència.</p>
+                <p>Gràcies per la seva confiança i suport continuat.</p>
+                <div class="d-flex justify-content-center">
+                    <img class="img-fluid m-auto" width="80" src="/favicon.ico" alt="ASMA logo">
+                </div>
+            </div>
+        </div>
+        <!-- Error Message-->
+        <div id="responseError" class="toast show" role="alert" aria-live="assertive" aria-atomic="true" style="color: rgb(97, 28, 45); width: 100%; max-width: 350px;display: none;">
+            <div class="toast-header" style="background-color:rgb(255, 195, 220)">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-exclamation-octagon" viewBox="0 0 16 16">
+                    <path d="M4.54.146A.5.5 0 0 1 4.893 0h6.214a.5.5 0 0 1 .353.146l4.394 4.394a.5.5 0 0 1 .146.353v6.214a.5.5 0 0 1-.146.353l-4.394 4.394a.5.5 0 0 1-.353.146H4.893a.5.5 0 0 1-.353-.146L.146 11.46A.5.5 0 0 1 0 11.107V4.893a.5.5 0 0 1 .146-.353zM5.1 1 1 5.1v5.8L5.1 15h5.8l4.1-4.1V5.1L10.9 1z"/>
+                    <path d="M7.002 11a1 1 0 1 1 2 0 1 1 0 0 1-2 0M7.1 4.995a.905.905 0 1 1 1.8 0l-.35 3.507a.552.552 0 0 1-1.1 0z"/>
+                </svg>
+                <strong class="me-auto">&nbsp; Ha ocorregut algun error</strong>
+                <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
+            </div>
+            <div class="toast-body">
+                <p>Ho sentim, però s'ha produït un error en processar la seva subscripció.</p>
+                <p>El missatge d'error diu:</p>
+                <p><strong id="responseErrorMessage"></strong></p>
+                <p>En cas que el problema persisteixi, poseu-vos en <a href="mailto:comunica@musicsandorra.com">contacte amb el nostre servei d'assistència.</a> per rebre ajuda immediata.</p>
+                <p>Gràcies per la seva comprensió.</p>
+            </div>
+        </div>
     </div>
+
 
     <?php require_once './components/footer.php' ?>
 
