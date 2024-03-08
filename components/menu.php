@@ -278,9 +278,6 @@
                         <strong>varietat d'avantatges
                             exclusius.</strong>
                     </p>
-                    <div class="text-center p-3">
-                        <img src="favicon.ico" alt="ASMA-logo" class="img-fluid" width="50">
-                    </div>
                     <h2 class="pb-2 border-bottom">Quins avantatges tinc?</h2>
                     <p>
                         Des de <strong>descomptes</strong> en botigues de música fins a <strong>assessorament
@@ -296,7 +293,7 @@
                         <img src="favicon.ico" alt="ASMA-logo" class="img-fluid" width="50">
                     </div>
                         
-                    <div class="mt-5 text-center p-3">
+                    <div class="mt-3 text-center p-3">
                         <p>
                             <strong>Et convidem a subscriure't</strong> i ser part activa d'aquesta comunitat que creix i
                             prospera amb cada nou membre. Unir-te a

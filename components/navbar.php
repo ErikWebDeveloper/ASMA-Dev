@@ -26,16 +26,22 @@
         <div class="p-3">
             <h5 class="mb-2 border-bottom" style="color: grey;">Informació</h5>
             <div class="w-100 text-center p-2">
+                <a class="menu-item" href="/" role="button">Inici</a>
+            </div>
+            <div class="w-100 text-center p-2">
                 <a class="menu-item" data-bs-toggle="offcanvas" href="#objectius" role="button" aria-controls="offcanvasExample">Que és l'ASMA?</a>
             </div>
             <div class="w-100 text-center p-2">
-                <a class="menu-item" data-bs-toggle="offcanvas" href="#equip" role="button" aria-controls="offcanvasExample">Qui som?</a>
+                <a class="menu-item" data-bs-toggle="offcanvas" href="#equip" role="button" aria-controls="offcanvasExample">El nostre equip</a>
             </div>
             <div class="w-100 text-center p-2">
                 <a class="menu-item" data-bs-toggle="offcanvas" href="#saberneMes" role="button" aria-controls="offcanvasExample">Vols ser soci?</a>
             </div>
             <div class="w-100 text-center p-2">
-                <a class="menu-item" data-bs-toggle="offcanvas" href="#tarifes" role="button" aria-controls="offcanvasExample">Tarifes de l'ASMA</a>
+                <a class="menu-item" data-bs-toggle="offcanvas" href="#tarifes" role="button" aria-controls="offcanvasExample">Tarifes</a>
+            </div>
+            <div class="w-100 text-center p-2">
+                <a class="menu-item" data-bs-toggle="offcanvas" href="#patrocinadorsCanva" role="button" aria-controls="offcanvasExample">Patrocinadors</a>
             </div>
             <br>
             <h5 class="mb-2 border-bottom" style="color: grey;">Recursos</h5>
