@@ -21,7 +21,7 @@
     color: var(--primary);
 }
 .contenedor-info svg{
-    fill: #b8d5ff;
+    fill: #b9b7b7;
     filter: drop-shadow(1px 1px 50px #f8f8f8);
 }
 .contenedor-formulari{
