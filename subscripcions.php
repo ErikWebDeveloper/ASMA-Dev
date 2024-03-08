@@ -619,7 +619,7 @@ if (!isset($_SESSION['csrf_token'])) {
             </div>
         </div>
         <!-- Error Message-->
-        <div aria-live="polite" aria-atomic="true" class="position-absolute">
+        <div aria-live="polite" aria-atomic="true" class="position-absolute" style="z-index = 100;">
             <div id="responseError" class="toast" role="alert" aria-live="assertive" aria-atomic="true" style="color: rgb(97, 28, 45); width: 100%; max-width: 350px;">
                 <div class="toast-header" style="background-color:rgb(255, 195, 220)">
                     <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-exclamation-octagon" viewBox="0 0 16 16">
