@@ -12,7 +12,7 @@ class Subscripcio{
     public function run(){
 	    $this->isPost();
         $this->isData();
-        //$this->isSession();
+        $this->isSession();
         $this->sendResponse();
     }
 
