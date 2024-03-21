@@ -60,7 +60,7 @@ class Subscripcio{
 
     private function isValidData(){
         $query = $this->model->find(["correo" => 'joan@joan.com']);
-        var_dump($response = ['error' => true, 'mensaje' => $query]); 
+        echo json_encode(['error' => true, 'mensaje' => $query]); 
     }
 
     private function saveToDb(){
