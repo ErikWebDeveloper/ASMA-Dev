@@ -35,7 +35,7 @@ class SubscripcioImageModel{
                 
             // Verificar si la imagen se guardó correctamente
             if ($resultado !== false) {
-                return ['error' => true, 'mensaje' => "La imagen se ha almacenado correctamente."];
+                return ['error' => false, 'mensaje' => "La imagen se ha almacenado correctamente."];
             } else {
                 return ['error' => true, 'mensaje' => "Ha ocurrido un error al almacenar la imagen."];
             }
