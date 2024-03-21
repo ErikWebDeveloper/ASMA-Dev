@@ -9,11 +9,11 @@ function storeImage($dataJSON) {
         $nombreImagen = $dataJSON['usuarios']['user_foto']['nombre'];
         $tipoImagen = $dataJSON['usuarios']['user_foto']['tipo'];
         $contenidoImagen = $dataJSON['usuarios']['user_foto']['contenido'];
-        /*
         
         // Decodificar el contenido de la imagen
         $contenidoDecodificado = base64_decode(substr($contenidoImagen, strpos($contenidoImagen, ',') + 1));
         
+        /*
         // Guardar la imagen en el servidor
         $rutaImagen = $directorioImagenes . $nombreImagen;
         $resultado = file_put_contents($rutaImagen, $contenidoDecodificado);
