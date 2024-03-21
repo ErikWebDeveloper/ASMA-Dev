@@ -14,6 +14,23 @@ class SubscripcioImageModel{
         }else{
             return ['error' => true, 'mensaje' => "No es grupo."];
         }
+    }   
+
+    private function storeGrup($dataJSON){
+        // Guardar Imagen de Grupo
+        $this->response = $this->imgGrup($dataJSON);
+        // Guardar Foto Usuarios
+        if(!$this->response['error']){
+            $this->response = $this->imgUser($dataJSON);
+        }
+        // Guardar Pasaportes
+        if(!$this->response['error']){
+            $this->response = $this->passUser($dataJSON);
+        }
+    }
+
+    private function storeUser($dataJSON){
+
     }
 
     private function storeImage($imageData) {
@@ -41,21 +58,6 @@ class SubscripcioImageModel{
             }
         } catch ( Exception $e){
             return ['error' => true, 'mensaje' => 'Ha ocurrido un error al almacenar la imagen.'];
-        }
-    }
-
-    private function storeGrup($dataJSON){
-        // Guardar Imagen de Grupo
-        $this->response = $this->imgGrup($dataJSON);
-        // Guardar Foto Usuario
-        if(!$this->response['error']){
-            $this->response = $this->imgUser($dataJSON);
-        }
-        // Guardar Imagenes de los miembros del grupo
-        if(!$this->response['error']){
-            return $this->response;
-        }else{
-            return $this->response;
         }
     }
 
@@ -102,9 +104,29 @@ class SubscripcioImageModel{
         }
     }
 
-    private function storeUser($dataJSON){
+    private function passUser($dataJSON){
+        $users = $dataJSON['usuarios'];
 
+        try{
+            foreach ($users as $user) {
+                //  Tipo de imagen
+                $mimeType = $user['member_pasport']['tipo'];
+                $extension = '.' . substr($mimeType, strpos($mimeType, '/') + 1);
+        
+                // Objecto de la imagen Grupo
+                $imagenUser = [
+                    "dir"       => $this->usuariosDirectorio,
+                    "nombre"    => md5($user['user_name']) . $extension,
+                    "contenido" => $user['member_pasport']['contenido']
+                ];
+    
+                return $this->storeImage($imagenUser);              
+            }
+        } catch ( Exception $e){
+            return ['error' => true, 'mensaje' => "El usuario, no se ha posido guardar."];
+        }
     }
+    
 
     function comprimirImagen($contenidoImagenBase64, $calidad = 75) {
         // Decodificar la imagen desde base64
