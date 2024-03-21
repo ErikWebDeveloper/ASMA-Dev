@@ -51,7 +51,7 @@ class SubscripcioModel {
         // Crear query
         $query = new MongoDB\Driver\Query($itemObject);
         // Ejecutar la consulta
-        $cursor = $this->conexion->executeQuery($this->baseDatos . '.' . $this->coleccion , $query);
+        $cursor = $this->conexion->executeQuery("ASMA.subscripcions", $query);
 
         // Iterar sobre los resultados
         $resultados = [];
