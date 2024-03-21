@@ -13,11 +13,11 @@ function storeImage($dataJSON) {
         // Decodificar el contenido de la imagen
         $contenidoDecodificado = base64_decode(substr($contenidoImagen, strpos($contenidoImagen, ',') + 1));
         
-        /*
         // Guardar la imagen en el servidor
         $rutaImagen = $directorioImagenes . $nombreImagen;
         $resultado = file_put_contents($rutaImagen, $contenidoDecodificado);
         
+        /*
         // Verificar si la imagen se guardó correctamente
         if ($resultado !== false) {
             return ['error' => false, 'mensaje' => "La imagen se ha almacenado correctamente."];
