@@ -43,6 +43,9 @@ class SubscripcioImageModel{
         
         // Eliminar puntos
         $cadena = str_replace('.', '', $cadena);
+
+        // Eliminar cualquier otro carácter no deseado
+        $cadena = preg_replace('/^[^.\/\\ ]*$/', '', $cadena);  
         
         return $cadena;
     }
