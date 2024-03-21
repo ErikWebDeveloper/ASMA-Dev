@@ -15,7 +15,7 @@ function storeImage($dataJSON) {
         
         // Guardar la imagen en el servidor
         $rutaImagen = $directorioImagenes . $nombreImagen;
-        //$resultado = file_put_contents($rutaImagen, $contenidoDecodificado);
+        $resultado = file_put_contents($rutaImagen, $contenidoDecodificado);
         
         /*
         // Verificar si la imagen se guardó correctamente
