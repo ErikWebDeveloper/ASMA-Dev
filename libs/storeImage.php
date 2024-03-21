@@ -15,7 +15,7 @@ function storeImage($dataJSON) {
         
         // Guardar la imagen en el servidor
         $rutaImagen = $directorioImagenes . $nombreImagen;
-        //$resultado = file_put_contents($rutaImagen, $contenidoDecodificado);
+        $resultado = file_put_contents($rutaImagen, $contenidoDecodificado);
         
         /*
         // Verificar si la imagen se guardó correctamente
@@ -27,6 +27,6 @@ function storeImage($dataJSON) {
         return ['error' => true, 'mensaje' => "La imagen se ha almacenado correctamente."];
 
     } catch ( Exception $e){
-        return ['error' => true, 'mensaje' => "Ha ocurrido un error al almacenar la imagen."];
+        return ['error' => true, 'mensaje' => $e->getMessage()];
     }
 }
