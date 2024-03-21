@@ -59,7 +59,7 @@ class Subscripcio{
     }
 
     private function isValidData(){
-        $query = $this->model->find(["correo" => 'joan@joan.com']);
+        $query = $this->model->find(["subscripcion.correo" => 'joan@joan.com']);
         echo json_encode(['error' => true, 'mensaje' => $query]); 
     }
 
