@@ -6,8 +6,10 @@ class SubscripcioImageModel{
     private $pasportDirectorio = "/var/www/html/AppData/img/pass/";
 
     public function __construct() {
+        
     }
     public function handler($dataJSON){
+        $this->token = $dataJSON['csrf_token'];
         // Tarifa de grupos
         if($dataJSON['grupo'] != null){
             return $this->storeGrup($dataJSON);
@@ -81,7 +83,7 @@ class SubscripcioImageModel{
             // Objecto de la imagen Grupo
             $imagenGrupo = [
                 "dir"       => $this->gruposDirectorio,
-                "nombre"    => md5($dataJSON['grupo']['nombre']) . $extension,
+                "nombre"    => md5($dataJSON['grupo']['nombre']) . md5($this->token) . $extension,
                 "contenido" => $dataJSON['grupo']['imagen']['contenido']
             ];
 
@@ -104,7 +106,7 @@ class SubscripcioImageModel{
                 // Objecto de la imagen Grupo
                 $imagenUser = [
                     "dir"       => $this->usuariosDirectorio,
-                    "nombre"    => md5($user['user_name']) . $extension,
+                    "nombre"    => md5($user['user_name']) . md5($this->token) . $extension,
                     "contenido" => $user[$keyData . '_foto']['contenido']
                 ];
                 
@@ -132,7 +134,7 @@ class SubscripcioImageModel{
                 // Objecto de la imagen Grupo
                 $passUser = [
                     "dir"       => $this->pasportDirectorio,
-                    "nombre"    => md5($user['user_name']) . $extension,
+                    "nombre"    => md5($user['user_name']) . md5($this->token) . $extension,
                     "contenido" => $user[$keyData . '_pasport']['contenido']
                 ];
                 
