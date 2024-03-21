@@ -27,6 +27,8 @@ class SubscripcioImageModel{
         if(!$this->response['error']){
             $this->response = $this->passUser($dataJSON);
         }
+        // Devolver Respuesta
+        return $this->response;
     }
 
     private function storeUser($dataJSON){
