@@ -46,6 +46,22 @@ class SubscripcioModel {
 
         }
     }
+
+    public function find($itemObject){
+        // Crear query
+        $query = new MongoDB\Driver\Query($itemObject);
+        // Ejecutar la consulta
+        $cursor = $this->conexion->executeQuery($baseDatos . '.' $coleccion , $query);
+
+        // Iterar sobre los resultados
+        $resultados = [];
+        foreach ($cursor as $documento) {
+            $resultados[] = $documento;
+        }
+
+        // Devolver los resultados
+        return $resultados;
+    }
     /*
     public function mostrarDocumentos() {
         try {

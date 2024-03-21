@@ -15,7 +15,10 @@ class Subscripcio{
 	    $this->isPost();
         $this->isData();
         $this->isSession();
-        $this->sendResponse();
+        $this->isValidData();
+        // Verificar 
+        // Guardar
+        //$this->sendResponse();
     }
 
     private function isPost(){
@@ -55,6 +58,11 @@ class Subscripcio{
         }
     }
 
+    private function isValidData(){
+        $query = $this->model->find(["correo" => 'joan@joan.com']);
+        var_dump($response = ['error' => true, 'mensaje' => $query]); 
+    }
+
     private function saveToDb(){
 
     }
@@ -65,7 +73,7 @@ class Subscripcio{
         $this->response = $this->imageModel->handler($this->request);
         // Almacenar datos
         /*
-        if(!$this->response->error){
+        if(!$this->response['error']){
             $this->response = $this->model->insertarDocumento($this->request);
             echo json_encode($this->response);
         }*/
