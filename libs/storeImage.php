@@ -63,14 +63,11 @@ class SubscripcioImageModel{
             // Tipo de imagen
             $mimeType = $dataJSON['grupo']['imagen']['tipo'];
             $extension = '.' . substr($mimeType, strpos($mimeType, '/') + 1);
-
-            // Nombre de imagen
-            $imagenNombre = $this->sanitizarCadena($dataJSON['grupo']['nombre']);
     
             // Objecto de la imagen Grupo
             $imagenGrupo = [
                 "dir"       => $this->gruposDirectorio,
-                "nombre"    => md5($imagenNombre) . $extension,
+                "nombre"    => md5($dataJSON['grupo']['nombre']) . $extension,
                 "contenido" => $dataJSON['grupo']['imagen']['contenido']
             ];
 
