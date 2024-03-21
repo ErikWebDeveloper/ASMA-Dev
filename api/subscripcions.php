@@ -19,7 +19,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'OPTIONS') {
 }
 
 require_once '../controllers/subscripcioController.php';
-require_once '../models/subscripcioImageModel.php'
+require_once '../models/subscripcioImageModel.php';
 require_once '../models/subscripcioModel.php';
 
 
