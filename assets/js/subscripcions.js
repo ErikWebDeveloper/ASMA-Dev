@@ -852,7 +852,7 @@ class HandleSubmit {
     }
     // Usuario Individual
     else {
-      data["usuarios"] = this.controller.accordions[2].form.form.value;
+      data["usuarios"] = [this.controller.accordions[2].form.form.value];
     }
 
     return data;
