@@ -21,8 +21,8 @@ class SubscripcioImageModel{
                 
             // Guardar la imagen en el servidor
             $rutaImagen = $directorioImagenes . $nombreImagen;
-            //$resultado = file_put_contents($rutaImagen, $contenidoDecodificado);
-            $this->compresImage($contenidoImagen, 500, 75, $rutaImagen);
+            $compresImage = $this->comprimirImagen($contenidoImagen);
+            $resultado = file_put_contents($rutaImagen, $compresImage);
                 
             // Verificar si la imagen se guardó correctamente
             if ($resultado !== false) {
@@ -107,30 +107,30 @@ class SubscripcioImageModel{
 
     }
 
-    private function compresImage($contenidoDecodificado, $anchoMaximo = 500, $calidad = 75, $rutaGuardado) {
+    function comprimirImagen($contenidoImagenBase64, $calidad = 75) {
         // Decodificar la imagen desde base64
-        $imagenOriginal = imagecreatefromstring($contenidoDecodificado);
-
-        // Obtener las dimensiones originales de la imagen
-        $anchoOriginal = imagesx($imagenOriginal);
-        $altoOriginal = imagesy($imagenOriginal);
-
-        // Calcular el nuevo tamaño manteniendo la proporción (ancho máximo)
-        $nuevoAncho = $anchoMaximo;
-        $nuevoAlto = ($altoOriginal / $anchoOriginal) * $nuevoAncho;
-
-        // Crear una nueva imagen con el nuevo tamaño
-        $nuevaImagen = imagecreatetruecolor($nuevoAncho, $nuevoAlto);
-
-        // Redimensionar la imagen original a la nueva imagen
-        imagecopyresampled($nuevaImagen, $imagenOriginal, 0, 0, 0, 0, $nuevoAncho, $nuevoAlto, $anchoOriginal, $altoOriginal);
-
-        // Comprimir y guardar la nueva imagen
-        imagejpeg($nuevaImagen, $rutaGuardado, $calidad);
-
+        $contenidoDecodificado = base64_decode(substr($contenidoImagenBase64, strpos($contenidoImagenBase64, ',') + 1));
+        
+        // Crear una imagen desde el contenido decodificado
+        $imagen = imagecreatefromstring($contenidoDecodificado);
+        
+        // Crear un buffer de salida para almacenar la imagen comprimida
+        ob_start();
+        
+        // Guardar la imagen comprimida en el buffer de salida
+        imagejpeg($imagen, null, $calidad);
+        
+        // Obtener el contenido de la imagen comprimida desde el buffer de salida
+        $contenidoImagenComprimida = ob_get_contents();
+        
+        // Limpiar el buffer de salida
+        ob_end_clean();
+        
         // Liberar memoria
-        imagedestroy($imagenOriginal);
-        imagedestroy($nuevaImagen);
+        imagedestroy($imagen);
+        
+        // Devolver el contenido de la imagen comprimida
+        return $contenidoImagenComprimida;
     }
 
 
