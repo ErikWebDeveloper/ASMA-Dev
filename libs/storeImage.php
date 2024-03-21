@@ -12,27 +12,36 @@ class SubscripcioImageModel{
         if($dataJSON['grupo'] != null){
             return $this->storeGrup($dataJSON);
         }else{
-            return ['error' => true, 'mensaje' => "No es grupo."];
+            return $this->storeUser($dataJSON);
         }
     }   
 
     private function storeGrup($dataJSON){
+        $keyData = 'member';
         // Guardar Imagen de Grupo
         $this->response = $this->imgGrup($dataJSON);
         // Guardar Foto Usuarios
         if(!$this->response['error']){
-            $this->response = $this->imgUser($dataJSON);
+            $this->response = $this->imgUser($dataJSON, $keyData);
         }
         // Guardar Pasaportes
         if(!$this->response['error']){
-            $this->response = $this->passUser($dataJSON);
+            $this->response = $this->passUser($dataJSON, $keyData);
         }
         // Devolver Respuesta
         return $this->response;
     }
 
     private function storeUser($dataJSON){
-
+        $keyData = 'user';
+        // Guardar Foto Usuario
+        $this->response = $this->imgUser($dataJSON, $keyData);
+        // Guardar Pasaporte
+        if(!$this->response['error']){
+            $this->response = $this->passUser($dataJSON, $keyData);
+        }
+        // Devolver Respuesta
+        return $this->response;
     }
 
     private function storeImage($imageData) {
@@ -83,20 +92,20 @@ class SubscripcioImageModel{
         }
     }
 
-    private function imgUser($dataJSON){
+    private function imgUser($dataJSON, $keyData){
         $users = $dataJSON['usuarios'];
 
         try{
             foreach ($users as $user) {
                 //  Tipo de imagen
-                $mimeType = $user['member_foto']['tipo'];
+                $mimeType = $user[ $keyData . '_foto']['tipo'];
                 $extension = '.' . substr($mimeType, strpos($mimeType, '/') + 1);
         
                 // Objecto de la imagen Grupo
                 $imagenUser = [
                     "dir"       => $this->usuariosDirectorio,
                     "nombre"    => md5($user['user_name']) . $extension,
-                    "contenido" => $user['member_foto']['contenido']
+                    "contenido" => $user[$keyData . '_foto']['contenido']
                 ];
                 
                 $this->response = $this->storeImage($imagenUser);  
@@ -111,20 +120,20 @@ class SubscripcioImageModel{
         }
     }
 
-    private function passUser($dataJSON){
+    private function passUser($dataJSON, $keyData){
         $users = $dataJSON['usuarios'];
 
         try{
             foreach ($users as $user) {
                 //  Tipo de imagen
-                $mimeType = $user['member_pasport']['tipo'];
+                $mimeType = $user[ $keyData . '_pasport']['tipo'];
                 $extension = '.' . substr($mimeType, strpos($mimeType, '/') + 1);
         
                 // Objecto de la imagen Grupo
                 $passUser = [
                     "dir"       => $this->pasportDirectorio,
                     "nombre"    => md5($user['user_name']) . $extension,
-                    "contenido" => $user['member_pasport']['contenido']
+                    "contenido" => $user[$keyData . '_pasport']['contenido']
                 ];
                 
                 $this->response = $this->storeImage($passUser);
