@@ -8,6 +8,7 @@ class Subscripcio{
 
     function __construct(){
    	    $this->model = new SubscripcioModel();
+        $this->imageModel = new SubscripcioImageModel();
      	$this->run();
     }
 
@@ -62,7 +63,7 @@ class Subscripcio{
     private function sendResponse(){
 	    http_response_code(200); 
         // Almacenar imagenes
-        $this->response = storeImage($this->request);
+        $this->response = $this->imageModel->handler($this->request);
         // Almacenar datos
         /*
         if(!$this->response->error){
