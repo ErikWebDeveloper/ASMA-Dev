@@ -18,7 +18,7 @@ function storeImage($dataJSON) {
             $rutaImagen = $directorioImagenes . $nombreImagen;
             $resultado = file_put_contents($rutaImagen, $contenidoDecodificado);
         } catch (Exception $e){
-            return ['error' => true, 'mensaje' => $e->getMessage()];
+            return ['error' => true, 'mensaje' => "error"];
         }
         
         /*
