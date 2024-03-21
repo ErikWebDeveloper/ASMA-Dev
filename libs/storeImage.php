@@ -2,10 +2,10 @@
 
 function storeImage($dataJSON) {
     try{
-        /*
         // Ruta donde se guardarán las imágenes en el servidor
         $directorioImagenes = $_SERVER['DOCUMENT_ROOT'] . '/AppData/img';
-    
+        
+        /*
         // Obtener la información de la imagen del objeto JSON
         $nombreImagen = $dataJSON[0]['usuarios']['user_foto']['nombre'];
         $tipoImagen = $dataJSON[0]['usuarios']['user_foto']['tipo'];
@@ -24,7 +24,7 @@ function storeImage($dataJSON) {
         } else {
             return ['error' => true, 'mensaje' => "Ha ocurrido un error al almacenar la imagen."];
         }*/
-        return ['error' => false, 'mensaje' => "La imagen se ha almacenado correctamente."];
+        return ['error' => true, 'mensaje' => "La imagen se ha almacenado correctamente."];
 
     } catch ( Exception $e){
         return ['error' => true, 'mensaje' => "Ha ocurrido un error al almacenar la imagen."];
