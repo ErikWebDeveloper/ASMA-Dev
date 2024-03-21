@@ -1,6 +1,6 @@
 <?php
 
-class SubscripcioImageModel(){
+class SubscripcioImageModel{
     private $gruposDirectorio = "/var/www/html/AppData/img/grups";
     private $usuariosDirectorio = "/var/www/html/AppData/img/usuaris";
 
