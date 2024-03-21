@@ -14,8 +14,12 @@ function storeImage($dataJSON) {
         $contenidoDecodificado = base64_decode(substr($contenidoImagen, strpos($contenidoImagen, ',') + 1));
         
         // Guardar la imagen en el servidor
-        $rutaImagen = $directorioImagenes . $nombreImagen;
-        $resultado = file_put_contents($rutaImagen, $contenidoDecodificado);
+        try{
+            $rutaImagen = $directorioImagenes . $nombreImagen;
+            $resultado = file_put_contents($rutaImagen, $contenidoDecodificado);
+        } catch (Exception $e){
+            return ['error' => true, 'mensaje' => $e->getMessage()];
+        }
         
         /*
         // Verificar si la imagen se guardó correctamente
