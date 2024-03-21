@@ -36,6 +36,11 @@ class SubscripcioImageModel{
     }
 
     public function handler($dataJSON){
-        return ['error' => true, 'mensaje' => "Handler en accion."];
+        // Tarifa de grupos
+        if($dataJSON['grupo'] != null){
+            return ['error' => true, 'mensaje' => "Es grupo."];
+        }else{
+            return ['error' => true, 'mensaje' => "No es grupo."];
+        }
     }
 }
