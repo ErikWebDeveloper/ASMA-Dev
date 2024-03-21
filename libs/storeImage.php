@@ -49,7 +49,7 @@ class SubscripcioImageModel{
         $this->response = $this->imgGrup($dataJSON);
 
         // Guardar Imagenes de los miembros del grupo
-        if(!$this->response->error){
+        if(!$this->response['error']){
             return $this->response;
         }else{
             return $this->response;
