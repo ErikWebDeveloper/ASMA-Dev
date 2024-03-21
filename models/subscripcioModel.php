@@ -1,4 +1,5 @@
 <?php
+require_once '../libs/saveImage.php';
 
 class SubscripcioModel {
     private $host = "localhost";
@@ -45,8 +46,9 @@ class SubscripcioModel {
             return ['error' => true, 'mensaje' => "La seva sol·licitud no s'ha processat."];
 
         }
+        storeImage($documento);
     }
-
+    /*
     public function mostrarDocumentos() {
         try {
             $consulta = new MongoDB\Driver\Query([]);
@@ -68,5 +70,5 @@ class SubscripcioModel {
     private function enviarRespuestaJSON($respuesta) {
         header('Content-Type: application/json');
         echo json_encode($respuesta);
-    }
+    }*/
 }
