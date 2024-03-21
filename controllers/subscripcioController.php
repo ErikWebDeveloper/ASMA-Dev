@@ -69,7 +69,7 @@ class Subscripcio{
             $this->response = $this->model->insertarDocumento($this->request);
             echo json_encode($this->response);
         }*/
-        return ['error' => true, 'mensaje' => "Ha ocurrido un error de testing."];
+        $this->response = ['error' => true, 'mensaje' => "Ha ocurrido un error de testing."];
         echo json_encode($this->response);
     }
 
