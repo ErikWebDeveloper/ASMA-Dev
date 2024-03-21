@@ -101,7 +101,7 @@ class SubscripcioImageModel{
                 
                 $this->response = $this->storeImage($imagenUser);  
 
-                if($this->reponse['error']) break;           
+                if($this->response['error']) break;           
             }
 
             return $this->response;
@@ -129,7 +129,7 @@ class SubscripcioImageModel{
                 
                 $this->response = $this->storeImage($passUser);
 
-                if($this->reponse['error']) break;  
+                if($this->response['error']) break;  
             }
 
             return $this->response;   
