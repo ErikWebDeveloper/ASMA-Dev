@@ -50,7 +50,7 @@ class SubscripcioImageModel{
 
         // Guardar Imagenes de los miembros del grupo
         if(!$this->response->error){
-
+            return $this->response;
         }else{
             return $this->response;
         }
