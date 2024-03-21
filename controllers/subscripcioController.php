@@ -1,5 +1,5 @@
 <?php
-require_once '../libs/storeImage.php'
+require_once '../libs/storeImage.php';
 
 class Subscripcio{
 
