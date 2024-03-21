@@ -1,5 +1,4 @@
 <?php
-require_once '../libs/saveImage.php';
 
 class SubscripcioModel {
     private $host = "localhost";
@@ -46,7 +45,6 @@ class SubscripcioModel {
             return ['error' => true, 'mensaje' => "La seva sol·licitud no s'ha processat."];
 
         }
-        storeImage($documento);
     }
     /*
     public function mostrarDocumentos() {
