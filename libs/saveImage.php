@@ -2,7 +2,7 @@
 
 function storeImage($dataJSON) {
     // Ruta donde se guardarán las imágenes en el servidor
-    $directorioImagenes = $_SERVER['DOCUMENT_ROOT'] . 'AppData/img';
+    $directorioImagenes = $_SERVER['DOCUMENT_ROOT'] . '/AppData/img';
 
     // Obtener la información de la imagen del objeto JSON
     $nombreImagen = $dataJSON[0]['usuarios']['user_foto']['nombre'];
