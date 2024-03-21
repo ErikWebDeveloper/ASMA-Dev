@@ -35,7 +35,7 @@ class SubscripcioImageModel{
         }
     }
 
-    private function handler($dataJSON){
+    public function handler($dataJSON){
         return ['error' => true, 'mensaje' => "Handler en accion."];
     }
 }
