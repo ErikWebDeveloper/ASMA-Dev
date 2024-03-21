@@ -70,7 +70,7 @@ class SubscripcioImageModel{
             // Objecto de la imagen Grupo
             $imagenGrupo = [
                 "dir"       => $this->gruposDirectorio,
-                "nombre"    => $dataJSON['grupo']['nombre'] . $extension,
+                "nombre"    => $this->sanitizarCadena($dataJSON['grupo']['nombre']) . $extension,
                 "contenido" => $dataJSON['grupo']['imagen']['contenido']
             ];
 
