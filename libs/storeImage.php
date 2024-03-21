@@ -27,6 +27,6 @@ function storeImage($dataJSON) {
         return ['error' => true, 'mensaje' => $directorioImagenes];
 
     } catch ( Exception $e){
-        return ['error' => true, 'mensaje' => $e->getMessage()];
+        return ['error' => true, 'mensaje' => 'Ha ocurrido un error al almacenar la imagen.' . $e->getMessage()];
     }
 }
