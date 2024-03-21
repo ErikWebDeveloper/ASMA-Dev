@@ -45,7 +45,7 @@ class SubscripcioImageModel{
         $cadena = str_replace('.', '', $cadena);
 
         
-        return $cadena;
+        return md5($cadena);
     }
 
     public function handler($dataJSON){
