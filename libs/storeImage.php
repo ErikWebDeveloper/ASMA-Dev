@@ -1,8 +1,8 @@
 <?php
 
 class SubscripcioImageModel{
-    private $gruposDirectorio = "/var/www/html/AppData/img/grups";
-    private $usuariosDirectorio = "/var/www/html/AppData/img/usuaris";
+    private $gruposDirectorio = "/var/www/html/AppData/img/grups/";
+    private $usuariosDirectorio = "/var/www/html/AppData/img/usuaris/";
 
     public function __construct() {
     }
