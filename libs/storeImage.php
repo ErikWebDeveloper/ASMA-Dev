@@ -56,7 +56,7 @@ class SubscripcioImageModel{
                 "dir"       => $gruposDirectorio,
                 "nombre"    => $dataJSON['grupo']['nombre'] . $extension,
                 "contenido" => $dataJSON['grupo']['imagen']['contenido']
-            ]
+            ];
 
             $this->storeImage($imagenGrupo);
 
