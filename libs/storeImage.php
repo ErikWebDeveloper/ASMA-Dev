@@ -53,7 +53,7 @@ class SubscripcioImageModel{
     public function handler($dataJSON){
         // Tarifa de grupos
         if($dataJSON['grupo'] != null){
-            $this->storeGrup($dataJSON);
+            return $this->storeGrup($dataJSON);
         }else{
             return ['error' => true, 'mensaje' => "No es grupo."];
         }
@@ -74,7 +74,7 @@ class SubscripcioImageModel{
                 "contenido" => $dataJSON['grupo']['imagen']['contenido']
             ];
 
-            $this->storeImage($imagenGrupo);
+            return $this->storeImage($imagenGrupo);
 
         } catch ( Exception $e){
             return ['error' => true, 'mensaje' => "Es grupo, no se ha posido guardar."];
