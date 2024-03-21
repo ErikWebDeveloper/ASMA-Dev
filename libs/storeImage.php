@@ -22,7 +22,7 @@ class SubscripcioImageModel{
             // Guardar la imagen en el servidor
             $rutaImagen = $directorioImagenes . $nombreImagen;
             //$resultado = file_put_contents($rutaImagen, $contenidoDecodificado);
-            $this->compresImage($contenidoImagen, 500, 75, $rutaImagen)
+            $this->compresImage($contenidoImagen, 500, 75, $rutaImagen);
                 
             // Verificar si la imagen se guardó correctamente
             if ($resultado !== false) {
