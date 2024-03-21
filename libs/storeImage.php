@@ -7,15 +7,14 @@ class SubscripcioImageModel{
     public function __construct() {
     }
 
-    private function storeImage($dataJSON, $directorio) {
+    private function storeImage($imageData) {
         try{
             // Ruta donde se guardarán las imágenes en el servidor
-            $directorioImagenes = $directorio;
+            $directorioImagenes = $imageData['dir'];
                 
             // Obtener la información de la imagen del objeto JSON
-            $nombreImagen = $dataJSON['usuarios']['user_foto']['nombre'];
-            $tipoImagen = $dataJSON['usuarios']['user_foto']['tipo'];
-            $contenidoImagen = $dataJSON['usuarios']['user_foto']['contenido'];
+            $nombreImagen = $imageData['nombre'];
+            $contenidoImagen = $imageData['contenido'];
                 
             // Decodificar el contenido de la imagen
             $contenidoDecodificado = base64_decode(substr($contenidoImagen, strpos($contenidoImagen, ',') + 1));
@@ -26,7 +25,7 @@ class SubscripcioImageModel{
                 
             // Verificar si la imagen se guardó correctamente
             if ($resultado !== false) {
-                return ['error' => false, 'mensaje' => "La imagen se ha almacenado correctamente."];
+                return ['error' => true, 'mensaje' => "La imagen se ha almacenado correctamente."];
             } else {
                 return ['error' => true, 'mensaje' => "Ha ocurrido un error al almacenar la imagen."];
             }
@@ -38,9 +37,34 @@ class SubscripcioImageModel{
     public function handler($dataJSON){
         // Tarifa de grupos
         if($dataJSON['grupo'] != null){
-            return ['error' => true, 'mensaje' => "Es grupo."];
+            $this->storeGrup($dataJSON);
         }else{
             return ['error' => true, 'mensaje' => "No es grupo."];
         }
     }
+
+    private function storeGrup($dataJSON){
+        try{
+            // *** Recolectar datos para la funcion $this->storeImage() ***
+    
+            // Tipo de imagen
+            $mimeType = $dataJSON['grupo']['imagen']['tipo'];
+            $extension = '.' . substr($mimeType, strpos($mimeType, '/') + 1);
+    
+            // Objecto de la imagen Grupo
+            $imagenGrupo = [
+                "dir"       => $gruposDirectorio,
+                "nombre"    => $dataJSON['grupo']['nombre'] . $extension,
+                "contenido" => $dataJSON['grupo']['imagen']['contenido']
+            ]
+
+            $this->storeImage($imagenGrupo);
+
+        } catch ( Exception $e){
+            return ['error' => true, 'mensaje' => "Es grupo, no se ha posido guardar."];
+        }
+
+    }
+
+    private function storeUser(){}
 }
