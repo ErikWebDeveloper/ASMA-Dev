@@ -34,6 +34,19 @@ class SubscripcioImageModel{
         }
     }
 
+    function sanitizarCadena($cadena) {
+        // Convertir la cadena a minúsculas
+        $cadena = strtolower($cadena);
+        
+        // Reemplazar espacios con guiones
+        $cadena = str_replace(' ', '-', $cadena);
+        
+        // Eliminar puntos
+        $cadena = str_replace('.', '', $cadena);
+        
+        return $cadena;
+    }
+
     public function handler($dataJSON){
         // Tarifa de grupos
         if($dataJSON['grupo'] != null){
@@ -54,7 +67,7 @@ class SubscripcioImageModel{
             // Objecto de la imagen Grupo
             $imagenGrupo = [
                 "dir"       => $this->gruposDirectorio,
-                "nombre"    => $dataJSON['grupo']['nombre'] . $extension,
+                "nombre"    => $this->sanitizarCadena($dataJSON['grupo']['nombre']) . $extension,
                 "contenido" => $dataJSON['grupo']['imagen']['contenido']
             ];
 
