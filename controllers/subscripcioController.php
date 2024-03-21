@@ -64,10 +64,11 @@ class Subscripcio{
         // Almacenar imagenes
         $this->response = storeImage($this->request);
         // Almacenar datos
+        /*
         if(!$this->response->error){
             $this->response = $this->model->insertarDocumento($this->request);
             echo json_encode($this->response);
-        }
+        }*/
         echo json_encode($this->response);
     }
 
