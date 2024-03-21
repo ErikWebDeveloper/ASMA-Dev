@@ -62,7 +62,7 @@ class Subscripcio{
     private function sendResponse(){
 	    http_response_code(200); 
         // Almacenar imagenes
-        //$this->response = storeImage($this->request);
+        $this->response = storeImage($this->request);
         // Almacenar datos
         /*
         if(!$this->response->error){
