@@ -98,9 +98,14 @@ class SubscripcioImageModel{
                     "nombre"    => md5($user['user_name']) . $extension,
                     "contenido" => $user['member_foto']['contenido']
                 ];
-    
-                return $this->storeImage($imagenUser);              
+                
+                $this->response = $this->storeImage($imagenUser);  
+
+                if($this->reponse['error']) break;           
             }
+
+            return $this->response;
+
         } catch ( Exception $e){
             return ['error' => true, 'mensaje' => "El usuario, no se ha posido guardar."];
         }
@@ -116,14 +121,19 @@ class SubscripcioImageModel{
                 $extension = '.' . substr($mimeType, strpos($mimeType, '/') + 1);
         
                 // Objecto de la imagen Grupo
-                $imagenUser = [
+                $passUser = [
                     "dir"       => $this->pasportDirectorio,
                     "nombre"    => md5($user['user_name']) . $extension,
                     "contenido" => $user['member_pasport']['contenido']
                 ];
-    
-                return $this->storeImage($imagenUser);              
+                
+                $this->response = $this->storeImage($passUser);
+
+                if($this->reponse['error']) break;  
             }
+
+            return $this->response;   
+
         } catch ( Exception $e){
             return ['error' => true, 'mensaje' => "El usuario, no se ha posido guardar."];
         }
