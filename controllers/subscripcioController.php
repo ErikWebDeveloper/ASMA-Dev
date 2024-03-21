@@ -62,13 +62,14 @@ class Subscripcio{
     private function sendResponse(){
 	    http_response_code(200); 
         // Almacenar imagenes
-        $this->response = storeImage($this->request);
+        //$this->response = storeImage($this->request);
         // Almacenar datos
         /*
         if(!$this->response->error){
             $this->response = $this->model->insertarDocumento($this->request);
             echo json_encode($this->response);
         }*/
+        return ['error' => true, 'mensaje' => "Ha ocurrido un error de testing."];
         echo json_encode($this->response);
     }
 
