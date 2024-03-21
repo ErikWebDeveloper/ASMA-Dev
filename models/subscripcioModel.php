@@ -51,7 +51,7 @@ class SubscripcioModel {
         // Crear query
         $query = new MongoDB\Driver\Query($itemObject);
         // Ejecutar la consulta
-        $cursor = $this->conexion->executeQuery($baseDatos . '.' $coleccion , $query);
+        $cursor = $this->conexion->executeQuery($baseDatos . '.' . $coleccion , $query);
 
         // Iterar sobre los resultados
         $resultados = [];
