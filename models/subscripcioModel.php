@@ -60,7 +60,11 @@ class SubscripcioModel {
         }
 
         // Devolver los resultados
-        return $resultados;
+        if(empty($resultados)) {
+            return null;
+        }else{
+            return $resultados;
+        }
     }
     /*
     public function mostrarDocumentos() {
