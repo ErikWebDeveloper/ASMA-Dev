@@ -115,7 +115,7 @@ class SubscripcioImageModel{
         
                 // Objecto de la imagen Grupo
                 $imagenUser = [
-                    "dir"       => $this->usuariosDirectorio,
+                    "dir"       => $this->pasportDirectorio,
                     "nombre"    => md5($user['user_name']) . $extension,
                     "contenido" => $user['member_pasport']['contenido']
                 ];
