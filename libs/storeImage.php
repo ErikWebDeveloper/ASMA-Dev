@@ -3,8 +3,17 @@
 class SubscripcioImageModel{
     private $gruposDirectorio = "/var/www/html/AppData/img/grups/";
     private $usuariosDirectorio = "/var/www/html/AppData/img/usuaris/";
+    private $pasportDirectorio = "/var/www/html/AppData/img/pass/";
 
     public function __construct() {
+    }
+    public function handler($dataJSON){
+        // Tarifa de grupos
+        if($dataJSON['grupo'] != null){
+            return $this->storeGrup($dataJSON);
+        }else{
+            return ['error' => true, 'mensaje' => "No es grupo."];
+        }
     }
 
     private function storeImage($imageData) {
@@ -35,19 +44,13 @@ class SubscripcioImageModel{
         }
     }
 
-    public function handler($dataJSON){
-        // Tarifa de grupos
-        if($dataJSON['grupo'] != null){
-            return $this->storeGrup($dataJSON);
-        }else{
-            return ['error' => true, 'mensaje' => "No es grupo."];
-        }
-    }
-
     private function storeGrup($dataJSON){
         // Guardar Imagen de Grupo
         $this->response = $this->imgGrup($dataJSON);
-
+        // Guardar Foto Usuario
+        if(!$this->response['error']){
+            $this->response = $this->imgUser($dataJSON);
+        }
         // Guardar Imagenes de los miembros del grupo
         if(!$this->response['error']){
             return $this->response;
@@ -58,8 +61,6 @@ class SubscripcioImageModel{
 
     private function imgGrup($dataJSON){
         try{
-            // *** Recolectar datos para la funcion $this->storeImage() ***
-    
             // Tipo de imagen
             $mimeType = $dataJSON['grupo']['imagen']['tipo'];
             $extension = '.' . substr($mimeType, strpos($mimeType, '/') + 1);
@@ -79,27 +80,25 @@ class SubscripcioImageModel{
     }
 
     private function imgUser($dataJSON){
+        $users = $dataJSON['usuarios'];
+
         try{
-            // *** Recolectar datos para la funcion $this->storeImage() ***
+            foreach ($users as $user) {
+                //  Tipo de imagen
+                $mimeType = $user['member_foto']['tipo'];
+                $extension = '.' . substr($mimeType, strpos($mimeType, '/') + 1);
+        
+                // Objecto de la imagen Grupo
+                $imagenUser = [
+                    "dir"       => $this->usuariosDirectorio,
+                    "nombre"    => md5($user['user_name']) . $extension,
+                    "contenido" => $user['member_foto']['contenido']
+                ];
     
-            // Tipo de imagen
-            $mimeType = $dataJSON['grupo']['imagen']['tipo'];
-            $extension = '.' . substr($mimeType, strpos($mimeType, '/') + 1);
-
-            // Nombre de imagen
-            $imagenNombre = $this->sanitizarCadena($dataJSON['grupo']['nombre']);
-    
-            // Objecto de la imagen Grupo
-            $imagenGrupo = [
-                "dir"       => $this->gruposDirectorio,
-                "nombre"    => md5($imagenNombre) . $extension,
-                "contenido" => $dataJSON['grupo']['imagen']['contenido']
-            ];
-
-            return $this->storeImage($imagenGrupo);
-
+                return $this->storeImage($imagenUser);              
+            }
         } catch ( Exception $e){
-            return ['error' => true, 'mensaje' => "Es grupo, no se ha posido guardar."];
+            return ['error' => true, 'mensaje' => "El usuario, no se ha posido guardar."];
         }
     }
 
