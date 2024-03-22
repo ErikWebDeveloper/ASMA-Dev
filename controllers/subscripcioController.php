@@ -77,7 +77,8 @@ class Subscripcio{
                 "telefon"   => isset($this->request['subscripcion']['telefono'])    ? $this->request['subscripcion']['telefono'] : null,
                 "bolleti"   => isset($this->request['subscripcion']['boletin'])     ? $this->request['subscripcion']['boletin'] : null,
                 "pagament"  => isset($this->request['subscripcion']['metodoPago'])  ? $this->request['subscripcion']['metodoPago'] : null,
-                "data_alta" => $this->timeStamp()
+                "data_alta" => $this->timeStamp(),
+                "operatiu"  => false
 
             ],
             "grup"          => [],
