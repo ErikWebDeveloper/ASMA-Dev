@@ -72,11 +72,11 @@ class Subscripcio{
         $dataExpected = [
             "csrf"          => isset($this->request['csrf_token']) ? $this->request['csrf_token'] : null, 
             "subscripcio"   => [
-                "tarifa"    => isset($this->request['tarifa']) ? $this->request['tarifa'] : null,
-                "correu"    => isset($this->request['correo']) ? $this->request['correo'] : null,
-                "telefon"   => isset($this->request['telefono']) ? $this->request['telefono'] : null,
-                "bolleti"   => isset($this->request['boletin']) ? $this->request['boletin'] : null,
-                "pagament"  => isset($this->request['metodoPago']) ? $this->request['metodoPago'] : null,
+                "tarifa"    => isset($this->request['subscripcion']['tarifa'])      ? $this->request['subscripcion']['tarifa'] : null,
+                "correu"    => isset($this->request['subscripcion']['correo'])      ? $this->request['subscripcion']['correo'] : null,
+                "telefon"   => isset($this->request['subscripcion']['telefono'])    ? $this->request['subscripcion']['telefono'] : null,
+                "bolleti"   => isset($this->request['subscripcion']['boletin'])     ? $this->request['subscripcion']['boletin'] : null,
+                "pagament"  => isset($this->request['subscripcion']['metodoPago'])  ? $this->request['subscripcion']['metodoPago'] : null,
             ],
             "grup"          => [],
             "usuaris"       => [],
