@@ -16,8 +16,8 @@ class Subscripcio{
         $this->isData();
         $this->isSession();
         $this->isValidData();
-        $this->sanitizeData();
-        $this->storeData();
+        $cleanData = $this->sanitizeData();
+        $this->storeData($cleanData);
         $this->sendResponse();
     }
 
@@ -128,16 +128,17 @@ class Subscripcio{
             $this->sendResponse(406, $this->response);
         }
 
+        return $dataExpected;
 
     }
 
-    private function storeData(){
+    private function storeData($cleanData){
         // Almacenar Imagenes
         $isValidImage = $this->imageModel->handler($this->request);
         if($isValidImage['error']) $this->sendResponse(406, $isValidImage);
 
         // Alamacenar Datos
-        $isValidData = $this->model->insertarDocumento($this->request);
+        $isValidData = $this->model->insertarDocumento($cleanData);
         if($isValidData['error']) $this->sendResponse(406, $isValidData);
     }
 
