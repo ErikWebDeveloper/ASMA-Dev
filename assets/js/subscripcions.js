@@ -798,6 +798,7 @@ class FormPolicy{
     listener(){
         this.inputs[0].addEventListener('change', (e) => {this.callback(e)})
         this.inputs[1].addEventListener('change', (e) => {this.callback(e)})
+        this.inputs[2].addEventListener('change', (e) => {this.callback(e)})
     }
 }
 
