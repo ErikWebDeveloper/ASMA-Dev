@@ -82,7 +82,7 @@ class Subscripcio{
             "usuaris"       => [],
             "big_data"      => isset($this->request['bigData']) ? $this->request['bigData'] : null
         ];
-
+        /*
         // Preparar Grupo    
         if(isset($this->request['grupo']) && $this->request['grupo'] != null){
             // Tipo de imagen
@@ -126,7 +126,7 @@ class Subscripcio{
         }else{
             $this->response = ["error" => true, "mensaje" => "Sembla que hi ha algun error de dades a l'apartat d'usuari."];
             $this->sendResponse(406, $this->response);
-        }
+        }*/
 
         return $dataExpected;
 
