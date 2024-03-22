@@ -96,15 +96,15 @@ class Subscripcio{
         }
 
         // Preparar Usuarios    
-        if(isset($this->request['usuaris']) && $this->request['usuaris'] != null){
+        if(isset($this->request['usuarios']) && $this->request['usuarios'] != null){
             // Obtener la key Data
-            if(count($this->request['usuaris']) > 1){
+            if(count($this->request['usuarios']) > 1){
                 $keyData = "member";
             }else{
                 $keyData = "user";
             }
             // Iterar sobre los usuarios
-            foreach($this->request['usuaris'] as $user){
+            foreach($this->request['usuarios'] as $user){
                 // Tipo de imagen Foto
                 $mimeType = $user[ $keyData . '_foto']['tipo'];
                 $extensionFoto = '.' . substr($mimeType, strpos($mimeType, '/') + 1);
