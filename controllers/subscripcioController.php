@@ -77,6 +77,8 @@ class Subscripcio{
                 "telefon"   => isset($this->request['subscripcion']['telefono'])    ? $this->request['subscripcion']['telefono'] : null,
                 "bolleti"   => isset($this->request['subscripcion']['boletin'])     ? $this->request['subscripcion']['boletin'] : null,
                 "pagament"  => isset($this->request['subscripcion']['metodoPago'])  ? $this->request['subscripcion']['metodoPago'] : null,
+                "data_alta" => $this->timeStamp()
+
             ],
             "grup"          => [],
             "usuaris"       => [],
@@ -143,6 +145,14 @@ class Subscripcio{
 	    http_response_code($statusCode); 
         echo json_encode($response);
         exit;
+    }
+
+    private function timeStamp(){
+        // Obtener el timestamp actual
+        $timestamp = time();
+
+        // Formatear el timestamp en el formato h:min dd/mm/yyyy
+        return date('H:i d/m/Y', $timestamp);
     }
 
 }
