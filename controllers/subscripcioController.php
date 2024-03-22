@@ -60,7 +60,7 @@ class Subscripcio{
 
     private function isValidData(){
         // Validar Correo Existente
-        $query = $this->model->find(["subscripcion.correo" => $this->request['subscripcio']['correu']]);
+        $query = $this->model->find(["subscripcio.correu" => $this->request['subscripcion']['correo']]);
         if($query != null){
             $this->response = [ "error" => true, "mensaje" => 'Sembla que el correu electrònic ja està en ús.'];
             $this->sendResponse(200, $this->response);
