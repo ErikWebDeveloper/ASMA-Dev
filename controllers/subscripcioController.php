@@ -93,9 +93,6 @@ class Subscripcio{
                 "nom"   => $this->request['grupo']['nombre'],
                 "logo"  => md5($this->request['grupo']['nombre']) . md5($this->request['csrf_token']) . $extension
             ];
-        }else{
-            $this->response = ["error" => true, "mensaje" => "Sembla que hi ha algun error de dades a l'apartat grup."];
-            $this->sendResponse(200, $this->response);
         }
 
         // Preparar Usuarios    
