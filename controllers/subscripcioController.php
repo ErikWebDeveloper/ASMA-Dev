@@ -63,7 +63,7 @@ class Subscripcio{
         $query = $this->model->find(["subscripcion.correo" => $this->request['subscripcion']['correo']]);
         if($query != null){
             $this->response = [ "error" => true, "mensaje" => 'Sembla que el correu electrònic ja està en ús.'];
-            $this->sendResponse(400, $this->response);
+            $this->sendResponse(200, $this->response);
         }
     }
 
@@ -95,7 +95,7 @@ class Subscripcio{
             ];
         }else{
             $this->response = ["error" => true, "mensaje" => "Sembla que hi ha algun error de dades a l'apartat grup."];
-            $this->sendResponse(400, $this->response);
+            $this->sendResponse(200, $this->response);
         }
 
         // Preparar Usuarios    
@@ -125,7 +125,7 @@ class Subscripcio{
             }
         }else{
             $this->response = ["error" => true, "mensaje" => "Sembla que hi ha algun error de dades a l'apartat d'usuari."];
-            $this->sendResponse(400, $this->response);
+            $this->sendResponse(200, $this->response);
         }
 
         return $dataExpected;
@@ -135,11 +135,11 @@ class Subscripcio{
     private function storeData($cleanData){
         // Almacenar Imagenes
         $isValidImage = $this->imageModel->handler($this->request);
-        if($isValidImage['error']) $this->sendResponse(406, $isValidImage);
+        if($isValidImage['error']) $this->sendResponse(200, $isValidImage);
 
         // Alamacenar Datos
         $isValidData = $this->model->insertarDocumento($cleanData);
-        if($isValidData['error']) $this->sendResponse(406, $isValidData);
+        if($isValidData['error']) $this->sendResponse(200, $isValidData);
     }
 
     private function sendResponse($statusCode = 200, $response = ["error" => false, "mensaje" => "Operació exitosa."]){
