@@ -26,7 +26,8 @@ if (!isset($_SESSION['csrf_token'])) {
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.min.js"
         integrity="sha384-BBtl+eGJRgqQAUMxJ7pMwbEyER4l1g+O15P+16Ep7Q9Q+zqX6gSbd85u4mG4QzX+"
         crossorigin="anonymous"></script>
-        
+     <!-- Lib Scaner -->   
+    <script src="https://rawgit.com/schmich/instascan-builds/master/instascan.min.js"></script>
 
     <link rel="stylesheet" href="/assets/css/main.css">
 </head>
@@ -38,7 +39,47 @@ if (!isset($_SESSION['csrf_token'])) {
     <!-- NavBar -->
     <?php require_once './components/navbar.php'; ?>
 
+    <div>
+        <div id="scanner-container">
+            <video id="scanner-video" playsinline style="display: none;"></video>
+            <canvas id="scanner-canvas" style="display: none;"></canvas>
+        </div>
+        <div id="resultado-escaneo"></div>
+        <button id="start-scan-button">Empezar a escanear</button>
+    </div>
+
     <!-- Footer -->
     <?php require_once './components/footer.php' ?>
+
+    <script>
+        // Inicializar el escáner
+        let scanner = null;
+
+        // Función para comenzar el escaneo
+        function startScan() {
+          scanner = new Instascan.Scanner({ video: document.getElementById('scanner-video') });
+
+          // Escuchar el evento de escaneo
+          scanner.addListener('scan', function(content) {
+            // Mostrar el resultado del escaneo
+            document.getElementById('resultado-escaneo').innerText = content;
+          });
+
+          // Obtener las cámaras disponibles
+          Instascan.Camera.getCameras().then(function(cameras) {
+            if (cameras.length > 0) {
+              // Iniciar el escaneo con la primera cámara disponible
+              scanner.start(cameras[0]);
+            } else {
+              console.error('No se detectó ninguna cámara.');
+            }
+          }).catch(function(e) {
+            console.error(e);
+          });
+        }
+
+        // Obtener el botón "Empezar a escanear" y agregar un evento de clic
+        document.getElementById('start-scan-button').addEventListener('click', startScan);
+    </script>
 <body>
 </html>
