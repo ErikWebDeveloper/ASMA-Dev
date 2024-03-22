@@ -63,13 +63,13 @@ class Subscripcio{
         $query = $this->model->find(["subscripcion.correo" => $this->request['subscripcion']['correo']]);
         if($query != null){
             $this->response = [ "error" => true, "mensaje" => 'Sembla que el correu electrònic ja està en ús.'];
-            $this->sendResponse(406, $this->response);
+            $this->sendResponse(400, $this->response);
         }
     }
 
     private function sanitizeData(){
         // Estructura de datos
-        /*$dataExpected = [
+        $dataExpected = [
             "csrf"          => isset($this->request['csrf_token']) ? $this->request['csrf_token'] : null, 
             "subscripcio"   => [
                 "tarifa"    => isset($this->request['tarifa']) ? $this->request['tarifa'] : null,
@@ -95,7 +95,7 @@ class Subscripcio{
             ];
         }else{
             $this->response = ["error" => true, "mensaje" => "Sembla que hi ha algun error de dades a l'apartat grup."];
-            $this->sendResponse(406, $this->response);
+            $this->sendResponse(400, $this->response);
         }
 
         // Preparar Usuarios    
@@ -125,9 +125,9 @@ class Subscripcio{
             }
         }else{
             $this->response = ["error" => true, "mensaje" => "Sembla que hi ha algun error de dades a l'apartat d'usuari."];
-            $this->sendResponse(406, $this->response);
-        }*/
-        $dataExpected = true;
+            $this->sendResponse(400, $this->response);
+        }
+
         return $dataExpected;
 
     }
