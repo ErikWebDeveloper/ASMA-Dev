@@ -16,7 +16,7 @@ class Subscripcio{
         $this->isData();
         $this->isSession();
         $this->isValidData();
-        //$cleanData = $this->sanitizeData();
+        $cleanData = $this->sanitizeData();
         //$this->storeData($cleanData);
         $this->sendResponse();
     }
