@@ -118,7 +118,7 @@ class Subscripcio{
     
                 $dataExpected['usuaris'] = [
                     "nom"           => $user['user_name'],
-                    "instrument"    => $user['user_instrument']
+                    "instrument"    => $user['user_instrument'],
                     "foto"          => md5($user['user_name']) . md5($this->request['csrf_token']) . $extensionFoto,
                     "pasaport"      => md5($user['user_name']) . md5($this->request['csrf_token']) . $extensionPasport,
                 ];
