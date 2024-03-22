@@ -69,7 +69,7 @@ class Subscripcio{
 
     private function sanitizeData(){
         // Estructura de datos
-        $dataExpected = [
+        /*$dataExpected = [
             "csrf"          => isset($this->request['csrf_token']) ? $this->request['csrf_token'] : null, 
             "subscripcio"   => [
                 "tarifa"    => isset($this->request['tarifa']) ? $this->request['tarifa'] : null,
@@ -82,7 +82,7 @@ class Subscripcio{
             "usuaris"       => [],
             "big_data"      => isset($this->request['bigData']) ? $this->request['bigData'] : null
         ];
-        /*
+        
         // Preparar Grupo    
         if(isset($this->request['grupo']) && $this->request['grupo'] != null){
             // Tipo de imagen
@@ -127,7 +127,7 @@ class Subscripcio{
             $this->response = ["error" => true, "mensaje" => "Sembla que hi ha algun error de dades a l'apartat d'usuari."];
             $this->sendResponse(406, $this->response);
         }*/
-
+        $dataExpected = true;
         return $dataExpected;
 
     }
