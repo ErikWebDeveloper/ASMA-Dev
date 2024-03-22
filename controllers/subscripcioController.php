@@ -115,13 +115,15 @@ class Subscripcio{
                 // Tipo de imagen Pasaporte
                 $mimeType = $user[ $keyData . '_pasport']['tipo'];
                 $extensionPasport = '.' . substr($mimeType, strpos($mimeType, '/') + 1);
-    
-                $dataExpected['usuaris'] = [
+                
+                $newUser = [
                     "nom"           => $user['user_name'],
                     "instrument"    => $user['user_instrument'],
                     "foto"          => md5($user['user_name']) . md5($this->request['csrf_token']) . $extensionFoto,
                     "pasaport"      => md5($user['user_name']) . md5($this->request['csrf_token']) . $extensionPasport,
                 ];
+
+                array_unshift($dataExpected['usuaris'], $newUser);
             }
         }else{
             $this->response = ["error" => true, "mensaje" => "Sembla que hi ha algun error de dades a l'apartat d'usuari."];
