@@ -182,7 +182,7 @@ class SubscripcioImageModel{
 
     private function procesarImagen($imagenBase64) {
         // Decodificar la imagen base64
-        $imagenDecodificada = base64_decode($imagenBase64);
+        $imagenDecodificada = base64_decode(substr($imagenBase64, strpos($imagenBase64, ',') + 1));;
 
         // Crear una imagen a partir de la cadena decodificada
         $imagen = imagecreatefromstring($imagenDecodificada);
