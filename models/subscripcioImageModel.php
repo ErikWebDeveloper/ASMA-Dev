@@ -8,7 +8,9 @@ class SubscripcioImageModel{
     public function __construct() {
         $this->gruposDirectorio = $_SERVER['DOCUMENT_ROOT'] . "/AppData/img/grups/";
         $this->usuariosDirectorio = $_SERVER['DOCUMENT_ROOT'] . "/AppData/img/usuaris/";
-        $this->pasportDirectorio = $_SERVER['DOCUMENT_ROOT'] . "/AppData/img/pass/";
+        //$this->pasportDirectorio = $_SERVER['DOCUMENT_ROOT'] . "/AppData/img/pass/";
+        $this->pasportDirectorio = $_SERVER['DOCUMENT_ROOT'] . "../private/uploads/pass/";
+
     }
     public function handler($dataJSON){
         $this->token = $dataJSON['csrf_token'];
