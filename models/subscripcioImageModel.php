@@ -56,8 +56,11 @@ class SubscripcioImageModel{
             $contenidoImagen = $imageData['contenido'];
                 
             // Decodificar el contenido de la imagen
-            $contenidoDecodificado = base64_decode(substr($contenidoImagen, strpos($contenidoImagen, ',') + 1));
+            //$contenidoDecodificado = base64_decode(substr($contenidoImagen, strpos($contenidoImagen, ',') + 1));
                 
+            // Decodificar y comprimir imagen
+            $contenidoDecodificado = $this->procesarImagen($contenidoImagen);
+            
             // Guardar la imagen en el servidor
             $rutaImagen = $directorioImagenes . $nombreImagen;
             //$compresImage = $this->comprimirImagen($contenidoImagen);
@@ -177,5 +180,51 @@ class SubscripcioImageModel{
         return $contenidoImagenComprimida;
     }
 
+    private function procesarImagen($imagenBase64) {
+        // Decodificar la imagen base64
+        $imagenDecodificada = base64_decode($imagenBase64);
 
+        // Crear una imagen a partir de la cadena decodificada
+        $imagen = imagecreatefromstring($imagenDecodificada);
+
+        // Redimensionar la imagen si es más grande que 500px
+        $anchoOriginal = imagesx($imagen);
+        $altoOriginal = imagesy($imagen);
+        $maxWidth = 500;
+        $maxHeight = 500;
+        if ($anchoOriginal > $maxWidth || $altoOriginal > $maxHeight) {
+            $nuevaAnchura = $anchoOriginal;
+            $nuevaAltura = $altoOriginal;
+
+            // Redimensionar solo si el ancho excede el límite
+            if ($anchoOriginal > $maxWidth) {
+                $nuevaAnchura = $maxWidth;
+                $nuevaAltura = ($nuevaAnchura / $anchoOriginal) * $altoOriginal;
+            }
+
+            // Redimensionar solo si la altura excede el límite
+            if ($nuevaAltura > $maxHeight) {
+                $nuevaAltura = $maxHeight;
+                $nuevaAnchura = ($nuevaAltura / $altoOriginal) * $anchoOriginal;
+            }
+
+            // Crear una nueva imagen redimensionada
+            $imagenRedimensionada = imagecreatetruecolor($nuevaAnchura, $nuevaAltura);
+            imagecopyresampled($imagenRedimensionada, $imagen, 0, 0, 0, 0, $nuevaAnchura, $nuevaAltura, $anchoOriginal, $altoOriginal);
+            imagedestroy($imagen);
+            $imagen = $imagenRedimensionada;
+        }
+
+        // Comprimir la imagen
+        ob_start();
+        imagejpeg($imagen, null, 60); // Calidad de compresión 60 (ajustable según sea necesario)
+        $imagenComprimida = ob_get_contents();
+        ob_end_clean();
+
+        // Destruir la imagen original
+        imagedestroy($imagen);
+
+        // Devolver la imagen comprimida
+        return base64_encode($imagenComprimida);
+    }
 }
