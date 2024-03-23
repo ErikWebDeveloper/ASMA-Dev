@@ -1,9 +1,9 @@
 <?php
 
 class SubscripcioImageModel{
-    private $gruposDirectorio = "/var/www/html/AppData/img/grups/";
-    private $usuariosDirectorio = "/var/www/html/AppData/img/usuaris/";
-    private $pasportDirectorio = "/var/www/html/AppData/img/pass/";
+    private $gruposDirectorio = $_SERVER['DOCUMENT_ROOT'] . "/AppData/img/grups/";
+    private $usuariosDirectorio = $_SERVER['DOCUMENT_ROOT'] . "/AppData/img/usuaris/";
+    private $pasportDirectorio = $_SERVER['DOCUMENT_ROOT'] "/AppData/img/pass/";
 
     public function __construct() {
         
