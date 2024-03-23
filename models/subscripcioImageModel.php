@@ -56,11 +56,11 @@ class SubscripcioImageModel{
             $contenidoImagen = $imageData['contenido'];
                 
             // Decodificar el contenido de la imagen
-            //$contenidoDecodificado = base64_decode(substr($contenidoImagen, strpos($contenidoImagen, ',') + 1));
+            $contenidoDecodificado = base64_decode(substr($contenidoImagen, strpos($contenidoImagen, ',') + 1));
                 
             // Decodificar y comprimir imagen
-            $contenidoDecodificado = $this->procesarImagen($contenidoImagen);
-            
+            //$contenidoDecodificado = $this->procesarImagen($contenidoImagen);
+
             // Guardar la imagen en el servidor
             $rutaImagen = $directorioImagenes . $nombreImagen;
             //$compresImage = $this->comprimirImagen($contenidoImagen);
