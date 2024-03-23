@@ -3,7 +3,7 @@
 class SubscripcioImageModel{
     private $gruposDirectorio = $_SERVER['DOCUMENT_ROOT'] . "/AppData/img/grups/";
     private $usuariosDirectorio = $_SERVER['DOCUMENT_ROOT'] . "/AppData/img/usuaris/";
-    private $pasportDirectorio = $_SERVER['DOCUMENT_ROOT'] "/AppData/img/pass/";
+    private $pasportDirectorio = $_SERVER['DOCUMENT_ROOT'] . "/AppData/img/pass/";
 
     public function __construct() {
         
