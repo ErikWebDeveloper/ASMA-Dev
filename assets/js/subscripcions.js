@@ -807,7 +807,7 @@ class HandleSubmit {
   constructor(controller, mainControler) {
     this.controller = mainControler;
     this.parentControler = controller;
-    this.url = "http://192.168.50.225/api/subscripcions.php";
+    this.url = "https://musicsandorra.com/api/subscripcions.php";
     this.dataModel = {
       csrf_toke: null,
       subscripcion: {
