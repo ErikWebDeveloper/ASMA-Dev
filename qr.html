@@ -29,7 +29,7 @@
             display: flex;
             justify-content: center;
             align-items: center;
-            background: url(/assets/img/texture9.svg) center/cover no-repeat;
+            background: url(/assets/img/texture3.svg) center/cover no-repeat;
         }
         .container{
             width: 100%;
@@ -38,31 +38,32 @@
  
  
 .section {
-    background-color: #ffffff49;
-    border: 1.5px solid #3754743a;
-    box-shadow: 1px 1px 100px rgba(128, 128, 128, 0.842);
-    border-radius: 10px;
-    padding: 3rem;
+    background-color: #ffffff00;
     /*
+    padding: 3rem;
+    border: 1.5px solid #3754743a;
+    border-radius: 10px;
+    box-shadow: 1px 1px 100px rgba(128, 128, 128, 0.842);
     padding: 50px 30px;
     */
 }
  
 #my-qr-reader {
     padding: 20px !important;
-    border: 5px solid #ffffff !important;
+    border: none !important;
     /*
+    border: 5px solid #ffffff !important;
     border-radius: 8px;
     */
 }
  
 #my-qr-reader img[alt="Info icon"] {
-    /*display: none;*/
+    display: none;
 }
  
-#my-qr-reader img[alt="Camera based scan"] {
-    width: 100px !important;
-    height: 100px !important;
+#my-qr-reader img[alt="Escaneig basat en càmera"] {
+    width: 150px !important;
+    height: 150px !important;
 }
  
 button {
@@ -104,6 +105,12 @@ video {
 <body>
     <div class="main-page">
         <div class="container">
+            <h1 class="text-center">
+                Escàner de credencial
+            </h1>
+            <p class="text-center">
+                Escaneja el codi QR de soci de l'ASMA per verificar la seva credencial.
+            </p>
             <div class="section">
                 <div id="my-qr-reader">
                 </div>
