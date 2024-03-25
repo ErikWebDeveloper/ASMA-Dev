@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Escáner de QR</title>
+<script src="https://rawgit.com/sitepoint-editors/jsqrcode/master/src/qr_packed.js"></script>
+</head>
+<body>
+<h1>Escáner de QR</h1>
+<button id="escanear-btn">Escanear</button>
+<div id="resultado"></div>
+
+<script>
+document.getElementById('escanear-btn').addEventListener('click', function() {
+    var video = document.createElement("video");
+    var canvasElement = document.createElement("canvas");
+    var canvas = canvasElement.getContext("2d");
+
+    navigator.mediaDevices.getUserMedia({ video: { facingMode: "environment" } }).then(function(stream) {
+        document.body.appendChild(video);
+        video.setAttribute("playsinline", true); // required to tell iOS safari we don't want fullscreen
+        video.srcObject = stream;
+        video.play();
+        requestAnimationFrame(tick);
+    });
+
+    function tick() {
+        if (video.readyState === video.HAVE_ENOUGH_DATA) {
+            canvasElement.hidden = false;
+            canvasElement.height = video.videoHeight;
+            canvasElement.width = video.videoWidth;
+            canvas.drawImage(video, 0, 0, canvasElement.width, canvasElement.height);
+            var imageData = canvas.getImageData(0, 0, canvasElement.width, canvasElement.height);
+            var code = jsQR(imageData.data, imageData.width, imageData.height, {
+                inversionAttempts: "dontInvert",
+            });
+            if (code) {
+                document.getElementById('resultado').innerText = "URL del código QR: " + code.data;
+            }
+        }
+        requestAnimationFrame(tick);
+    }
+});
+</script>
+</body>
+</html>
