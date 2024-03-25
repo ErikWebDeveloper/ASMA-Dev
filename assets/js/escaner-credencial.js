@@ -43,8 +43,8 @@ domReady(function () {
     }
   }
 
-  function isValid(url) {
-    var dominio = obtenerDominio(url); // Usa la función obtenerDominio del ejemplo anterior
+  function isValid(decodeText, decodeResult) {
+    var dominio = obtenerDominio(decodeText); // Usa la función obtenerDominio del ejemplo anterior
 
     // Verifica si el dominio es igual a "musicsandorra.com"
     if (dominio === "musicsandorra.com") {
@@ -54,5 +54,5 @@ domReady(function () {
     }
   }
   // Render
-  htmlscanner.render(onScanSuccess, onScanFailure);
+  htmlscanner.render(isValid);
 });
