@@ -12,9 +12,9 @@ function domReady(fn) {
 domReady(function () {
   // If found you qr code
   function onScanSuccess(decodeText, decodeResult) {
-    //alert("You Qr is : " + decodeText);
-    //alert(decodeResult);
-    alert(isValid(decodeText));
+    alert('Update');
+    let response = isValid(decodeText);
+    alert(response);
   }
   // If failure you qr code
   function onScanFailure(error) {
