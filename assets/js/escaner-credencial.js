@@ -12,8 +12,9 @@ function domReady(fn) {
 domReady(function () {
   // If found you qr code
   function onScanSuccess(decodeText, decodeResult) {
-    alert("You Qr is : " + decodeText);
-    alert(decodeResult);
+    //alert("You Qr is : " + decodeText);
+    //alert(decodeResult);
+    alert(isValid(decodeText));
   }
   // If failure you qr code
   function onScanFailure(error) {
@@ -26,5 +27,32 @@ domReady(function () {
     fps: 10,
     qrbox: { width: 250, height: 250 },
   });
-  htmlscanner.render(onScanSuccess);
+
+  function obtenerDominio(url) {
+    // Expresión regular para extraer el dominio de una URL
+    var dominioRegex = /^(?:https?:\/\/)?(?:[^@\n]+@)?(?:www\.)?([^:\/\n?]+)/gi;
+    // Intentamos hacer coincidir la expresión regular con la URL proporcionada
+    var matches = dominioRegex.exec(url);
+    // Si hay coincidencias y el primer grupo capturado existe
+    if (matches && matches[1]) {
+      // Devolvemos el primer grupo capturado, que contiene el dominio
+      return matches[1];
+    } else {
+      // Si no hay coincidencias o el grupo capturado no existe, devolvemos null
+      return null;
+    }
+  }
+
+  function isValid(url) {
+    var dominio = obtenerDominio(url); // Usa la función obtenerDominio del ejemplo anterior
+
+    // Verifica si el dominio es igual a "musicsandorra.com"
+    if (dominio === "musicsandorra.com") {
+      return true;
+    } else {
+      return false;
+    }
+  }
+  // Render
+  htmlscanner.render(onScanSuccess, onScanFailure);
 });
