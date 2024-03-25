@@ -1,0 +1,71 @@
+.main-page{
+    width: 100%;
+    min-height: 100vh;
+    background-color: #272727;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: url(/assets/img/texture3.svg) center/cover no-repeat;
+}
+.container{
+    width: 100%;
+    max-width: 500px;
+}
+ 
+ 
+.section {
+    background-color: #ffffff00;
+}
+ 
+#my-qr-reader {
+    padding: 20px !important;
+    border: none !important;
+}
+ 
+#my-qr-reader img[alt="Info icon"] {
+    display: none;
+}
+ 
+#my-qr-reader img[alt="Escaneig basat en càmera"] {
+    width: 150px !important;
+    height: 150px !important;
+}
+ 
+button {
+    padding: 3px 20px;
+    border: 5px solid #ffffff00;
+    outline: none;
+    border-radius: 10px;
+    color: white;
+    font-size: 15px;
+    cursor: pointer;
+    margin-top: 15px;
+    margin-bottom: 10px;
+    background-color: #007bff;
+    transition: 0.3s background-color;
+}
+ 
+button:hover {
+    background-color: #0b5ed7;
+}
+ 
+#html5-qrcode-anchor-scan-type-change {
+    text-decoration: none !important;
+    color: #1d9bf0;
+    transition: 0.3s color;
+}
+#html5-qrcode-anchor-scan-type-change:hover {
+    text-decoration: none !important;
+    color: #0b5ed7;
+}
+ 
+video {
+    width: 100% !important;
+    aspect-ratio: 1 / 1;
+    border: 1px solid #b2b2b2 !important;
+    border-radius: 0.25em;
+}
+
+video > *{
+    aspect-ratio: 1 / 1;
+}
