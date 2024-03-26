@@ -83,7 +83,7 @@ class Soci{
         }*/
 
         // Enviar Respuesta
-        $this->response = [ "error" => false, "mensaje" => $query[0]['usuaris']];
+        $this->response = [ "error" => false, "mensaje" => $query[0]->usuaris];
         $this->sendResponse(200, $this->response);        
     }
 
