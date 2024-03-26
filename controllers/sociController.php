@@ -13,9 +13,9 @@ class Soci{
     }
 
     private function run(){
-	    //$this->isPost();
+	    $this->isPost();
         $this->isData();
-        //$this->isSession();
+        $this->isSession();
         $this->isValidData();
         //$cleanData = $this->sanitizeData();
         //$this->storeData($cleanData);
