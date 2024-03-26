@@ -15,11 +15,12 @@ if (!isset($_SESSION['csrf_token'])) {
     <title>Fetch API Example</title>
 </head>
 <body>
+    <input type="hidden" name="csrf_token" id="csrf_token" value="<?php echo $_SESSION['csrf_token']; ?>">
     <script>
         // Definimos la función para hacer la petición Fetch
         function fetchData() {
             // Objeto JSON a enviar en la petición
-            const data = { id: "66008f0627cbfe752d0a5422" };
+            const data = { id: "66008f0627cbfe752d0a5422" , csrf_token : document.getElementById('csrf_token').value};
 
             // Opciones para la petición Fetch
             const options = {
