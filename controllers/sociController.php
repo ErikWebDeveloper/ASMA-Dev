@@ -12,7 +12,7 @@ class Soci{
 
     private function run(){
 	    //$this->isPost();
-        //$this->isData();
+        $this->isData();
         //$this->isSession();
         $this->isValidData();
         //$cleanData = $this->sanitizeData();
