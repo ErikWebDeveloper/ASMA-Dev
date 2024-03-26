@@ -74,16 +74,16 @@ class Soci{
             // Grupo
         }else{
             // Usuario
+            $dataResponse = [
+                'tarifa'        => $query['subscripcio'][0]['tarifa'],
+                'nom'           => $query['usuaris'][0]['usuaris'],
+                'instrument'    => $query['usuaris'][0]['instrument'],
+                'foto'          => $query['usuaris'][0]['foto']
+            ];
         }*/
-        $dataResponse = [
-            'tarifa'        => $query['subscripcio'][0]['tarifa'],
-            'nom'           => $query['usuaris'][0]['usuaris'],
-            'instrument'    => $query['usuaris'][0]['instrument'],
-            'foto'          => $query['usuaris'][0]['foto']
-        ];
 
         // Enviar Respuesta
-        $this->response = [ "error" => false, "mensaje" => $dataResponse];
+        $this->response = [ "error" => false, "mensaje" => $query];
         $this->sendResponse(200, $this->response);        
     }
 
