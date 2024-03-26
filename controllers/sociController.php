@@ -7,8 +7,8 @@ class Soci{
 
     function __construct(){
    	    $this->model = new SubscripcioModel();
-        $this->gruposDirectorio = $_SERVER['DOCUMENT_ROOT'] . "/AppData/img/grups/";
-        $this->usuariosDirectorio = $_SERVER['DOCUMENT_ROOT'] . "/AppData/img/usuaris/";
+        $this->gruposDirectorio = "/AppData/img/grups/";
+        $this->usuariosDirectorio = "/AppData/img/usuaris/";
      	$this->run();
     }
 
