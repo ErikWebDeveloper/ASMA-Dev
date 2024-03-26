@@ -22,4 +22,4 @@ require_once '../controllers/sociController.php';
 require_once '../models/subscripcioModel.php';
 
 
-$subscripcion = new Subscripcio();
+$soci = new Soci();
