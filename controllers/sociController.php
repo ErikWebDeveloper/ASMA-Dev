@@ -68,4 +68,10 @@ class Soci{
             $this->sendResponse(200, $this->response);
         }        
     }
+
+    private function sendResponse($statusCode = 200, $response = ["error" => false, "mensaje" => "Operació exitosa."]){
+	    http_response_code($statusCode); 
+        echo json_encode($response);
+        exit;
+    }
 }
