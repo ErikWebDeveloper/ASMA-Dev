@@ -76,7 +76,7 @@ class Soci{
             // Usuario
             $dataResponse = [
                 'tarifa'        => $query[0]->subscripcio->tarifa,
-                'nom'           => $query[0]->usuaris[0]->usuaris,
+                'nom'           => $query[0]->usuaris[0]->nom,
                 'instrument'    => $query[0]->usuaris[0]->instrument,
                 'foto'          => $query[0]->usuaris[0]->foto
             ];
