@@ -69,18 +69,18 @@ class Soci{
             exit;
         }
         // Peparar datos
-        $dataResponse = [];
+        /*$dataResponse = [];
         if(count($query['usuaris']) > 1){
             // Grupo
         }else{
             // Usuario
-            $dataResponse = [
-                'tarifa'        => $query['subscripcio'][0]['tarifa'],
-                'nom'           => $query['usuaris'][0]['usuaris'],
-                'instrument'    => $query['usuaris'][0]['instrument'],
-                'foto'          => $query['usuaris'][0]['foto']
-            ];
-        }
+        }*/
+        $dataResponse = [
+            'tarifa'        => $query['subscripcio'][0]['tarifa'],
+            'nom'           => $query['usuaris'][0]['usuaris'],
+            'instrument'    => $query['usuaris'][0]['instrument'],
+            'foto'          => $query['usuaris'][0]['foto']
+        ];
 
         // Enviar Respuesta
         $this->response = [ "error" => false, "mensaje" => $dataResponse];
