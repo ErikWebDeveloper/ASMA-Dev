@@ -58,16 +58,20 @@ class Soci{
     }
 
     private function isValidData(){
-        // Validar Correo Existente
+        // Validar Id de Subscripcion
         $id = new MongoDB\BSON\ObjectId($this->request['id']);
-        $query = $this->model->find(["_id" => $id]);
+
+        $query = $this->model->find(['_id' => $id]);
+
         if($query == null){
-            $this->response = [ "error" => true, "mensaje" => 'Sembla que aquest soci no esta en la nostra base de dades.' . $this->request['id']];
+            $this->response = [ "error" => true, "mensaje" => 'Sembla que aquest soci no esta en la nostra base de dades.'];
             $this->sendResponse(200, $this->response);
-        }else{          
-            $this->response = [ "error" => false, "mensaje" => $this->request['id']];
-            $this->sendResponse(200, $this->response);
-        }        
+            exit;
+        
+        // Peparar datos
+  
+        $this->response = [ "error" => false, "mensaje" => $query];
+        $this->sendResponse(200, $this->response);        
     }
 
     private function sendResponse($statusCode = 200, $response = ["error" => false, "mensaje" => "Operació exitosa."]){
