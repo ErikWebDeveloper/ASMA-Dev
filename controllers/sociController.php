@@ -61,7 +61,7 @@ class Soci{
         // Validar Correo Existente
         $query = $this->model->find(["_id" => $this->request['id']);
         if($query == null){
-            $this->response = [ "error" => true, "mensaje" => 'Sembla que aquest soci no esta en la nostra base de dades.' . $$this->request['id']];
+            $this->response = [ "error" => true, "mensaje" => 'Sembla que aquest soci no esta en la nostra base de dades.' . $this->request['id']];
             $this->sendResponse(200, $this->response);
         }else{          
             $this->response = [ "error" => false, "mensaje" => $this->request['id']];
