@@ -67,7 +67,7 @@ class Soci{
             $this->response = [ "error" => true, "mensaje" => 'Sembla que aquest soci no esta en la nostra base de dades.'];
             $this->sendResponse(200, $this->response);
             exit;
-        
+        }
         // Peparar datos
   
         $this->response = [ "error" => false, "mensaje" => $query];
