@@ -59,7 +59,7 @@ class Soci{
 
     private function isValidData(){
         // Validar Correo Existente
-        $query = $this->model->find(["_id" => $this->request['id']);
+        $query = $this->model->find(["_id" => $this->request['id']]);
         if($query == null){
             $this->response = [ "error" => true, "mensaje" => 'Sembla que aquest soci no esta en la nostra base de dades.' . $this->request['id']];
             $this->sendResponse(200, $this->response);
