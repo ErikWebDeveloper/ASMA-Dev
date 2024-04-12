@@ -56,7 +56,7 @@ if (!isset($_SESSION['csrf_token'])) {
     </div>
 
     <!-- Toats -->
-    <div id="log-message" class="toast-container position-static">
+    <div id="log-message" class="toast-container position-fixed bottom-0 end-0 p-3">
 
     </div>
 
