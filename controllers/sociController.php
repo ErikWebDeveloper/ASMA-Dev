@@ -60,33 +60,39 @@ class Soci{
     }
 
     private function isValidData(){
-        // Validar Id de Subscripcion
-        $id = new MongoDB\BSON\ObjectId($this->request['id']);
+        try{
+            // Validar Id de Subscripcion
+            $id = new MongoDB\BSON\ObjectId($this->request['id']);
+    
+            $query = $this->model->find(['_id' => $id]);
+    
+            if($query == null){
+                $this->response = [ "error" => true, "mensaje" => 'Sembla que aquest soci no esta en la nostra base de dades.'];
+                $this->sendResponse(200, $this->response);
+                exit;
+            }
+            // Peparar datos
+            $dataResponse = [];
+            if(count($query[0]->usuaris) > 1){
+                // Grupo
+            }else{
+                // Usuario
+                $dataResponse = [
+                    'tarifa'        => $query[0]->subscripcio->tarifa,
+                    'nom'           => $query[0]->usuaris[0]->nom,
+                    'instrument'    => $query[0]->usuaris[0]->instrument,
+                    'foto'          => $this->usuariosDirectorio . $query[0]->usuaris[0]->foto
+                ];
+            }
+    
+            // Enviar Respuesta
+            $this->response = [ "error" => false, "mensaje" => $dataResponse];
+            $this->sendResponse(200, $this->response);        
 
-        $query = $this->model->find(['_id' => $id]);
-
-        if($query == null){
-            $this->response = [ "error" => true, "mensaje" => 'Sembla que aquest soci no esta en la nostra base de dades.'];
-            $this->sendResponse(200, $this->response);
-            exit;
+        } catch( Exception $e){
+            $this->response = [ "error" => false, "mensaje" => $e->getMessage()];
+            $this->sendResponse(200, $this->response); 
         }
-        // Peparar datos
-        $dataResponse = [];
-        if(count($query[0]->usuaris) > 1){
-            // Grupo
-        }else{
-            // Usuario
-            $dataResponse = [
-                'tarifa'        => $query[0]->subscripcio->tarifa,
-                'nom'           => $query[0]->usuaris[0]->nom,
-                'instrument'    => $query[0]->usuaris[0]->instrument,
-                'foto'          => $this->usuariosDirectorio . $query[0]->usuaris[0]->foto
-            ];
-        }
-
-        // Enviar Respuesta
-        $this->response = [ "error" => false, "mensaje" => $dataResponse];
-        $this->sendResponse(200, $this->response);        
     }
 
     private function sendResponse($statusCode = 200, $response = ["error" => false, "mensaje" => "Operació exitosa."]){
