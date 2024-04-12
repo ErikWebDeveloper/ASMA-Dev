@@ -64,7 +64,7 @@ class Soci{
             // Validar Id de Subscripcion
             $id = new MongoDB\BSON\ObjectId($this->request['id']);
     
-            $query = $this->model->findOne(['_id' => $id, 'subscripcio.operatiu' => true]);
+            $query = $this->model->find(['_id' => $id, 'subscripcio.operatiu' => true]);
     
             if($query == null){
                 $this->response = [ "error" => true, "mensaje" => 'Sembla que aquest soci no esta en la nostra base de dades.'];
@@ -73,7 +73,7 @@ class Soci{
             }
             // Peparar datos
             $dataResponse = [];
-            if(count($query->usuaris) > 1){
+            if(count($query[0]->usuaris) > 1){
                 // Grupo
             }else{
                 // Usuario
