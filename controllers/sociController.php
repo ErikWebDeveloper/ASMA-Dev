@@ -90,7 +90,8 @@ class Soci{
             $this->sendResponse(200, $this->response);        
 
         } catch( Exception $e){
-            $this->response = [ "error" => false, "mensaje" => $e->getMessage()];
+            //$this->response = [ "error" => false, "mensaje" => $e->getMessage()];
+            $this->response = [ "error" => false, "mensaje" => "Credencial incorrecta."];
             $this->sendResponse(200, $this->response); 
         }
     }

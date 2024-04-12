@@ -54,6 +54,12 @@ if (!isset($_SESSION['csrf_token'])) {
             </div>
         </div>
     </div>
+
+    <!-- Toats -->
+    <div id="log-message">
+
+    </div>
+
     <!-- Footer -->
     <?php require_once './components/footer.php' ?>
 
