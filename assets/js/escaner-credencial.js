@@ -12,9 +12,44 @@ function domReady(fn) {
 domReady(function () {
   // If found you qr code
   function onScanSuccess(decodeText, decodeResult) {
-    alert('Update');
-    let response = isValid(decodeText);
-    alert(response);
+    alert(decodeText);
+    // Objeto JSON a enviar en la petición
+    const data = {
+      id: "66008f0627cbfe752d0a5422",
+      csrf_token: document.getElementById("csrf_token").value,
+    };
+
+    // Opciones para la petición Fetch
+    const options = {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(data),
+    };
+
+    // URL de la API
+    const url = "https://musicsandorra.com/api/soci.php";
+
+    // Realizamos la petición Fetch
+    fetch(url, options)
+      .then((response) => {
+        // Verificamos si la respuesta es exitosa (código 200)
+        if (response.ok) {
+          // Convertimos la respuesta a JSON
+          return response.json();
+        }
+        // Si la respuesta no es exitosa, lanzamos un error
+        throw new Error("Network response was not ok.");
+      })
+      .then((data) => {
+        // Imprimimos la respuesta por consola
+        console.log("Respuesta:", data);
+      })
+      .catch((error) => {
+        // Capturamos y manejamos cualquier error
+        console.error("Error:", error);
+      });
   }
   // If failure you qr code
   function onScanFailure(error) {
@@ -28,31 +63,6 @@ domReady(function () {
     qrbox: { width: 250, height: 250 },
   });
 
-  function obtenerDominio(url) {
-    // Expresión regular para extraer el dominio de una URL
-    var dominioRegex = /^(?:https?:\/\/)?(?:[^@\n]+@)?(?:www\.)?([^:\/\n?]+)/gi;
-    // Intentamos hacer coincidir la expresión regular con la URL proporcionada
-    var matches = dominioRegex.exec(url);
-    // Si hay coincidencias y el primer grupo capturado existe
-    if (matches && matches[1]) {
-      // Devolvemos el primer grupo capturado, que contiene el dominio
-      return matches[1];
-    } else {
-      // Si no hay coincidencias o el grupo capturado no existe, devolvemos null
-      return null;
-    }
-  }
-
-  function isValid(url) {
-    var dominio = obtenerDominio(url); // Usa la función obtenerDominio del ejemplo anterior
-
-    // Verifica si el dominio es igual a "musicsandorra.com"
-    if (dominio === "musicsandorra.com") {
-      return true;
-    } else {
-      return false;
-    }
-  }
   // Render
   htmlscanner.render(onScanSuccess, onScanFailure);
 });
