@@ -12,11 +12,10 @@ function domReady(fn) {
 domReady(function () {
   // If found you qr code
   function onScanSuccess(decodeText, decodeResult) {
-    alert(decodeText);
     // Objeto JSON a enviar en la petición
     const data = {
-      id: "66008f0627cbfe752d0a5422",
-      csrf_token: document.getElementById("csrf_token").value,
+      id: decodeText,
+      csrf_token: null,
     };
 
     // Opciones para la petición Fetch
