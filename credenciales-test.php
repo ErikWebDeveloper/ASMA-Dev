@@ -26,8 +26,7 @@ if (!isset($_SESSION['csrf_token'])) {
             const options = {
                 method: 'POST',
                 headers: {
-                    'Content-Type': 'application/json',
-                    'Cookie' : 
+                    'Content-Type': 'application/json'
                 },
                 body: JSON.stringify(data)
             };
