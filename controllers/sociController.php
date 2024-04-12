@@ -64,8 +64,8 @@ class Soci{
             // Validar Id de Subscripcion
             $id = new MongoDB\BSON\ObjectId($this->request['id']);
     
-            $query = $this->model->findOne([['_id' => $id, 'subscripcio.operatiu' => true]]);
-            echo $query;
+            $query = $this->model->findOne(['_id' => $id, 'subscripcio.operatiu' => true]);
+    
             if($query == null){
                 $this->response = [ "error" => true, "mensaje" => 'Sembla que aquest soci no esta en la nostra base de dades.'];
                 $this->sendResponse(200, $this->response);
