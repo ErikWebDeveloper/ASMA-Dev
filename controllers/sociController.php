@@ -73,7 +73,7 @@ class Soci{
             }
             // Peparar datos
             $dataResponse = [];
-            if(count($query[0]->usuaris) > 1){
+            if(count($query->usuaris) > 1){
                 // Grupo
             }else{
                 // Usuario
