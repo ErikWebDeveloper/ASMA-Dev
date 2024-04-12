@@ -34,15 +34,15 @@ if (!isset($_SESSION['csrf_token'])) {
     <style>
         .error, .success{
             opacity: 0;
-            animation: fadeIn 1s forwards;
+            animation: fadeIn 0.5s forwards;
         }
         .error{
             background: #fb9aa1;
             color: #de2e5a;
         }
         .success{
-            background: #97fdbe;
-            color: #27c764;
+            background: #bafdd4 ;
+            color: #12873f ;
         }
         @keyframes fadeIn {
             from{opacity: 0;}
