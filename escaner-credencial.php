@@ -30,6 +30,25 @@ if (!isset($_SESSION['csrf_token'])) {
 
     <link rel="stylesheet" href="/assets/css/main.css">
     <link rel="stylesheet" href="/assets/css/escaner-credencial.css">
+
+    <style>
+        .error, .success{
+            opacity: 0;
+            animation: fadeIn 1s forwards;
+        }
+        .error{
+            background: #fb9aa1;
+            color: #de2e5a;
+        }
+        .success{
+            background: #97fdbe;
+            color: #27c764;
+        }
+        @keyframes fadeIn {
+            from{opacity: 0;}
+            to{opacity: 0.8;}
+        }
+    </style>
 </head>
 
 <body>

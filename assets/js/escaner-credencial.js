@@ -47,14 +47,16 @@ domReady(function () {
         let message = data["error"]
           ? "Credencial invalida"
           : "Credencial valida";
+        let classCSS = data["error"]
+          ? "error"
+          : "success";
         document.getElementById("log-message").innerHTML = `
-        <div class="toast show" role="alert" aria-live="assertive" aria-atomic="true">
-          <div class="toast-header">
-            <strong class="me-auto">Validació</strong>
-            <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
-          </div>
-          <div class="toast-body">
-            ${message}
+        <div class="toast align-items-center show ${classCSS}" role="alert" aria-live="assertive" aria-atomic="true">
+          <div class="d-flex">
+            <div class="toast-body">
+              ${message}
+            </div>
+            <button type="button" class="btn-close me-2 m-auto" data-bs-dismiss="toast" aria-label="Close"></button>
           </div>
         </div>
         `;
