@@ -44,8 +44,8 @@ domReady(function () {
       .then((data) => {
         // Imprimimos la respuesta por consola
         console.log("Respuesta:", data);
-        window.location.href = `/credencial.php?data=${encodeURI(decodeText)}`;
-        /*let message = data["error"]
+        //window.location.href = `/credencial.php?data=${encodeURI(decodeText)}`;
+        let message = data["error"]
           ? "Credencial invalida"
           : "Credencial valida";
         let classCSS = data["error"]
@@ -60,7 +60,7 @@ domReady(function () {
             <button type="button" class="btn-close me-2 m-auto" data-bs-dismiss="toast" aria-label="Close"></button>
           </div>
         </div>
-        `;*/
+        `;
       })
       .catch((error) => {
         // Capturamos y manejamos cualquier error
