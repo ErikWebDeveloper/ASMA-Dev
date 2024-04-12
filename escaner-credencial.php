@@ -46,7 +46,7 @@ if (!isset($_SESSION['csrf_token'])) {
         }
         @keyframes fadeIn {
             from{opacity: 0;}
-            to{opacity: 0.8;}
+            to{opacity: 0.95;}
         }
     </style>
 </head>
