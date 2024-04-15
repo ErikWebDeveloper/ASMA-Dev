@@ -1,11 +1,5 @@
 const credencialModal = document.getElementById('credencialModal');
 const credencialData = document.getElementById('credencialData');
-const myModal = document.getElementById("myModal");
-const myInput = document.getElementById("myInput");
-
-myModal.addEventListener("shown.bs.modal", () => {
-  myInput.focus();
-});
 
 
 function domReady(fn) {
