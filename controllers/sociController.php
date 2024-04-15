@@ -78,9 +78,10 @@ class Soci{
             }else{
                 // Usuario
                 $dataResponse = [
+                    'id'            => $query[0]->id;
                     'tarifa'        => $query[0]->subscripcio->tarifa,
                     'nom'           => $query[0]->usuaris[0]->nom,
-                    'instrument'    => $query[0]->usuaris[0]->instrument,
+                    'alta'          => $query[0]->usuaris[0]->instrument,
                     'foto'          => $this->usuariosDirectorio . $query[0]->usuaris[0]->foto
                 ];
             }
