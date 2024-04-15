@@ -1,6 +1,5 @@
-const credencialModal = document.getElementById('credencialModal');
-const credencialData = document.getElementById('credencialData');
-
+const credencialModal = document.getElementById("credencialModal");
+const credencialData = document.getElementById("credencialData");
 
 function domReady(fn) {
   if (
@@ -67,9 +66,9 @@ domReady(function () {
         `;*/
         credencialData.innerHTML = `
           <!--Head -->
-        <div class="row m-auto">
+        <div class="row m-auto" data-bs-theme="dark">
             <div class="col col-4">
-                <img class="img-fluid" src="/assets/img/asma-logo.min.png">
+                <img class="img-fluid" src="${data.mensaje.foto}">
             </div>
             <div class="col col-8 d-flex justify-content-end align-items-center">
                 <h2 class="p-0 m-0" style="color: #cacaca;">Carnet de soci</h2>
@@ -81,7 +80,7 @@ domReady(function () {
                 <img src="/assets/img/home/Joan _Gomez_president.jpeg">
             </div>
             <p class="m-0 p-0">Nom</p>
-            <h4>Joan Gómez</h4>
+            <h4>${data.mensaje.nom}</h4>
         </div>
         <!-- Info -->
         <div class="row m-auto" style="min-height: 240px; overflow: hidden;">
@@ -89,13 +88,13 @@ domReady(function () {
                 <p class="m-0 p-0">Número de soci</p>
                 <h4>15567565435757</h4>
             </div>
-            <div class="col col-6 text-end mb-5">
+            <div class="col col-6 text-end">
                 <p class="m-0 p-0">Quota</p>
-                <h4>Profesional</h4>
+                <h4>${data.mensaje.tarifa}</h4>
             </div>
             <div class="col col-6">
                 <p class="m-0 p-0">Grup</p>
-                <h4>Los Maricuchinis</h4>
+                <h4>${data.mensaje.foto}</h4>
             </div>
             <div class="col col-6 text-end">
                 <p class="m-0 p-0">Donat d'alta</p>
