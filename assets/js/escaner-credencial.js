@@ -66,7 +66,7 @@ domReady(function () {
         `;*/
         credencialData.innerHTML = `
           <!--Head -->
-        <div class="row m-auto" data-bs-theme="dark">
+        <div class="row m-auto">
             <div class="col col-4">
                 <img class="img-fluid" src="/assets/img/asma-logo.min.png">
             </div>

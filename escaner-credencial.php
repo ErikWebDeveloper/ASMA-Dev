@@ -80,7 +80,7 @@ if (!isset($_SESSION['csrf_token'])) {
     </div>
 
     <!-- Modal -->
-    <div class="modal fade" id="credencialModal" tabindex="-1" aria-labelledby="credencialModalLabel" aria-hidden="true">
+    <div  data-bs-theme="dark" class="modal fade" id="credencialModal" tabindex="-1" aria-labelledby="credencialModalLabel" aria-hidden="true">
       <div class="modal-dialog">
         <div class="modal-content">
           <div class="modal-header">
