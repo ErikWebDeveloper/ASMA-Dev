@@ -1,0 +1,78 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Bootstrap demo</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+
+    <style>
+        .imagen-usuario {
+            width: 200px;
+            height: 200px;
+            border: 2px solid #ffffff70;
+            background-color: #ffffff;
+            border-radius: 50%;
+            overflow: hidden;
+        }
+
+        .imagen-usuario img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            /* Ajusta la imagen para cubrir completamente el contenedor redondo */
+        }
+    </style>
+  </head>
+  <body data-bs-theme="dark">
+
+    <div class="border rounded container m-auto mt-5 p-3" style="width: 100% ;max-width: 530px; height: 850px;">
+        <!--Head -->
+        <div class="row m-auto">
+            <div class="col col-4">
+                <img class="img-fluid" src="/assets/img/asma-logo.min.png">
+            </div>
+            <div class="col col-8 d-flex justify-content-end align-items-center">
+                <h2 class="p-0 m-0" style="color: #cacaca;">Carnet de soci</h2>
+            </div>
+        </div>
+        <!-- Profile -->
+        <div class="text-center mb-3">
+            <div class="imagen-usuario m-auto mt-5 mb-2">
+                <img src="/assets/img/home/Joan _Gomez_president.jpeg">
+            </div>
+            <p class="m-0 p-0">Nom</p>
+            <h4>Joan Gómez</h4>
+        </div>
+        <!-- Info -->
+        <div class="row m-auto" style="min-height: 240px; overflow: hidden;">
+            <div class="col col-6">
+                <p class="m-0 p-0">Número de soci</p>
+                <h4>15567565435757</h4>
+            </div>
+            <div class="col col-6 text-end mb-5">
+                <p class="m-0 p-0">Quota</p>
+                <h4>Profesional</h4>
+            </div>
+            <div class="col col-6">
+                <p class="m-0 p-0">Grup</p>
+                <h4>Los Maricuchinis</h4>
+            </div>
+            <div class="col col-6 text-end">
+                <p class="m-0 p-0">Donat d'alta</p>
+                <h4>15/05/2023</h4>
+            </div>
+        </div>
+        <!-- QR -->
+        <div>
+            <div class="col-4 m-auto">
+                <img class="img-fluid rounded" src="https://cdn.britannica.com/17/155017-050-9AC96FC8/Example-QR-code.jpg">
+            </div>
+        </div>
+
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.min.js" integrity="sha384-0pUGZvbkm6XF6gxjEnlmuGrJXVbNuzT9qBBavbLwCsOGabYfZo0T0to5eqruptLy" crossorigin="anonymous"></script>
+  </body>
+</html>
+

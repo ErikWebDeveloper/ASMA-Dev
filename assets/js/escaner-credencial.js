@@ -1,3 +1,13 @@
+const credencialModal = document.getElementById('credencialModal');
+const credencialData = document.getElementById('credencialData');
+const myModal = document.getElementById("myModal");
+const myInput = document.getElementById("myInput");
+
+myModal.addEventListener("shown.bs.modal", () => {
+  myInput.focus();
+});
+
+
 function domReady(fn) {
   if (
     document.readyState === "complete" ||
@@ -45,7 +55,7 @@ domReady(function () {
         // Imprimimos la respuesta por consola
         console.log("Respuesta:", data);
         //window.location.href = `/credencial.php?data=${encodeURI(decodeText)}`;
-        let message = data["error"]
+        /*let message = data["error"]
           ? "Credencial invalida"
           : "Credencial valida";
         let classCSS = data["error"]
@@ -60,7 +70,52 @@ domReady(function () {
             <button type="button" class="btn-close me-2 m-auto" data-bs-dismiss="toast" aria-label="Close"></button>
           </div>
         </div>
+        `;*/
+        credencialData.innerHTML = `
+          <!--Head -->
+        <div class="row m-auto">
+            <div class="col col-4">
+                <img class="img-fluid" src="/assets/img/asma-logo.min.png">
+            </div>
+            <div class="col col-8 d-flex justify-content-end align-items-center">
+                <h2 class="p-0 m-0" style="color: #cacaca;">Carnet de soci</h2>
+            </div>
+        </div>
+        <!-- Profile -->
+        <div class="text-center mb-3">
+            <div class="imagen-usuario m-auto mt-5 mb-2">
+                <img src="/assets/img/home/Joan _Gomez_president.jpeg">
+            </div>
+            <p class="m-0 p-0">Nom</p>
+            <h4>Joan Gómez</h4>
+        </div>
+        <!-- Info -->
+        <div class="row m-auto" style="min-height: 240px; overflow: hidden;">
+            <div class="col col-6">
+                <p class="m-0 p-0">Número de soci</p>
+                <h4>15567565435757</h4>
+            </div>
+            <div class="col col-6 text-end mb-5">
+                <p class="m-0 p-0">Quota</p>
+                <h4>Profesional</h4>
+            </div>
+            <div class="col col-6">
+                <p class="m-0 p-0">Grup</p>
+                <h4>Los Maricuchinis</h4>
+            </div>
+            <div class="col col-6 text-end">
+                <p class="m-0 p-0">Donat d'alta</p>
+                <h4>15/05/2023</h4>
+            </div>
+        </div>
+        <!-- QR -->
+        <div>
+            <div class="col-4 m-auto">
+                <img class="img-fluid rounded" src="https://cdn.britannica.com/17/155017-050-9AC96FC8/Example-QR-code.jpg">
+            </div>
+        </div>
         `;
+        $(credencialModal).modal("show");
       })
       .catch((error) => {
         // Capturamos y manejamos cualquier error

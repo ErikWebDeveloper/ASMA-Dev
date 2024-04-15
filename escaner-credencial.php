@@ -79,6 +79,22 @@ if (!isset($_SESSION['csrf_token'])) {
 
     </div>
 
+    <!-- Modal -->
+    <div class="modal fade" id="credencialModal" tabindex="-1" aria-labelledby="credencialModalLabel" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h1 class="modal-title fs-5" id="credencialModalLabel">Modal title</h1>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body" id="credencialData">
+            <!-- Data -->
+          </div>
+        </div>
+      </div>
+    </div>
+
+
     <!-- Footer -->
     <?php require_once './components/footer.php' ?>
 
