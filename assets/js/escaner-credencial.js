@@ -68,7 +68,7 @@ domReady(function () {
           <!--Head -->
         <div class="row m-auto" data-bs-theme="dark">
             <div class="col col-4">
-                <img class="img-fluid" src="${data.mensaje.foto}">
+                <img class="img-fluid" src="/assets/img/asma-logo.min.png">
             </div>
             <div class="col col-8 d-flex justify-content-end align-items-center">
                 <h2 class="p-0 m-0" style="color: #cacaca;">Carnet de soci</h2>
@@ -77,7 +77,7 @@ domReady(function () {
         <!-- Profile -->
         <div class="text-center mb-3">
             <div class="imagen-usuario m-auto mt-5 mb-2">
-                <img src="/assets/img/home/Joan _Gomez_president.jpeg">
+                <img src="${data.mensaje.foto}">
             </div>
             <p class="m-0 p-0">Nom</p>
             <h4>${data.mensaje.nom}</h4>
@@ -94,7 +94,7 @@ domReady(function () {
             </div>
             <div class="col col-6">
                 <p class="m-0 p-0">Grup</p>
-                <h4>${data.mensaje.foto}</h4>
+                <h4>-</h4>
             </div>
             <div class="col col-6 text-end">
                 <p class="m-0 p-0">Donat d'alta</p>
