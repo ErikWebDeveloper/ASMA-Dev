@@ -89,7 +89,7 @@ domReady(function () {
           <div class="row m-auto" style="min-height: 240px; overflow: hidden;">
               <div class="col col-6">
                   <p class="m-0 p-0">Número de soci</p>
-                  <h6 class="text-wrap">${data.mensaje.id["$oid"]}</h6>
+                  <h6 class="text-wrap mt-1">${data.mensaje.id["$oid"]}</h6>
               </div>
               <div class="col col-6 text-end">
                   <p class="m-0 p-0">Quota</p>
