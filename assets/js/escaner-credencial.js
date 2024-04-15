@@ -93,7 +93,7 @@ domReady(function () {
               </div>
               <div class="col col-6 text-end">
                   <p class="m-0 p-0">Quota</p>
-                  <h4>${data.mensaje.tarifa}</h4>
+                  <h5>${data.mensaje.tarifa}</h5>
               </div>
               <div class="col col-6">
                   <p class="m-0 p-0">Grup</p>
