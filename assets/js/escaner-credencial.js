@@ -64,50 +64,54 @@ domReady(function () {
           </div>
         </div>
         `;*/
-        credencialData.innerHTML = `
-          <!--Head -->
-        <div class="row m-auto">
-            <div class="col col-4">
-                <img class="img-fluid" src="/assets/img/asma-logo.min.png">
-            </div>
-            <div class="col col-8 d-flex justify-content-end align-items-center">
-                <h2 class="p-0 m-0" style="color: #cacaca;">Carnet de soci</h2>
-            </div>
-        </div>
-        <!-- Profile -->
-        <div class="text-center mb-3">
-            <div class="imagen-usuario m-auto mt-5 mb-2">
-                <img src="${data.mensaje.foto}">
-            </div>
-            <p class="m-0 p-0">Nom</p>
-            <h4>${data.mensaje.nom}</h4>
-        </div>
-        <!-- Info -->
-        <div class="row m-auto" style="min-height: 240px; overflow: hidden;">
-            <div class="col col-6">
-                <p class="m-0 p-0">Número de soci</p>
-                <h4>15567565435757</h4>
-            </div>
-            <div class="col col-6 text-end">
-                <p class="m-0 p-0">Quota</p>
-                <h4>${data.mensaje.tarifa}</h4>
-            </div>
-            <div class="col col-6">
-                <p class="m-0 p-0">Grup</p>
-                <h4>-</h4>
-            </div>
-            <div class="col col-6 text-end">
-                <p class="m-0 p-0">Donat d'alta</p>
-                <h4>15/05/2023</h4>
-            </div>
-        </div>
-        <!-- QR -->
-        <div>
-            <div class="col-4 m-auto">
-                <img class="img-fluid rounded" src="https://cdn.britannica.com/17/155017-050-9AC96FC8/Example-QR-code.jpg">
-            </div>
-        </div>
-        `;
+        if(data['error']){
+          credencialData.innerHTML = "<h1 style='color: red';>Credencial invalida</h1>";
+        }else{
+          credencialData.innerHTML = `
+            <!--Head -->
+          <div class="row m-auto">
+              <div class="col col-4">
+                  <img class="img-fluid" src="/assets/img/asma-logo.min.png">
+              </div>
+              <div class="col col-8 d-flex justify-content-end align-items-center">
+                  <h2 class="p-0 m-0" style="color: #cacaca;">Carnet de soci</h2>
+              </div>
+          </div>
+          <!-- Profile -->
+          <div class="text-center mb-3">
+              <div class="imagen-usuario m-auto mt-5 mb-2">
+                  <img src="${data.mensaje.foto}">
+              </div>
+              <p class="m-0 p-0">Nom</p>
+              <h4>${data.mensaje.nom}</h4>
+          </div>
+          <!-- Info -->
+          <div class="row m-auto" style="min-height: 240px; overflow: hidden;">
+              <div class="col col-6">
+                  <p class="m-0 p-0">Número de soci</p>
+                  <h4>15567565435757</h4>
+              </div>
+              <div class="col col-6 text-end">
+                  <p class="m-0 p-0">Quota</p>
+                  <h4>${data.mensaje.tarifa}</h4>
+              </div>
+              <div class="col col-6">
+                  <p class="m-0 p-0">Grup</p>
+                  <h4>-</h4>
+              </div>
+              <div class="col col-6 text-end">
+                  <p class="m-0 p-0">Donat d'alta</p>
+                  <h4>15/05/2023</h4>
+              </div>
+          </div>
+          <!-- QR -->
+          <div>
+              <div class="col-4 m-auto">
+                  <img class="img-fluid rounded" src="https://cdn.britannica.com/17/155017-050-9AC96FC8/Example-QR-code.jpg">
+              </div>
+          </div>
+          `;
+        }
         $(credencialModal).modal("show");
       })
       .catch((error) => {
