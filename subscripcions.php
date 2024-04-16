@@ -706,7 +706,7 @@ if (!isset($_SESSION['csrf_token'])) {
 
     </script>
 
-    <script src="/assets/js/subscripcions.min.js"></script>
+    <script src="/assets/js/subscripcions.js"></script>
 </body>
 
 </html>

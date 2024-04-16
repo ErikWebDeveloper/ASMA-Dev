@@ -922,13 +922,13 @@ class HandleSubmit {
     // Procesar datos
     let data = this.getData();
     //console.log("Se van a enviar estos datos:");
-    //console.log(data);
+    console.log(data);
     // Enviar Datos
-    let response = await this.sendData(data);
+    //let response = await this.sendData(data);
     // Deshabilitar spinner
-    this.renderLoad(false);
+    //this.renderLoad(false);
     // Renderizar Respuesta
-    this.renderResponse(response, data.subscripcion.correo);
+    //this.renderResponse(response, data.subscripcion.correo);
   }
 }
 
