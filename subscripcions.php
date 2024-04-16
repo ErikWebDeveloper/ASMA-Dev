@@ -613,13 +613,17 @@ if (!isset($_SESSION['csrf_token'])) {
                 <strong class="me-auto">&nbsp; Subscripció finalitzada</strong>
             </div>
             <div class="toast-body">
-                <p>La seva subscripció s'ha completat amb èxit, i en breu rebrà un correu electrònic de confirmació a la seva adreça <strong id="responseSuccesMessage"></strong>.</p>
+                <p>La seva subscripció s'ha completat amb èxit!</p>
+                <p>Un cop nosaltres, tinguem la <i>confirmació del seu pagament i les seves dades</i>, rebrà un correu electrònic de confirmació a la seva adreça:<br><strong id="responseSuccesMessage"></strong>.</p>
                 <p>Si té cap pregunta o inquietud, no dubti a posar-se en <a href="mailto:comunica@musicsandorra.com">contacte amb el nostre servei d'assistència.</a> </p>
                 <p>Tingui en compte que l'aplicació es troba en versió beta, la qual podria experimentar fallos puntuals. Agraïm la seva paciència i comprensió mentre treballem per millorar l'experiència.</p>
                 <p>Gràcies per la seva confiança i suport continuat.</p>
                 <div class="d-flex justify-content-center">
                     <img class="img-fluid m-auto" width="80" src="/favicon.ico" alt="ASMA logo">
                 </div>
+            </div>
+            <div class="text-center mb-5">
+                <a type="role" class="btn btn-success" href="/">Tornar a l'inici</a>
             </div>
         </div>
         <!-- Error Message-->
@@ -637,7 +641,7 @@ if (!isset($_SESSION['csrf_token'])) {
                     <p>Ho sentim, però s'ha produït un error en processar la seva subscripció.</p>
                     <p>El missatge d'error diu:</p>
                     <p><strong id="responseErrorMessage"></strong></p>
-                    <p>En cas que el problema persisteixi, poseu-vos en <a href="mailto:comunica@musicsandorra.com">contacte amb el nostre servei d'assistència.</a> per rebre ajuda immediata.</p>
+                    <p>En cas que el problema persisteixi, poseu-vos en <a href="mailto:comunica@musicsandorra.com">contacte amb el nostre servei d'assistència.</a></p>
                     <p>Gràcies per la seva comprensió.</p>
                 </div>
             </div>
