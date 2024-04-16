@@ -222,14 +222,14 @@ if (!isset($_SESSION['csrf_token'])) {
                                         <div id="contenedorPreviewFoto" class="contenedorPreview m-auto mb-3">
                                             <img id="previewFoto" class="preview" alt="Vista previa de la foto" src="/assets/img/default-foto.png">
                                         </div>
-                                        <input class="form-control" type="file" id="user_foto" accept="image/*" name="user_foto" required>
+                                        <input class="form-control" type="file" id="user_foto" accept="image/*" name="user_foto" key="user_foto" required>
                                     </div>
                                     <div class="form-group mb-3">
                                         <p>Fotocòpia/Fotografía del passaport o residència</p>
                                         <div id="contenedorPreviewPasport" class="contenedorPreview m-auto mb-3">
                                             <img id="previewPasport" class="preview" alt="Vista previa del passaporte" src="/assets/img/default-pasport.png">
                                         </div>
-                                        <input class="form-control" type="file" id="user_pasport" name="user_pasport" accept="image/*" required>
+                                        <input class="form-control" type="file" id="user_pasport" key="user_pasport" name="user_pasport" accept="image/*" required>
                                     </div>
                                 </div>
                             </div>

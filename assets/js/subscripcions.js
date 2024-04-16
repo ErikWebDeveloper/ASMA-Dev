@@ -424,7 +424,9 @@ class SingleUser{
                     tipo: archivoSeleccionado.type,
                     contenido: datosDeImagen
                 };
-                this.value[inputFile.id] = imageData;
+                // -> Data key
+                let key = inputFile.getAttribute("key");
+                this.value[key] = imageData;
                 this.callback(null);
             };
             // Lees el contenido del archivo como una URL de datos (data URL)
@@ -482,10 +484,10 @@ class MultiUser{
         ]
         this.saveBtn = document.getElementById('saveModalMemder');
         this.inputsSingle = [
-            document.querySelector('input[key="user_name"'),
-            document.querySelector('input[key="user_instrument"'),
-            document.querySelector('input[key="user_foto"'),
-            document.querySelector('input[key="user_pasport"')
+            document.querySelector('input[name="member_name"'),
+            document.querySelector('input[name="member_instrument"'),
+            document.querySelector('input[name="member_foto"'),
+            document.querySelector('input[name="member_pasport"')
         ]
         this.inputs = [
             document.getElementById('grupo_name'),
