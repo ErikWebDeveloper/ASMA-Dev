@@ -101,7 +101,10 @@ class SubscripcioImageModel{
         }
     }
 
+    //*********** TODO ******* */
+    // Quitar el mecanismo de keyData
     private function imgUser($dataJSON, $keyData){
+        $keyData = "user";
         $users = $dataJSON['usuarios'];
 
         try{
