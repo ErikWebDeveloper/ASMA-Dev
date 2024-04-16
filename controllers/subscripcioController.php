@@ -98,22 +98,18 @@ class Subscripcio{
             ];
         }
 
-        // Preparar Usuarios    
+        // Preparar Usuarios   
+        // *************** TODO****************
+        // eliminar uso de key, ya que llegara simpre la misma estructura de datos! 
         if(isset($this->request['usuarios']) && $this->request['usuarios'] != null){
-            // Obtener la key Data
-            if(count($this->request['usuarios']) > 1){
-                $keyData = "member";
-            }else{
-                $keyData = "user";
-            }
             // Iterar sobre los usuarios
             foreach($this->request['usuarios'] as $user){
                 // Tipo de imagen Foto
-                $mimeType = $user[ $keyData . '_foto']['tipo'];
+                $mimeType = $user[ 'user_foto']['tipo'];
                 $extensionFoto = '.' . substr($mimeType, strpos($mimeType, '/') + 1);
 
                 // Tipo de imagen Pasaporte
-                $mimeType = $user[ $keyData . '_pasport']['tipo'];
+                $mimeType = $user['user_pasport']['tipo'];
                 $extensionPasport = '.' . substr($mimeType, strpos($mimeType, '/') + 1);
                 
                 $newUser = [
