@@ -924,7 +924,7 @@ class HandleSubmit {
     // Procesar datos
     let data = this.getData();
     //console.log("Se van a enviar estos datos:");
-    //console.log(data);
+    console.log(data);
     // Enviar Datos
     let response = await this.sendData(data);
     // Deshabilitar spinner
