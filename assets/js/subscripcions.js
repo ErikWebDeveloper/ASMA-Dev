@@ -384,7 +384,7 @@ class SingleUser{
             if(this.inputs[i].type == "file"){
                 this.inputs[i].addEventListener('change', () => {this.callback(i)});
             }else{
-                this.inputs[i].addEventListener('keyup', () => {this.callback(i)});
+                this.inputs[i].addEventListener('change', () => {this.callback(i)});
             }
         }
     } 
