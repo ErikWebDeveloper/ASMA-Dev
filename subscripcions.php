@@ -272,11 +272,11 @@ if (!isset($_SESSION['csrf_token'])) {
                                                 <div class="modal-body">
                                                     <div class="user">
                                                         <div class="form-floating mb-3">
-                                                            <input type="text" class="form-control" id="member_name" placeholder="Nom i cognoms" name="member_name">
+                                                            <input type="text" class="form-control" id="member_name" placeholder="Nom i cognoms" name="member_name" key="user_name">
                                                             <label for="member_name">Nom i cognoms</label>
                                                         </div>
                                                         <div class="form-floating mb-3">
-                                                            <input type="text" class="form-control" id="member_instrument" placeholder="Instrument principal" list="opcionesInstrumentos" name="member_instrument">
+                                                            <input type="text" class="form-control" id="member_instrument" placeholder="Instrument principal" list="opcionesInstrumentos" name="member_instrument" key="user_instrument">
                                                             <label for="member_instrument">Instrument principal</label>
                                                         </div>
                                                         <div class="form-group mb-3">
@@ -284,14 +284,14 @@ if (!isset($_SESSION['csrf_token'])) {
                                                             <div id="contenedorPreviewFotoMember" class="contenedorPreview m-auto">
                                                                 <img id="previewFotoMember" class="preview" alt="Vista previa de la foto" src="/assets/img/default-foto.png">
                                                             </div>
-                                                            <input class="form-control mt-3" type="file" id="member_foto" accept="image/*" required name="member_foto">
+                                                            <input class="form-control mt-3" type="file" id="member_foto" accept="image/*" required name="member_foto" key="user_foto">
                                                         </div>
                                                         <div class="form-group mb-3">
                                                             <p>Fotocòpia/Fotografía del Passaport</p>
                                                             <div id="contenedorPreviewPasportMember" class="contenedorPreview m-auto">
                                                                 <img id="previewPasportMember" class="preview" alt="Vista previa del passaporte" src="/assets/img/default-pasport.png">
                                                             </div>
-                                                            <input class="form-control mt-3" type="file" id="member_pasport" accept="image/*" required name="member_pasport">
+                                                            <input class="form-control mt-3" type="file" id="member_pasport" accept="image/*" required name="member_pasport" key="user_pasport">
                                                         </div>
                                                     </div>
                                                 </div>

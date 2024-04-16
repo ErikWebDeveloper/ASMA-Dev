@@ -482,10 +482,10 @@ class MultiUser{
         ]
         this.saveBtn = document.getElementById('saveModalMemder');
         this.inputsSingle = [
-            document.querySelector('input[name="member_name"'),
-            document.querySelector('input[name="member_instrument"'),
-            document.querySelector('input[name="member_foto"'),
-            document.querySelector('input[name="member_pasport"')
+            document.querySelector('input[key="user_name"'),
+            document.querySelector('input[key="user_instrument"'),
+            document.querySelector('input[key="user_foto"'),
+            document.querySelector('input[key="user_pasport"')
         ]
         this.inputs = [
             document.getElementById('grupo_name'),
