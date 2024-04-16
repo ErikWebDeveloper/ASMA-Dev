@@ -133,6 +133,7 @@ class SubscripcioImageModel{
     }
 
     private function passUser($dataJSON, $keyData){
+        $keyData = "user";
         $users = $dataJSON['usuarios'];
 
         try{
