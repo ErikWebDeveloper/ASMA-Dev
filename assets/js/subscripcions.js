@@ -414,23 +414,68 @@ class SingleUser{
 
         if (archivoSeleccionado) {
             var lector = new FileReader();
-
+            
             lector.onload = (evento) => {
-                var datosDeImagen = evento.target.result;
+            
+                const image = new Image();
+                image.onload = function() {
+                    const canvas = document.createElement('canvas');
+                    const maxSize = 500; // Tamaño máximo deseado en píxeles
 
-                // Almacena los datos de la imagen en una variable
-                let imageData = {
-                    nombre: archivoSeleccionado.name,
-                    tipo: archivoSeleccionado.type,
-                    contenido: datosDeImagen
+                    let width = image.width;
+                    let height = image.height;
+
+                    if (width > height) {
+                      if (width > maxSize) {
+                        height *= maxSize / width;
+                        width = maxSize;
+                      }
+                    } else {
+                      if (height > maxSize) {
+                        width *= maxSize / height;
+                        height = maxSize;
+                      }
+                    }
+                
+                    canvas.width = width;
+                    canvas.height = height;
+                    const ctx = canvas.getContext('2d');
+                    ctx.drawImage(image, 0, 0, width, height);
+                
+                    const compressedDataURL = canvas.toDataURL('image/jpeg', 0.7); // Calidad de compresión (0.7)
+                
+                    //const preview = document.getElementById('preview');
+                    //preview.src = compressedDataURL;
+                    var datosDeImagen = compressedDataURL;
+
+                    // Almacena los datos de la imagen en una variable
+                    let imageData = {
+                      nombre: archivoSeleccionado.name,
+                      tipo: archivoSeleccionado.type,
+                      contenido: datosDeImagen,
+                    };
+                    // -> Data key
+                    let key = inputFile.getAttribute("key");
+                    this.value[key] = imageData;
+                    this.callback(null);
                 };
-                // -> Data key
-                let key = inputFile.getAttribute("key");
-                this.value[key] = imageData;
-                this.callback(null);
-            };
-            // Lees el contenido del archivo como una URL de datos (data URL)
-            lector.readAsDataURL(archivoSeleccionado);
+            /*
+              var datosDeImagen = evento.target.result;
+
+              // Almacena los datos de la imagen en una variable
+              let imageData = {
+                nombre: archivoSeleccionado.name,
+                tipo: archivoSeleccionado.type,
+                contenido: datosDeImagen,
+              };
+              // -> Data key
+              let key = inputFile.getAttribute("key");
+              this.value[key] = imageData;
+              this.callback(null);
+            };*/
+                // Lees el contenido del archivo como una URL de datos (data URL)
+                lector.readAsDataURL(archivoSeleccionado);
+            }
         }
     }
     verifyDataNulls(data) {
@@ -610,8 +655,69 @@ class MultiUser{
 
         if (archivoSeleccionado) {
             var lector = new FileReader();
-
+            
             lector.onload = (evento) => {
+              const image = new Image();
+              image.onload = function () {
+                const canvas = document.createElement("canvas");
+                const maxSize = 500; // Tamaño máximo deseado en píxeles
+
+                let width = image.width;
+                let height = image.height;
+
+                if (width > height) {
+                  if (width > maxSize) {
+                    height *= maxSize / width;
+                    width = maxSize;
+                  }
+                } else {
+                  if (height > maxSize) {
+                    width *= maxSize / height;
+                    height = maxSize;
+                  }
+                }
+
+                canvas.width = width;
+                canvas.height = height;
+                const ctx = canvas.getContext("2d");
+                ctx.drawImage(image, 0, 0, width, height);
+
+                const compressedDataURL = canvas.toDataURL("image/jpeg", 0.7); // Calidad de compresión (0.7)
+
+                //const preview = document.getElementById('preview');
+                //preview.src = compressedDataURL;
+                var datosDeImagen = compressedDataURL;
+
+                // Almacena los datos de la imagen en una variable
+                let imageData = {
+                  nombre: archivoSeleccionado.name,
+                  tipo: archivoSeleccionado.type,
+                  contenido: datosDeImagen,
+                };
+                // -> Data key
+                let key = inputFile.getAttribute("key");
+                this.value[key] = imageData;
+                this.callback(null);
+              };
+              /*
+              var datosDeImagen = evento.target.result;
+
+              // Almacena los datos de la imagen en una variable
+              let imageData = {
+                nombre: archivoSeleccionado.name,
+                tipo: archivoSeleccionado.type,
+                contenido: datosDeImagen,
+              };
+              // -> Data key
+              let key = inputFile.getAttribute("key");
+              this.value[key] = imageData;
+              this.callback(null);
+            };*/
+              // Lees el contenido del archivo como una URL de datos (data URL)
+              lector.readAsDataURL(archivoSeleccionado);
+            };
+
+            /*lector.onload = (evento) => {
                 var datosDeImagen = evento.target.result;
 
                 // Almacena los datos de la imagen en una variable
@@ -624,7 +730,7 @@ class MultiUser{
                 this.callbackValidationData(null);
             };
             // Lees el contenido del archivo como una URL de datos (data URL)
-            lector.readAsDataURL(archivoSeleccionado);
+            lector.readAsDataURL(archivoSeleccionado);*/
         }
     }
 }
