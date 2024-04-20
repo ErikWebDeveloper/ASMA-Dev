@@ -414,7 +414,7 @@ class SingleUser{
           .then((blob) => {
             // Almacena los datos de la imagen
             let imageData = blob;
-            let key = inputFile.getAttribute("id");
+            let key = inputFile.getAttribute("key");
             this.value[key] = imageData;
             this.callback(null);
           })
