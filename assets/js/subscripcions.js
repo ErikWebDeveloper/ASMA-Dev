@@ -410,39 +410,10 @@ class SingleUser{
         return inputFile.files && inputFile.files.length > 0;
     }
     imageToData(inputFile){
-        /*var archivoSeleccionado = inputFile.files[0];
-
-        if (archivoSeleccionado) {
-            var lector = new FileReader();
-            
-            lector.onload = (evento) => {
-            
-                
-              var datosDeImagen = evento.target.result;
-
-              // Almacena los datos de la imagen en una variable
-              let imageData = {
-                nombre: archivoSeleccionado.name,
-                tipo: archivoSeleccionado.type,
-                contenido: datosDeImagen,
-              };
-
-              // -> Data key
-              let key = inputFile.getAttribute("key");
-              this.value[key] = imageData;
-              this.callback(null);
-            }
-            // Lees el contenido del archivo como una URL de datos (data URL)
-            lector.readAsDataURL(archivoSeleccionado);
-        }*/
-
         this.compressImageToBase64(inputFile, 0.7)
           .then((blob) => {
-            // Manejar el blob comprimido
-            console.log(blob);
-            // Almacena los datos de la imagen en una variable
+            // Almacena los datos de la imagen
             let imageData = blob;
-            // -> Data key
             let key = inputFile.getAttribute("id");
             this.value[key] = imageData;
             this.callback(null);
@@ -554,232 +525,251 @@ class SingleUser{
     }
 }
 
-class MultiUser{
-    constructor(controller){
-        this.controller = controller;
-        this.wallet = new Wallet(this);
-        this.addBtn = document.getElementById('addBtn');
-        this.maxMembers = 6;
-        this.value = {
-            grupo_nombre : null,
-            grupo_logo : null,
-            miembros : []
+class MultiUser {
+  constructor(controller) {
+    this.controller = controller;
+    this.wallet = new Wallet(this);
+    this.addBtn = document.getElementById("addBtn");
+    this.maxMembers = 6;
+    this.value = {
+      grupo_nombre: null,
+      grupo_logo: null,
+      miembros: [],
+    };
+    this.previewImages = [
+      document.getElementById("previewFotoMember").src,
+      document.getElementById("previewPasportMember").src,
+    ];
+    this.previewLogo = document.getElementById("previewLogo").src;
+    this.closeBtn = [
+      document.getElementById("closeModalMember"),
+      document.getElementById("closeModalUp"),
+    ];
+    this.saveBtn = document.getElementById("saveModalMemder");
+    this.inputsSingle = [
+      document.querySelector('input[name="member_name"'),
+      document.querySelector('input[name="member_instrument"'),
+      document.querySelector('input[name="member_foto"'),
+      document.querySelector('input[name="member_pasport"'),
+    ];
+    this.inputs = [
+      document.getElementById("grupo_name"),
+      document.getElementById("grupo_logo"),
+    ];
+    this.userFormController = new SingleUser(this, this.inputsSingle);
+    this.init();
+  }
+  init() {
+    this.listener();
+  }
+  callback(action) {
+    if (action) this.saveBtn.disabled = false;
+    else this.saveBtn.disabled = true;
+  }
+  callbackValidationData(inputIndex) {
+    switch (inputIndex) {
+      // Nombre Grupo
+      case 0:
+        if (this.inputs[inputIndex].value.length > 0)
+          (this.value.grupo_nombre = this.inputs[inputIndex].value),
+            this.inputs[inputIndex].classList.add("is-valid");
+        else this.inputs[inputIndex].classList.remove("is-valid");
+        break;
+      // Imagen grupo
+      case 1:
+        if (this.userFormController.validImage(this.inputs[inputIndex]))
+          (this.value.grupo_logo = this.imageToData(this.inputs[inputIndex])),
+            this.inputs[inputIndex].classList.add("is-valid");
+        else
+          (this.value.user_foto = null),
+            this.inputs[inputIndex].classList.remove("is-valid");
+        break;
+    }
+
+    // Validar si el formulario esta completo
+    if (
+      this.value.grupo_nombre != null &&
+      this.value.grupo_logo != null &&
+      this.value.miembros.length > 0 &&
+      this.value.miembros.length <= this.maxMembers
+    ) {
+      this.controller.callback(true);
+    } else {
+      this.controller.callback(false);
+    }
+  }
+  callbackSave() {
+    // Guardar en caso de que no cumpla el maximo de miembros
+    if (this.value.miembros.length < this.maxMembers) {
+      // Cargar un item en wallet
+      this.wallet.init(this.userFormController.value);
+      // Cargar item en value (this)
+      this.value.miembros.push(this.userFormController.value);
+      // Evaluar formulario
+      this.callbackValidationData(null);
+    } else {
+      alert(
+        "No es pot afegir més membre.Si està experimentant un error, si us plau refresqui la pàgina.Disculpi les molèsties."
+      );
+    }
+
+    // Desactivar boton en el ultimo miembro
+    this.addSwitch();
+
+    // Cerrar Modal
+    this.callbackClose();
+    this.closeBtn[0].click();
+  }
+  addSwitch() {
+    // Desactivar boton en el ultimo miembro
+    if (this.value.miembros.length == this.maxMembers) {
+      this.addBtn.disabled = true;
+      this.addBtn.ariaDisabled = true;
+    } else {
+      this.addBtn.disabled = false;
+      this.addBtn.ariaDisabled = false;
+    }
+  }
+  callbackClose() {
+    for (let i = 0; i < this.inputsSingle.length; i++) {
+      this.inputsSingle[i].value = "";
+      this.inputsSingle[i].classList.remove("is-valid");
+    }
+    document.getElementById("previewFotoMember").src = this.previewImages[0];
+    document.getElementById("previewPasportMember").src = this.previewImages[1];
+    this.userFormController.value = {
+      user_name: null,
+      user_instrument: null,
+      user_foto: null,
+      user_pasport: null,
+    };
+    this.saveBtn.disabled = true;
+  }
+  listener() {
+    // Listener para botones de cierre del modal
+    for (let i = 0; i < this.closeBtn.length; i++) {
+      this.closeBtn[i].addEventListener("click", this.callbackClose.bind(this));
+    }
+    // Listener para boton de guardar del modal
+    this.saveBtn.addEventListener("click", this.callbackSave.bind(this));
+    // Listener para inputs fuera del modal
+    for (let i = 0; i < this.inputs.length; i++) {
+      if (this.inputs[i].type == "file")
+        this.inputs[i].addEventListener("change", (e) => {
+          this.callbackValidationData(i);
+        });
+      else
+        this.inputs[i].addEventListener("keyup", (e) => {
+          this.callbackValidationData(i);
+        });
+    }
+  }
+  default() {
+    for (let i = 0; i < this.inputs.length; i++) {
+      this.inputs[i].value = "";
+      this.inputs[i].classList.remove("is-valid");
+    }
+    document.getElementById("previewLogo").src = this.previewLogo;
+
+    this.wallet.default();
+    this.callbackClose();
+    this.value = {
+      grupo_logo: null,
+      grupo_nombre: null,
+      miembros: [], //this.userFormController.value
+    };
+
+    this.addBtn.disabled = false;
+    this.addBtn.ariaDisabled = false;
+    this.controller.callback(false);
+  }
+  imageToData(inputFile) {
+    this.compressImageToBase64(inputFile, 0.7)
+      .then((blob) => {
+        // Almacena los datos de la imagen
+        let imageData = blob;
+        let key = inputFile.getAttribute("key");
+        this.value[key] = imageData;
+        this.callback(null);
+      })
+      .catch((error) => {
+        console.error("Error:", error);
+      });
+  }
+  compressImageToBase64(imageInput, quality = 0.6) {
+    return new Promise((resolve, reject) => {
+      // Obtenemos el archivo de imagen del input
+      const file = imageInput.files[0];
+
+      if (!file) {
+        reject(new Error("No se seleccionó ningún archivo."));
+        return;
+      }
+
+      // Creamos un objeto FileReader para leer el archivo
+      const reader = new FileReader();
+
+      // Cuando el archivo se lea correctamente
+      reader.onload = function (event) {
+        // Creamos una imagen a partir del contenido leído
+        const img = new Image();
+        img.src = event.target.result;
+
+        // Cuando la imagen se cargue
+        img.onload = function () {
+          // Creamos un elemento canvas para dibujar la imagen
+          const canvas = document.createElement("canvas");
+          const context = canvas.getContext("2d");
+
+          // Redimensionamos la imagen si es necesario
+          let newWidth = img.width;
+          let newHeight = img.height;
+
+          // Si el ancho de la imagen es mayor que 500, redimensionamos
+          if (img.width > 500) {
+            const aspectRatio = img.height / img.width;
+            newWidth = 500;
+            newHeight = newWidth * aspectRatio;
+          }
+
+          // Ajustamos el tamaño del canvas a las dimensiones redimensionadas
+          canvas.width = newWidth;
+          canvas.height = newHeight;
+
+          // Dibujamos la imagen redimensionada en el canvas
+          context.drawImage(img, 0, 0, newWidth, newHeight);
+
+          // Comprimimos la imagen a base64 con la calidad especificada
+          const base64Data = canvas.toDataURL("image/jpeg", quality);
+
+          // Extraemos el tipo de imagen (ej: 'image/jpeg')
+          const tipo = file.type;
+          // Extraemos el nombre del archivo
+          const nombre = file.name;
+
+          // Devolvemos el objeto con las propiedades especificadas
+          resolve({
+            nombre: nombre,
+            tipo: tipo,
+            contenido: base64Data,
+          });
         };
-        this.previewImages = [
-            document.getElementById('previewFotoMember').src,
-            document.getElementById('previewPasportMember').src
-        ]
-        this.previewLogo = document.getElementById('previewLogo').src;
-        this.closeBtn = [
-            document.getElementById('closeModalMember'),
-            document.getElementById('closeModalUp')
-        ]
-        this.saveBtn = document.getElementById('saveModalMemder');
-        this.inputsSingle = [
-            document.querySelector('input[name="member_name"'),
-            document.querySelector('input[name="member_instrument"'),
-            document.querySelector('input[name="member_foto"'),
-            document.querySelector('input[name="member_pasport"')
-        ]
-        this.inputs = [
-            document.getElementById('grupo_name'),
-            document.getElementById('grupo_logo')
-        ]
-        this.userFormController = new SingleUser(this, this.inputsSingle); 
-        this.init();
-    }
-    init(){
-        this.listener();
-    }
-    callback(action){
-        if(action) this.saveBtn.disabled = false;
-        else this.saveBtn.disabled = true;
-    }
-    callbackValidationData(inputIndex){
-        switch(inputIndex){
-            // Nombre Grupo
-            case 0:
-                if(this.inputs[inputIndex].value.length > 0) this.value.grupo_nombre = this.inputs[inputIndex].value, this.inputs[inputIndex].classList.add('is-valid');
-                else this.inputs[inputIndex].classList.remove('is-valid');
-                break;
-            // Imagen grupo
-            case 1:
-                if(this.userFormController.validImage(this.inputs[inputIndex]))this.value.grupo_logo = this.imageToData(this.inputs[inputIndex]), this.inputs[inputIndex].classList.add('is-valid');
-                else this.value.user_foto = null, this.inputs[inputIndex].classList.remove('is-valid');
-                break;
-        }
 
-        // Validar si el formulario esta completo
-        if( 
-            this.value.grupo_nombre != null &&
-            this.value.grupo_logo != null &&
-            this.value.miembros.length > 0 && this.value.miembros.length <= this.maxMembers  
-        ){
-           this.controller.callback(true);
-        }else{
-            this.controller.callback(false);
-        }
-    }
-    callbackSave(){
-        // Guardar en caso de que no cumpla el maximo de miembros
-        if(this.value.miembros.length < this.maxMembers){
-            // Cargar un item en wallet
-            this.wallet.init(this.userFormController.value);
-            // Cargar item en value (this)
-            this.value.miembros.push(this.userFormController.value);
-            // Evaluar formulario
-            this.callbackValidationData(null);
-        }else{
-            alert('No es pot afegir més membre.Si està experimentant un error, si us plau refresqui la pàgina.Disculpi les molèsties.')
-        }
-
-        // Desactivar boton en el ultimo miembro
-        this.addSwitch();
-        
-        // Cerrar Modal
-        this.callbackClose();
-        this.closeBtn[0].click();
-    }
-    addSwitch(){
-        // Desactivar boton en el ultimo miembro
-        if(this.value.miembros.length == this.maxMembers){
-            this.addBtn.disabled = true;
-            this.addBtn.ariaDisabled = true;
-        }else{
-            this.addBtn.disabled = false;
-            this.addBtn.ariaDisabled = false;
-        }
-    }
-    callbackClose(){
-        for(let i = 0; i < this.inputsSingle.length; i++){
-            this.inputsSingle[i].value = "";
-            this.inputsSingle[i].classList.remove('is-valid');
-        }
-        document.getElementById('previewFotoMember').src = this.previewImages[0];
-        document.getElementById('previewPasportMember').src = this.previewImages[1];
-        this.userFormController.value = {
-            user_name : null,
-            user_instrument : null,
-            user_foto : null,
-            user_pasport : null
+        // Manejar errores en la carga de la imagen
+        img.onerror = function () {
+          reject(new Error("Error al cargar la imagen."));
         };
-        this.saveBtn.disabled = true;
-    }
-    listener(){
-        // Listener para botones de cierre del modal
-        for(let i = 0; i < this.closeBtn.length; i++){
-            this.closeBtn[i].addEventListener('click', this.callbackClose.bind(this));
-        }
-        // Listener para boton de guardar del modal
-        this.saveBtn.addEventListener('click', this.callbackSave.bind(this));
-        // Listener para inputs fuera del modal
-        for(let i = 0; i < this.inputs.length; i++){
-            if(this.inputs[i].type == "file") this.inputs[i].addEventListener('change', (e) => {this.callbackValidationData(i)});
-            else this.inputs[i].addEventListener('keyup', (e) => {this.callbackValidationData(i)});
-        }
-    }
-    default(){
-        for(let i = 0; i < this.inputs.length; i++){
-            this.inputs[i].value = "";
-            this.inputs[i].classList.remove('is-valid');
-        }
-        document.getElementById('previewLogo').src = this.previewLogo;
-        
-        this.wallet.default();
-        this.callbackClose();
-        this.value = {
-            grupo_logo : null,
-            grupo_nombre : null,
-            miembros : []//this.userFormController.value 
-        }
+      };
 
-        this.addBtn.disabled = false;
-        this.addBtn.ariaDisabled = false;
-        this.controller.callback(false);
-    }
-    imageToData(inputFile){
-        var archivoSeleccionado = inputFile.files[0];
+      // Manejar errores en la lectura del archivo
+      reader.onerror = function () {
+        reject(new Error("Error al leer el archivo de imagen."));
+      };
 
-        if (archivoSeleccionado) {
-            var lector = new FileReader();
-
-            lector.onload = (evento) => {
-              const image = new Image();
-              image.onload = function () {
-                const canvas = document.createElement("canvas");
-                const maxSize = 500; // Tamaño máximo deseado en píxeles
-
-                let width = image.width;
-                let height = image.height;
-
-                if (width > height) {
-                  if (width > maxSize) {
-                    height *= maxSize / width;
-                    width = maxSize;
-                  }
-                } else {
-                  if (height > maxSize) {
-                    width *= maxSize / height;
-                    height = maxSize;
-                  }
-                }
-
-                canvas.width = width;
-                canvas.height = height;
-                const ctx = canvas.getContext("2d");
-                ctx.drawImage(image, 0, 0, width, height);
-
-                const compressedDataURL = canvas.toDataURL("image/jpeg", 0.7); // Calidad de compresión (0.7)
-
-                //const preview = document.getElementById('preview');
-                //preview.src = compressedDataURL;
-                var datosDeImagen = compressedDataURL;
-
-                // Almacena los datos de la imagen en una variable
-                let imageData = {
-                  nombre: archivoSeleccionado.name,
-                  tipo: archivoSeleccionado.type,
-                  contenido: datosDeImagen,
-                };
-                // -> Data key
-                let key = inputFile.getAttribute("key");
-                this.value[key] = imageData;
-                this.callback(null);
-              };
-              /*
-              var datosDeImagen = evento.target.result;
-
-              // Almacena los datos de la imagen en una variable
-              let imageData = {
-                nombre: archivoSeleccionado.name,
-                tipo: archivoSeleccionado.type,
-                contenido: datosDeImagen,
-              };
-              // -> Data key
-              let key = inputFile.getAttribute("key");
-              this.value[key] = imageData;
-              this.callback(null);
-            };*/
-              // Lees el contenido del archivo como una URL de datos (data URL)
-              lector.readAsDataURL(archivoSeleccionado);
-            };
-
-            /*lector.onload = (evento) => {
-                var datosDeImagen = evento.target.result;
-
-                // Almacena los datos de la imagen en una variable
-                let imageData = {
-                    nombre: archivoSeleccionado.name,
-                    tipo: archivoSeleccionado.type,
-                    contenido: datosDeImagen
-                };
-                this.value[inputFile.id] = imageData;
-                this.callbackValidationData(null);
-            };
-            // Lees el contenido del archivo como una URL de datos (data URL)
-            lector.readAsDataURL(archivoSeleccionado);*/
-        }
-    }
+      // Iniciamos la lectura del archivo como una URL de datos
+      reader.readAsDataURL(file);
+    });
+  }
 }
 
 class FormBigData{
