@@ -245,7 +245,7 @@ if (!isset($_SESSION['csrf_token'])) {
                                         <div id="contenedorPreviewLogo" class="contenedorPreview m-auto">
                                             <img id="previewLogo" class="preview" alt="Vista previa de la foto" src="/assets/img/default-band.png">
                                         </div>
-                                        <input class="form-control mt-3" type="file" id="grupo_logo" accept="image/*" required>
+                                        <input class="form-control mt-3" type="file" id="grupo_logo" accept="image/*" required key="grupo_logo">
                                     </div>
                                     <hr>
                                     <div class="info-card mb-3">
