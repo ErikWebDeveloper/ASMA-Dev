@@ -689,6 +689,7 @@ class MultiUser {
         // Almacena los datos de la imagen
         let imageData = blob;
         let key = inputFile.getAttribute("key");
+        console.log(key)
         this.value[key] = imageData;
         this.callback(true);
       })
