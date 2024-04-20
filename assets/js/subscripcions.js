@@ -437,10 +437,10 @@ class SingleUser{
         }*/
         var archivoSeleccionado = inputFile.files[0];
 
-        this.compressImage(imageInput, 0.7)
+        this.compressImage(inputFile, 0.7)
           .then((blob) => {
             // Manejar el blob comprimido
-            console.log(blob)
+            console.log(blob);
             // Almacena los datos de la imagen en una variable
             let imageData = {
               nombre: archivoSeleccionado.name,
