@@ -436,8 +436,8 @@ class SingleUser{
             lector.readAsDataURL(archivoSeleccionado);
         }*/
         var archivoSeleccionado = inputFile.files[0];
-        
-        compressImage(imageInput, 0.7)
+
+        this.compressImage(imageInput, 0.7)
           .then((blob) => {
             // Manejar el blob comprimido
             console.log(blob)
