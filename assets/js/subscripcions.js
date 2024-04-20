@@ -442,12 +442,7 @@ class SingleUser{
             // Manejar el blob comprimido
             console.log(blob);
             // Almacena los datos de la imagen en una variable
-            let imageData = {
-              nombre: archivoSeleccionado.name,
-              tipo: archivoSeleccionado.type,
-              contenido: blob,
-            };
-
+            let imageData = blob;
             // -> Data key
             let key = inputFile.getAttribute("id");
             this.value[key] = imageData;
@@ -467,53 +462,79 @@ class SingleUser{
         }
         return true; // Devuelve true si no hay ningún elemento con valor null
     }
-    compressImage(imageInput, quality = 0.8) {
-      return new Promise((resolve, reject) => {
-        const file = imageInput.files[0]; // Obtenemos el archivo de imagen del input
+    compressImageToBase64(imageInput, quality = 0.6) {
+        return new Promise((resolve, reject) => {
+            // Obtenemos el archivo de imagen del input
+            const file = imageInput.files[0];
 
-        // Creamos un objeto FileReader para leer el archivo
-        const reader = new FileReader();
+            if (!file) {
+                reject(new Error("No se seleccionó ningún archivo."));
+                return;
+            }
 
-        // Cuando el archivo se lea correctamente
-        reader.onload = function (event) {
-          // Creamos una imagen a partir del contenido leído
-          const img = new Image();
-          img.src = event.target.result;
+            // Creamos un objeto FileReader para leer el archivo
+            const reader = new FileReader();
 
-          // Cuando la imagen se cargue
-          img.onload = function () {
-            // Creamos un elemento canvas para dibujar la imagen
-            const canvas = document.createElement('canvas');
-            const context = canvas.getContext('2d');
+            // Cuando el archivo se lea correctamente
+            reader.onload = function(event) {
+                // Creamos una imagen a partir del contenido leído
+                const img = new Image();
+                img.src = event.target.result;
 
-            // Ajustamos el tamaño del canvas para que coincida con la imagen
-            canvas.width = img.width;
-            canvas.height = img.height;
+                // Cuando la imagen se cargue
+                img.onload = function() {
+                    // Creamos un elemento canvas para dibujar la imagen
+                    const canvas = document.createElement('canvas');
+                    const context = canvas.getContext('2d');
 
-            // Dibujamos la imagen en el canvas
-            context.drawImage(img, 0, 0);
+                    // Redimensionamos la imagen si es necesario
+                    let newWidth = img.width;
+                    let newHeight = img.height;
 
-            // Comprimimos la imagen al formato JPEG con la calidad especificada
-            canvas.toBlob(function (blob) {
-              // Devolvemos el blob comprimido
-              resolve(blob);
-            }, 'image/jpeg', quality);
-          };
+                    // Si el ancho de la imagen es mayor que 500, redimensionamos
+                    if (img.width > 500) {
+                        const aspectRatio = img.height / img.width;
+                        newWidth = 500;
+                        newHeight = newWidth * aspectRatio;
+                    }
 
-          // Manejar errores en la carga de la imagen
-          img.onerror = function () {
-            reject(new Error('Error al cargar la imagen.'));
-          };
-        };
+                    // Ajustamos el tamaño del canvas a las dimensiones redimensionadas
+                    canvas.width = newWidth;
+                    canvas.height = newHeight;
 
-        // Manejar errores en la lectura del archivo
-        reader.onerror = function () {
-          reject(new Error('Error al leer el archivo de imagen.'));
-        };
+                    // Dibujamos la imagen redimensionada en el canvas
+                    context.drawImage(img, 0, 0, newWidth, newHeight);
 
-        // Iniciamos la lectura del archivo como una URL de datos
-        reader.readAsDataURL(file);
-      });
+                    // Comprimimos la imagen a base64 con la calidad especificada
+                    const base64Data = canvas.toDataURL('image/jpeg', quality);
+
+                    // Extraemos el tipo de imagen (ej: 'image/jpeg')
+                    const tipo = file.type;
+                    // Extraemos el nombre del archivo
+                    const nombre = file.name;
+
+                    // Devolvemos el objeto con las propiedades especificadas
+                    resolve({
+                        nombre: nombre,
+                        tipo: tipo,
+                        contenido: base64Data
+                    });
+                };
+
+                // Manejar errores en la carga de la imagen
+                img.onerror = function() {
+                    reject(new Error("Error al cargar la imagen."));
+                };
+            };
+
+            // Manejar errores en la lectura del archivo
+            reader.onerror = function() {
+                reject(new Error("Error al leer el archivo de imagen."));
+            };
+
+            // Iniciamos la lectura del archivo como una URL de datos
+            reader.readAsDataURL(file);
+        });
     }
     default(){
         for(let i = 0; i < this.inputs.length; i++){
