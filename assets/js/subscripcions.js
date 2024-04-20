@@ -410,56 +410,14 @@ class SingleUser{
         return inputFile.files && inputFile.files.length > 0;
     }
     imageToData(inputFile){
-        var archivoSeleccionado = inputFile.files[0];
+        /*var archivoSeleccionado = inputFile.files[0];
 
         if (archivoSeleccionado) {
             var lector = new FileReader();
             
             lector.onload = (evento) => {
             
-                const image = new Image();
-                image.onload = function() {
-                    const canvas = document.createElement('canvas');
-                    const maxSize = 500; // Tamaño máximo deseado en píxeles
-
-                    let width = image.width;
-                    let height = image.height;
-
-                    if (width > height) {
-                      if (width > maxSize) {
-                        height *= maxSize / width;
-                        width = maxSize;
-                      }
-                    } else {
-                      if (height > maxSize) {
-                        width *= maxSize / height;
-                        height = maxSize;
-                      }
-                    }
                 
-                    canvas.width = width;
-                    canvas.height = height;
-                    const ctx = canvas.getContext('2d');
-                    ctx.drawImage(image, 0, 0, width, height);
-                
-                    const compressedDataURL = canvas.toDataURL('image/jpeg', 0.7); // Calidad de compresión (0.7)
-                
-                    //const preview = document.getElementById('preview');
-                    //preview.src = compressedDataURL;
-                    var datosDeImagen = compressedDataURL;
-
-                    // Almacena los datos de la imagen en una variable
-                    let imageData = {
-                      nombre: archivoSeleccionado.name,
-                      tipo: archivoSeleccionado.type,
-                      contenido: datosDeImagen,
-                    };
-                    // -> Data key
-                    let key = inputFile.getAttribute("key");
-                    this.value[key] = imageData;
-                    this.callback(null);
-                };
-            /*
               var datosDeImagen = evento.target.result;
 
               // Almacena los datos de la imagen en una variable
@@ -468,15 +426,34 @@ class SingleUser{
                 tipo: archivoSeleccionado.type,
                 contenido: datosDeImagen,
               };
+
               // -> Data key
               let key = inputFile.getAttribute("key");
               this.value[key] = imageData;
               this.callback(null);
-            };*/
-                // Lees el contenido del archivo como una URL de datos (data URL)
-                lector.readAsDataURL(archivoSeleccionado);
             }
-        }
+            // Lees el contenido del archivo como una URL de datos (data URL)
+            lector.readAsDataURL(archivoSeleccionado);
+        }*/
+        var archivoSeleccionado = inputFile.files[0];
+        compressImage(imageInput, 0.7)
+          .then((blob) => {
+            // Manejar el blob comprimido
+            // Almacena los datos de la imagen en una variable
+            let imageData = {
+              nombre: archivoSeleccionado.name,
+              tipo: archivoSeleccionado.type,
+              contenido: blob,
+            };
+
+            // -> Data key
+            let key = inputFile.getAttribute("id");
+            this.value[key] = imageData;
+            this.callback(null);
+          })
+          .catch((error) => {
+            console.error("Error:", error);
+          });
     }
     verifyDataNulls(data) {
         for (const clave in data) {
@@ -487,6 +464,54 @@ class SingleUser{
             }
         }
         return true; // Devuelve true si no hay ningún elemento con valor null
+    }
+    compressImage(imageInput, quality = 0.8) {
+      return new Promise((resolve, reject) => {
+        const file = imageInput.files[0]; // Obtenemos el archivo de imagen del input
+
+        // Creamos un objeto FileReader para leer el archivo
+        const reader = new FileReader();
+
+        // Cuando el archivo se lea correctamente
+        reader.onload = function (event) {
+          // Creamos una imagen a partir del contenido leído
+          const img = new Image();
+          img.src = event.target.result;
+
+          // Cuando la imagen se cargue
+          img.onload = function () {
+            // Creamos un elemento canvas para dibujar la imagen
+            const canvas = document.createElement('canvas');
+            const context = canvas.getContext('2d');
+
+            // Ajustamos el tamaño del canvas para que coincida con la imagen
+            canvas.width = img.width;
+            canvas.height = img.height;
+
+            // Dibujamos la imagen en el canvas
+            context.drawImage(img, 0, 0);
+
+            // Comprimimos la imagen al formato JPEG con la calidad especificada
+            canvas.toBlob(function (blob) {
+              // Devolvemos el blob comprimido
+              resolve(blob);
+            }, 'image/jpeg', quality);
+          };
+
+          // Manejar errores en la carga de la imagen
+          img.onerror = function () {
+            reject(new Error('Error al cargar la imagen.'));
+          };
+        };
+
+        // Manejar errores en la lectura del archivo
+        reader.onerror = function () {
+          reject(new Error('Error al leer el archivo de imagen.'));
+        };
+
+        // Iniciamos la lectura del archivo como una URL de datos
+        reader.readAsDataURL(file);
+      });
     }
     default(){
         for(let i = 0; i < this.inputs.length; i++){
@@ -655,7 +680,7 @@ class MultiUser{
 
         if (archivoSeleccionado) {
             var lector = new FileReader();
-            
+
             lector.onload = (evento) => {
               const image = new Image();
               image.onload = function () {
