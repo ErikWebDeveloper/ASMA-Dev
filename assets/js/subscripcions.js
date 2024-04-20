@@ -690,7 +690,7 @@ class MultiUser {
         let imageData = blob;
         let key = inputFile.getAttribute("key");
         this.value[key] = imageData;
-        this.callback(null);
+        this.callback(true);
       })
       .catch((error) => {
         console.error("Error:", error);
